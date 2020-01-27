@@ -7,6 +7,6 @@ urlpatterns = [
 
     path('', CreatePsychologist.as_view()),
     path('new/', ListPsychologists.as_view()),
-    path('<int:id>/ ', GetDeleteUpdatePsychologist.as_view()),
+    path('<int:id>/', GetDeleteUpdatePsychologist.as_view()),
     path('patients/<int:patient_id>/', GetPatientsOfOnePsychologist.as_view()),
 ]
