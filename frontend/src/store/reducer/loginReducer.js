@@ -1,22 +1,20 @@
-// const tokenInLocalStorage = localStorage.getItem('access');
+const tokenInLocalStorage = localStorage.getItem('access');
 
 const initialState = {
-    user_data: null,
-    
-    // {
-    //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
-    // }
+    tokens: {
+        access: tokenInLocalStorage ?  tokenInLocalStorage : ""
+    }
   };
 
 const loginReducer = function (state = initialState, action) {
     switch (action.type) {
         case 'LOGIN_USER':
-            // localStorage.setItem(action.payload.id);
+            localStorage.setItem('access', action.payload.access);
             return {
                 ...state,
-                user_data: action.payload
-            } 
-
+                tokens: action.payload
+            }
+          
         default:
             return state;
     }
