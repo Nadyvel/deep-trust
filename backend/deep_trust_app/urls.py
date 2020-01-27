@@ -17,14 +17,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 api_patterns = [
     # path('admin/', admin.site.urls),
+    path('', include('deep_trust_app.users.urls')),
+
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Generate Token
+    path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh Token
+    path('verify/', TokenVerifyView.as_view(), name='token_verify'),  # Verify Token
 ]
 
 urlpatterns = [
-    path('backend/admin/', admin.site.urls),
-    path('backend/api/', include(api_patterns))
+    path('api/admin/', admin.site.urls),
+    path('api/', include(api_patterns))
 ]
 
 if settings.DEBUG:
