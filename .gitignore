@@ -196,4 +196,4 @@ dmypy.json
 .pyre/
 
 .DS_Store
-db.sqlite3
+backend/db.sqlite3

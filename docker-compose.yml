@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - deep_trust-volume:/backend/deep_trust/db
+      - deep_trust-volume:/backend/database/db
       - ./backend:/backend
     command: "tail -f /dev/null"
     env_file:

@@ -35,7 +35,7 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     env_file:
-      - ./prod.env
+      - ./env/prod.env
 
   email:
     image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:master
