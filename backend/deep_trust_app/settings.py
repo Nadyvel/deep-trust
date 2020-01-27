@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'deep_trust_app.users'
+    'deep_trust_app.users',
+    'deep_trust_app.psychologists'
 ]
 
 MIDDLEWARE = [
