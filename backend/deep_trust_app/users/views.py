@@ -1,4 +1,5 @@
-from rest_framework.generics import RetrieveUpdateAPIView
+from django.db.models import Q
+from rest_framework.generics import RetrieveUpdateAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from deep_trust_app.users.models import User
@@ -14,3 +15,26 @@ class RetrieveUpdateUserProfile(RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
 
+
+class ListAllUsers(ListAPIView):
+    permission_classes = [ObjIsLoggedInUser]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class SearchForUsers(ListAPIView):
+    permission_classes = [ObjIsLoggedInUser]
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        query_search = self.request.query_params['search']
+
+        query_result = User.objects.filter(Q(first_name__iexact=query_search) | Q(last_name__iexact=query_search))
+        return query_result
+
+
+class RetrieveASpecificUser(RetrieveAPIView):
+    permission_classes = [ObjIsLoggedInUser]
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+    lookup_url_kwarg = 'user_id'
