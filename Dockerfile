@@ -30,7 +30,7 @@ RUN chmod +x /scripts*
 COPY ./backend /backend
 RUN /opt/conda/bin/conda env create -f /backend/requirements.yml
 ENV PATH /opt/conda/envs/django_app/bin:$PATH
-RUN echo "source activate django_app" >~/.bashrc
+RUN echo "source activate deepTrust_django_app" >~/.bashrc
 
 WORKDIR /frontend
 COPY ./frontend/package.json /frontend/
