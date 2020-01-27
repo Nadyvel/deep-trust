@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {registrationAction} from '../../store/action/registrationAction';
-
+import './Registration.css' 
 
 const Registration = props => {
     let [state, setState] = useState({
@@ -28,9 +28,9 @@ const Registration = props => {
             
             </div>
             <form onSubmit={handleRegistration}>
-                <input type='submit' placeholder={'E-Mail address'} name='email' value={state.email}
+                <input className='registrationInput' placeholder={'E-Mail address'} name='email' value={state.email}
                 onChange={handleChange}/>
-                <button content='Register'/>
+                <button>Submit</button>
             </form>
         </div>
     )

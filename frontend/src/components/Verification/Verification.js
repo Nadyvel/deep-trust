@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {verificationAction} from '../../store/action/registrationAction';
+import {verificationAction} from '../../store/action/verificationAction';
 
-const VerificationForm = (props) => {
+const Verification = (props) => {
     let [state, setState] = useState({
         email: '',
         validation_code: '',
@@ -53,11 +53,11 @@ const VerificationForm = (props) => {
                 <input placeholder={"Password repeat"} name="password_repeat"
                     value={state.password_repeat} onChange={handleChange}/>
             
-                <button type="submit" content="Finish registration"/>
+                <button type="submit" content="Finish registration">Submit</button>
               
             </form>
         </div>
     )
 }
 
-export default connect()(VerificationForm);
+export default connect()(Verification);

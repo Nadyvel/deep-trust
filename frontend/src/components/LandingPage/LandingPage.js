@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 //import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import {connect} from "react-redux";
-import {aboutAction} from '../../store/action/aboutAction';
+//import {aboutAction} from '../../store/action/aboutAction';
 
 const LandingPage = (props) => {
 
-    useEffect(() => {
-        props.dispatch(aboutAction())
-    }, []);
+    // useEffect(() => {
+    //     props.dispatch(aboutAction())
+    // }, []);
 
     return (
         <div>
