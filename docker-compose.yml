@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - luna-volume:/backend/project_luna/db
+      - deep_trust-volume:/backend/deep_trust/db
       - ./backend:/backend
     command: "tail -f /dev/null"
     env_file:
@@ -19,7 +19,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - luna-postgres:/var/lib/postgresql/data
+      - deep_trust-postgres:/var/lib/postgresql/data
     env_file:
       - ./dev.env
 
@@ -38,7 +38,7 @@ services:
       - backend
 
 volumes:
-  luna-volume:
-  luna-postgres:
+  deep_trust-volume:
+  deep_trust-postgres:
   media-files:
   static-files:
