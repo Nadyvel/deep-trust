@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  backend:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - luna-volume:/backend/project_luna/db
+      - ./backend:/backend
+    command: "tail -f /dev/null"
+    env_file:
+      - ./env/dev.env
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - luna-postgres:/var/lib/postgresql/data
+    env_file:
+      - ./dev.env
+
+  email:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:latest
+    restart: always
+    command: 'python manage.py send_mail'
+    volumes:
+      - ./backend:/backend
+      - ./media-files:/media-files
+      - ./static-files:/static-files
+    env_file:
+      - ./env/dev.env
+    depends_on:
+      - postgres
+      - backend
+
+volumes:
+  luna-volume:
+  luna-postgres:
+  media-files:
+  static-files:

@@ -1,0 +1,57 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static-files:/static-files
+      - media-files:/media-files
+      - /etc/letsencrypt:/etc/letsencrypt
+      - frontend:/frontend
+
+  frontend:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/group-projects/sagittarius:master
+    volumes:
+      - frontend:/frontend-deploy
+    command: "bash -c 'rm -rf /frontend-deploy/* && cp -r /frontend/build/* /frontend-deploy'"
+
+  backend:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:master
+    command: "sh /scripts/run.sh"
+    env_file:
+      - ./env/prod.env
+    depends_on:
+      - postgres
+    volumes:
+      - static-files:/static-files
+      - media-files:/media-files
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - ./prod.env
+
+  email:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:master
+    restart: always
+    env_file:
+      - ./env/prod.env
+    command: 'python manage.py send_mail'
+    depends_on:
+      - postgres
+      - backend
+    volumes:
+      - media-files:/media-files
+      - static-files:/static-files
+
+volumes:
+  postgres:
+  static-files:
+  media-files:
+  frontend:
