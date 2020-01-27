@@ -14,7 +14,7 @@ services:
       - frontend:/frontend
 
   frontend:
-    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/group-projects/sagittarius:master
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-10-november-2019/final-projects/deep-trust:master
     volumes:
       - frontend:/frontend-deploy
     command: "bash -c 'rm -rf /frontend-deploy/* && cp -r /frontend/build/* /frontend-deploy'"
