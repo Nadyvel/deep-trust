@@ -23,6 +23,7 @@ api_patterns = [
     # path('admin/', admin.site.urls),
     path('', include('deep_trust_app.users.urls')),
     path('psychologists/', include('deep_trust_app.psychologists.urls')),
+    path('reviews/', include('deep_trust_app.reviews.urls')),
     path('auth/', include('deep_trust_app.registration.urls')),
 
     # path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Generate Token
