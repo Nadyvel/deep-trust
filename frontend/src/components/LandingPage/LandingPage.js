@@ -1,25 +1,36 @@
 import React, {useEffect} from "react";
 //import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import {connect} from "react-redux";
-//import {aboutAction} from '../../store/action/aboutAction';
+import {psychologistsAction} from '../../store/action/psychologistsAction';
+import simpleParallax from 'simple-parallax-js'
+import background from "./Images/background.jpg";
+import './LandingPage.css';
+
 
 const LandingPage = (props) => {
+    useEffect(() => {
+        props.dispatch(psychologistsAction())
+    }, []);
 
-    // useEffect(() => {
-    //     props.dispatch(aboutAction())
-    // }, []);
+    var image = document.getElementsByClassName('thumbnail');
+    new simpleParallax(image, {
+        scale: 22
+    });
 
+   
     return (
-        <div>
+        <div className='landingPage'>
+          <img className="thumbnail" src={background} alt="image" />
+          {/* <div className="parallax-window" data-parallax="scroll" data-image-src={background}></div> */}
           
         </div>    
     )
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps:', state)
+    //console.log('mapStateToProps:', state)
     return {
-        //restaurants: state.restaurantReducer.restaurants
+        psychologists: state.psychologistsReducer.psychologists
     };
 };
 
