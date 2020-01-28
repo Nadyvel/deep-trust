@@ -53,6 +53,34 @@ class RegistrationSerializer(serializers.Serializer):
             username=email,
             email=email,
             is_active=False,
+            is_user=True,
+        )
+        new_user.save()
+        #####
+        # Creating reg profile here and not with signal because signals are async
+        # and I need the code in the reg profile right now.
+        reg_profile = RegistrationProfile(
+            user=new_user,
+            code_type='RV'
+        )
+        reg_profile.save()
+        #####
+        email = Email(to=email, subject='Thank you for registering!',
+                      content=f'Here is your validation code: {reg_profile.code}')
+        email.save(request=self.context['request'])
+        return new_user
+
+
+class PsychologistRegistrationSerializer(serializers.Serializer):
+    email = serializers.EmailField(label='Registration E-Mail Address', validators=[email_does_not_exist])
+
+    def save(self, validated_data):
+        email = validated_data.get('email')
+        new_user = User(
+            username=email,
+            email=email,
+            is_active=False,
+            is_psychologist=True
         )
         new_user.save()
         #####
@@ -76,7 +104,7 @@ class RegistrationValidationSerializer(serializers.Serializer):
     code = serializers.CharField(label='Validation code', write_only=True, validators=[code_is_valid])
     password = serializers.CharField(label='password', write_only=True)
     password_repeat = serializers.CharField(label='password_repeat', write_only=True)
-    location = serializers.CharField(label='location', write_only=True)
+    # location = serializers.CharField(label='location', write_only=True)
     # first_name = serializers.CharField(label='First name')
     # last_name = serializers.CharField(label='Last name')
 
@@ -95,7 +123,7 @@ class RegistrationValidationSerializer(serializers.Serializer):
         email = validated_data.get('email')
         user = User.objects.get(email=email)
         user.username = validated_data.get('username')
-        user.location = validated_data.get('location')
+        # user.location = validated_data.get('location')
         # user.first_name = validated_data.get('first_name')
         # user.last_name = validated_data.get('last_name')
         user.is_active = True
