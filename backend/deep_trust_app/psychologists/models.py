@@ -1,16 +1,16 @@
 # Create your models here.
 from django.db import models
 
-from deep_trust_app import settings
+from deep_trust_app.settings import AUTH_USER_MODEL
 
 
 class Psychologist(models.Model):
 
     user = models.ForeignKey(
-        on_delete=models.SET_NULL,
-        to=settings.AUTH_USER_MODEL,
-        related_name='psychologists',
-        null=True,
+        verbose_name='Psychologist profile',
+        on_delete=models.CASCADE,
+        to=AUTH_USER_MODEL,
+        related_name='psychologists'
     )
 
     first_name = models.CharField(
@@ -71,3 +71,6 @@ class Psychologist(models.Model):
         verbose_name='timestamp',
         auto_now_add=True  # adds date and time automatically to the restaurant.
     )
+
+    def __str__(self):
+        return f'{self.user}'

@@ -18,7 +18,7 @@ class RetrieveUpdateUserProfile(RetrieveUpdateAPIView):
 
 class ListAllUsers(ListAPIView):
     permission_classes = [ObjIsLoggedInUser]
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_user=True)
     serializer_class = UserSerializer
 
 
@@ -29,12 +29,13 @@ class SearchForUsers(ListAPIView):
     def get_queryset(self):
         query_search = self.request.query_params['search']
 
-        query_result = User.objects.filter(Q(first_name__iexact=query_search) | Q(last_name__iexact=query_search))
+        query_result = User.objects.filter((Q(is_user=True) & Q(first_name__iexact=query_search))
+                                           | (Q(is_user=True) & Q(last_name__iexact=query_search)))
         return query_result
 
 
 class RetrieveASpecificUser(RetrieveAPIView):
     permission_classes = [ObjIsLoggedInUser]
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_user=True)
     lookup_url_kwarg = 'user_id'

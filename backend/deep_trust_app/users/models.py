@@ -36,6 +36,18 @@ class User(AbstractUser):
                   'accounts. '
     )
 
+    is_user = models.BooleanField(
+        verbose_name='user status',
+        default=False,
+        help_text='Check if User is user.'
+    )
+
+    is_psychologist = models.BooleanField(
+        verbose_name='psychologist status',
+        default=False,
+        help_text='Check if User is psychologist.'
+    )
+
     is_staff = models.BooleanField(
         verbose_name='staff status',
         default=False,
