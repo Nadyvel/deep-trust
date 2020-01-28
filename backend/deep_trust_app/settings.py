@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'deep_trust_app.users',
-    'deep_trust_app.psychologists'
+    'deep_trust_app.psychologists',
+    'deep_trust_app.reviews',
 ]
 
 MIDDLEWARE = [
