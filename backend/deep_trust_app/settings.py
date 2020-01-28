@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'deep_trust_app.users',
     'deep_trust_app.psychologists',
+    'deep_trust_app.reviews',
     'deep_trust_app.emails',
     'deep_trust_app.registration',
 ]
