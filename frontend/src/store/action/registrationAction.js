@@ -1,5 +1,4 @@
 export const registrationAction = (email) => async (dispatch, getState) => {
-    console.log(email)
     const myHeaders = new Headers({
         'content-type': 'application/json',
     });
@@ -15,7 +14,8 @@ export const registrationAction = (email) => async (dispatch, getState) => {
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/', config);
-    const data = await response.json();
     return response
-    console.log('from verificationAction: ', data)
+    
 };
+
+

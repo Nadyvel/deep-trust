@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {verificationAction} from '../../store/action/verificationAction';
+import './Verification.css'
 
 const Verification = (props) => {
     let [state, setState] = useState({
@@ -27,33 +28,33 @@ const Verification = (props) => {
     return (
         <div className="VerificationForm">
             <h5 className="verificationTitle">VERIFICATION FORM</h5>
-            <form onSubmit={handleVerification}>
+            <form className='formInput' onSubmit={handleVerification}>
                
-                <input placeholder={"E-Mail address"} name="email" value={state.email}
-                    onChange={handleChange}/>
+                <input className='verifInput' placeholder={"E-Mail address"} name="email" 
+                    value={state.email} onChange={handleChange}/>
 
-                <input placeholder={"Validation code"} name="validation_code"
-                    value={state.validation_code} onChange={handleChange}/>
+                <input className='verifInput' placeholder={"Validation code"} name="validation_code"
+                    value={state.validation_code} onChange={handleChange} type='password'/>
             
-                <input placeholder={"Username"} name="username"
+                <input className='verifInput' placeholder={"Username"} name="username"
                     value={state.username} onChange={handleChange}/>
 
-                <input placeholder={"First Name"} name="first_name"
+                <input className='verifInput' placeholder={"First Name"} name="first_name"
                     value={state.first_name} onChange={handleChange}/>
 
-                <input placeholder={"Last Name"} name="last_name"
+                <input className='verifInput' placeholder={"Last Name"} name="last_name"
                     value={state.last_name} onChange={handleChange}/>
 
-                <input placeholder={"Location"} name="location"
+                <input className='verifInput' placeholder={"Location"} name="location"
                     value={state.location} onChange={handleChange}/>
             
-                <input placeholder={"Password"} name="password"
-                    value={state.password} onChange={handleChange}/>
+                <input className='verifInput' placeholder={"Password"} name="password"
+                    value={state.password} onChange={handleChange} type='password'/>
 
-                <input placeholder={"Password repeat"} name="password_repeat"
-                    value={state.password_repeat} onChange={handleChange}/>
+                <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
+                    value={state.password_repeat} onChange={handleChange} type='password'/>
             
-                <button type="submit" content="Finish registration">Submit</button>
+                <button className='verifInput' type="submit" content="Finish registration">Submit</button>
               
             </form>
         </div>

@@ -20,7 +20,7 @@ export const verificationAction = props => async (dispatch, getState) => {
         body: JSON.stringify(body)
     };
 
-    const response = await fetch('http://deep-trust.propulsion-learn.ch/api/registration/validate/ ', config);
+    const response = await fetch('http://deep-trust.propulsion-learn.ch/api/auth/registration/verification/ ', config);
     const data = await response.json();
     return response
 }

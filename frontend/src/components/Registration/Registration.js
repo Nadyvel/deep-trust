@@ -24,9 +24,6 @@ const Registration = props => {
     return (
         <div className="signup__container">
             
-
-
-
             <div>
                 <h5>REGISTRATION PAGE</h5>
             
