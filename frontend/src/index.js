@@ -7,6 +7,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Login from './components/Login/Login';
+import Verification from './components/Verification/Verification';
+import Registration from './components/Registration/Registration';
+import LandingPage from './components/LandingPage/LandingPage';
 
 
 ReactDOM.render(
@@ -14,7 +17,10 @@ ReactDOM.render(
         <Router>
             <App>
                 <Switch>
+                    <Route exact path='/registration' component={Registration}/>
+                    <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/login' component={Login}/>
+                    <Route exact path='/' component={LandingPage}/>
                 </Switch>
             </App>
         </Router>

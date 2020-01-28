@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-//import userPostsReducer from "./userPostsReducer";
+import psychologistsReducer from "./psychologistsReducer";
 import loginReducer from './loginReducer';
+//import registrationReducer from './registrationReducer';
 
 const rootReducer = combineReducers({
     loginReducer,
-    //userPostsReducer
+    psychologistsReducer,
 });
 
 export default rootReducer

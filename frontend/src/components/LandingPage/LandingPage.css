@@ -1,0 +1,9 @@
+.thumbnail {
+    min-height: 200px;
+    background: transparent;
+    margin: 100px;
+}
+
+.landingPage {
+    height: 500px;
+}
