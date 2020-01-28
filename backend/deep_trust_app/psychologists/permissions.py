@@ -3,11 +3,13 @@ from rest_framework import permissions
 
 class IsOwnerOfProfileOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.user.is_superuser:
+        # Read permissions are allowed to any request,
+        # so we'll always allow GET, HEAD or OPTIONS requests.
+        if request.method in permissions.SAFE_METHODS:
             return True
-        if request.method == 'GET':
-            return True
-        if request.user == obj.owner:
+        # requesting user must be .
+        if request.user == obj.user:
             return True
         else:
             return False
+
