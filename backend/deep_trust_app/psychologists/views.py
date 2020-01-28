@@ -1,8 +1,13 @@
-from rest_framework.generics import ListCreateAPIView
+from django.db.models import Q
+from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import IsAuthenticated
 
 from deep_trust_app.psychologists.models import Psychologist
 from deep_trust_app.psychologists.permissions import IsOwnerOfProfileOrReadOnly
 from deep_trust_app.psychologists.serializers import PsychologistSerializer
+from deep_trust_app.users.models import User
+from deep_trust_app.users.permissions import ObjIsLoggedInUser
+from deep_trust_app.users.serializer import UserSerializer
 
 
 class ListCreatePsychologistProfile(ListCreateAPIView):
@@ -14,61 +19,33 @@ class ListCreatePsychologistProfile(ListCreateAPIView):
         serializer.save(user=self.request.user)
 
 
-# import django_filters
-# from django.contrib.auth import get_user_model
-#
-# from django.db.models import Q
-#
-#
-# # Create your views here.
-#
-# from rest_framework import status
-# from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, \
-#     GenericAPIView
-# from rest_framework.permissions import IsAuthenticated
-# from rest_framework.response import Response
-#
-# from deep_trust_app.psychologists.models import Psychologist
-# from deep_trust_app.psychologists.permissions import IsOwnerOfProfileOrReadOnly
-# from deep_trust_app.psychologists.serializers import PsychologistSerializer
-# from deep_trust_app.users.serializer import UserSerializer
-#
-# User = get_user_model()
-#
-#
-# # create psychlogist
-# class CreatePsychologist(CreateAPIView):
-#     queryset = Psychologist.objects.all()
-#     serializer_class = PsychologistSerializer
-#
-#     def perform_create(self, serializer):
-#         psychologist = Psychologist(psychlogist=self.request.psychlogist, **serializer.validated_data)
-#         psychologist.save()
-#
-#
-# # gets a list of the psychologists and searches for a particular one by string
-# class ListPsychologists(ListAPIView):
-#     serializer_class = PsychologistSerializer
-#     queryset = Psychologist.objects.all()
-#
-#     def filter_queryset(self, queryset):
-#         search = self.request.query_params.get('search')
-#         if search:
-#             queryset = queryset.filter(Q(first_name__icontains=search) |
-#                                        Q(last_name__icontains=search) |
-#                                        Q(country__icontains=search) |
-#                                        Q(city__icontains=search))
-#         return queryset
-#
-#
-# # deletes or updates psychologist by id
-# class GetDeleteUpdatePsychologist(RetrieveUpdateDestroyAPIView):
-#     serializer_class = PsychologistSerializer
-#     queryset = Psychologist.objects.all()
-#     lookup_url_kwarg = 'psychologist_id'
-#     permission_classes = [IsAuthenticated, IsOwnerOfProfileOrReadOnly]
-#
-#
+# gets a list of the psychologists and searches for a particular one by string
+class SearchPsychologists(ListAPIView):
+    permission_classes = []
+    serializer_class = PsychologistSerializer
+    queryset = Psychologist.objects.all()
+
+    def filter_queryset(self, queryset):
+        search = self.request.query_params.get('search')
+        if search:
+            queryset = queryset.filter(Q(first_name__icontains=search) |
+                                       Q(last_name__icontains=search) |
+                                       Q(country__icontains=search) |
+                                       Q(city__icontains=search))
+        return queryset
+
+
+# deletes or updates psychologist
+class UpdateDestroyPsychologist(RetrieveUpdateDestroyAPIView):
+    permission_classes = [ObjIsLoggedInUser]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_url_kwarg = 'user_id'
+    #
+    # def perform_update(self, serializer):
+    #     serializer.save(is_active=False)
+
+
 # # get all patients from one psychologist     this code gets read, not executed. Only def method gets executed
 # class GetPatientsOfOnePsychologist(ListAPIView):
 #     serializer_class = UserSerializer
