@@ -22,15 +22,17 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 api_patterns = [
     # path('admin/', admin.site.urls),
     path('', include('deep_trust_app.users.urls')),
+    path('psychologists/', include('deep_trust_app.psychologists.urls')),
+    path('auth/', include('deep_trust_app.registration.urls')),
 
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Generate Token
-    path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh Token
-    path('verify/', TokenVerifyView.as_view(), name='token_verify'),  # Verify Token
+    # path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Generate Token
+    # path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh Token
+    # path('verify/', TokenVerifyView.as_view(), name='token_verify'),  # Verify Token
 ]
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    path('api/', include(api_patterns))
+    path('api/', include(api_patterns)),
 ]
 
 if settings.DEBUG:
