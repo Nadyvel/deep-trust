@@ -1,20 +1,19 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from deep_trust_app.psychologists.models import Psychologist
 
-class User(AbstractUser):
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+
+class Patient(models.Model):
+
+    psychologist = models.ForeignKey(
+        Psychologist,
+        related_name='patients',
+        on_delete=models.CASCADE,
+    )
 
     email = models.EmailField(
         unique=True,
         verbose_name='email'
-    )
-
-    username = models.CharField(
-        unique=True,
-        max_length=50,
-        verbose_name='username',
     )
 
     last_name = models.CharField(
@@ -29,41 +28,32 @@ class User(AbstractUser):
         blank=True
     )
 
-    is_active = models.BooleanField(
-        verbose_name='active',
-        default=True,
-        help_text='Designates whether this user should be treated as active. Unselect this instead of deleting '
-                  'accounts. '
+    problem_description = models.TextField(
+        verbose_name='problem description',
+        blank=True,
+        null=True,
     )
 
-    is_user = models.BooleanField(
-        verbose_name='user status',
-        default=False,
-        help_text='Check if User is user.'
+    special_notes = models.TextField(
+        verbose_name='special notes',
+        blank=True,
+        null=True,
     )
 
-    is_psychologist = models.BooleanField(
-        verbose_name='psychologist status',
-        default=False,
-        help_text='Check if User is psychologist.'
+    birth_date = models.DateField(
+        verbose_name='birth date',
+        blank=True,
+        null=True,
     )
 
-    is_staff = models.BooleanField(
-        verbose_name='staff status',
-        default=False,
-        help_text='Designates whether the user can log into this site.'
+    todos = models.TextField(
+        verbose_name='todos',
+        blank=True,
+        null=True,
     )
 
-    date_joined = models.DateTimeField(
-        verbose_name='date joined',
-        auto_now_add=True
-    )
-
-    location = models.CharField(
-        verbose_name='user location',
-        max_length=200,
-        blank=True
-    )
-
-    def __str__(self):
-        return f'{self.username}'
+    # calendar = models.TextField(
+    #     verbose_name='calendar',
+    #     blank=True,
+    #     null=True,
+    # )

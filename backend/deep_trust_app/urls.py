@@ -25,6 +25,7 @@ api_patterns = [
     path('psychologists/', include('deep_trust_app.psychologists.urls')),
     path('reviews/', include('deep_trust_app.reviews.urls')),
     path('auth/', include('deep_trust_app.registration.urls')),
+    path('psychologist/', include('deep_trust_app.patient_card.urls')),
 
     # path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Generate Token
     # path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh Token
