@@ -1,0 +1,12 @@
+from django.urls import path
+
+from deep_trust_app.psychologists.views import CreatePsychologist, ListPsychologists, GetDeleteUpdatePsychologist, \
+    GetPatientsOfOnePsychologist
+
+urlpatterns = [
+
+    path('new/', CreatePsychologist.as_view()),
+    path('', ListPsychologists.as_view()),
+    path('<int:id>/', GetDeleteUpdatePsychologist.as_view()),
+    path('patients/<int:user_id>/', GetPatientsOfOnePsychologist.as_view()),
+]
