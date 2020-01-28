@@ -7,8 +7,7 @@ class IsOwnerOfProfileOrReadOnly(permissions.BasePermission):
             return True
         if request.method == 'GET':
             return True
-        if (request.user == obj.owner and
-                request.user.is_psychologist == True):
+        if request.user == obj.owner:
             return True
         else:
             return False
