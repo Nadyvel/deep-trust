@@ -4,7 +4,7 @@ from rest_framework.response import Response
 
 from deep_trust_app.users.serializer import UserSerializer
 from .serializers import RegistrationSerializer, RegistrationValidationSerializer, PasswordResetSerializer, \
-    PasswordResetValidationSerializer
+    PasswordResetValidationSerializer, PsychologistRegistrationSerializer
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -45,6 +45,22 @@ class RegistrationView(GenericAPIView):
     Create a non active user with email info only.
     """
     serializer_class = RegistrationSerializer
+    permission_classes = []
+    authentication_classes = []
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(serializer.validated_data)
+        return Response(status=status.HTTP_200_OK)
+
+
+class PsychologistRegistrationView(GenericAPIView):
+    """
+        post:
+        Create a non active user with email info only.
+        """
+    serializer_class = PsychologistRegistrationSerializer
     permission_classes = []
     authentication_classes = []
 
