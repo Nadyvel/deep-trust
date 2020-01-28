@@ -22,7 +22,11 @@ const Registration = props => {
         }
     }
     return (
-        <div>
+        <div className="signup__container">
+            
+
+
+
             <div>
                 <h5>REGISTRATION PAGE</h5>
             

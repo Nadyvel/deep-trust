@@ -14,7 +14,7 @@ export const registrationAction = (email) => async (dispatch, getState) => {
         body: JSON.stringify(body)
     };
 
-    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/registration/', config);
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/', config);
     const data = await response.json();
     return response
     console.log('from verificationAction: ', data)

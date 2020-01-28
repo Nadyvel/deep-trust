@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Verification from './components/Verification/Verification';
 import Registration from './components/Registration/Registration';
 import LandingPage from './components/LandingPage/LandingPage';
+import Test from './components/Test/Test';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -20,6 +21,7 @@ ReactDOM.render(
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/' component={LandingPage}/>
+                    <Route exact path='/test' component={Test}/>
                 </Switch>
             </App>
         </Router>
