@@ -1,14 +1,16 @@
 from django.db import models
 
 from deep_trust_app.psychologists.models import Psychologist
+from deep_trust_app.users.models import User
 
 
 class Patient(models.Model):
 
-    psychologist = models.ForeignKey(
-        Psychologist,
+    user = models.ForeignKey(
+        User,
         related_name='patients',
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE,  # everything related to the user will be deleted with this thing
+        verbose_name='user'
     )
 
     email = models.EmailField(
