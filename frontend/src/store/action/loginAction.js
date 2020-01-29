@@ -14,7 +14,7 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
         body: JSON.stringify(body)
     };
     
-    const response = await fetch('http://deep-trust.propulsion-learn.ch/api/auth/token/', config);
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/token/', config);
     const data = await response.json();
     console.log('logging in: ', data)
     const action = {

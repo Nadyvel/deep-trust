@@ -8,9 +8,6 @@ const Verification = (props) => {
         email: '',
         validation_code: '',
         username: '',
-        first_name: '',
-        last_name:'',
-        location: '',
         password: '',
         password_repeat: '',
     })
@@ -38,15 +35,6 @@ const Verification = (props) => {
             
                 <input className='verifInput' placeholder={"Username"} name="username"
                     value={state.username} onChange={handleChange}/>
-
-                <input className='verifInput' placeholder={"First Name"} name="first_name"
-                    value={state.first_name} onChange={handleChange}/>
-
-                <input className='verifInput' placeholder={"Last Name"} name="last_name"
-                    value={state.last_name} onChange={handleChange}/>
-
-                <input className='verifInput' placeholder={"Location"} name="location"
-                    value={state.location} onChange={handleChange}/>
             
                 <input className='verifInput' placeholder={"Password"} name="password"
                     value={state.password} onChange={handleChange} type='password'/>

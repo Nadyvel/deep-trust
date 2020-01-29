@@ -10,6 +10,8 @@ import Login from './components/Login/Login';
 import Verification from './components/Verification/Verification';
 import Registration from './components/Registration/Registration';
 import LandingPage from './components/LandingPage/LandingPage';
+import PreRegistration from './components/PreRegistration/PreRegistration';
+import DoctorRegistration from './components/DoctorRegistration/DoctorRegistration';
 
 
 ReactDOM.render(
@@ -17,7 +19,9 @@ ReactDOM.render(
         <Router>
             <App>
                 <Switch>
+                    <Route exact path='/preregistration' component={PreRegistration}/>
                     <Route exact path='/registration' component={Registration}/>
+                    <Route exact path='/doctorRegistration' component={DoctorRegistration}/>
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/' component={LandingPage}/>
