@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+// import {connect} from 'react-redux';
+// import {withRouter} from 'react-router-dom';
 import './PreRegistration.css' 
 
 
 const PreRegistration = props => {
-    let [state, setState] = useState({
-       
-    });
      
     const handleUserSubmit = (e) => {
         e.preventDefault();
@@ -34,7 +31,7 @@ const PreRegistration = props => {
                 </form>
                 <form onSubmit={handleDoctorSubmit}>
                     <div className="optionDoctor">
-                        <label className='labelRegistration'>Doctor</label>
+                        <label className='labelRegistration'>Psychologist</label>
                         <button className='buttonRegistration' type='submit'>REGISTER</button>
                     </div>  
                 </form>
