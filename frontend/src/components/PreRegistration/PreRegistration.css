@@ -1,0 +1,55 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    background-color: #d4c7a6;
+    min-height: 100vh;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../images/backgroundRegistration.jpg");
+    width: 50%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;  
+}
+
+.rightContainer {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: center;
+    margin-top: 20%;
+}
+
+.optionUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.optionDoctor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.labelRegistration {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+.buttonRegistration {
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    border: transparent;
+    font-size: 9px;
+    color: white; 
+    background-color: black;
+}

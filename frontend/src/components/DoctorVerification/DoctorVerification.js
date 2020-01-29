@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {verificationAction} from '../../store/action/verificationAction';
-import './Verification.css'
+import './DoctorVerification.css'
 
-const Verification = (props) => {
+const DoctorVerification = (props) => {
     let [state, setState] = useState({
         email: '',
         validation_code: '',
@@ -19,12 +19,12 @@ const Verification = (props) => {
         e.preventDefault();
         const response = await props.dispatch(verificationAction(state));
         if (Number(response.status) === 200) {
-            props.history.push('/');
+            props.history.push('/doctorLandingPage');
         }
     }
     return (
         <div className="VerificationForm">
-            <h5 className="verificationTitle">VERIFICATION FORM</h5>
+            <h5 className="verificationTitle">DOCTOR VERIFICATION FORM</h5>
             <form className='formInput' onSubmit={handleVerification}>
                
                 <input className='verifInput' placeholder={"E-Mail address"} name="email" 
@@ -49,4 +49,4 @@ const Verification = (props) => {
     )
 }
 
-export default connect()(Verification);
+export default connect()(DoctorVerification);

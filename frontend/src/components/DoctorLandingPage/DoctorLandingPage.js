@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
 import simpleParallax from 'simple-parallax-js'
 //import background from "./Images/background.jpg";
-import './LandingPage.css';
+import './DoctorLandingPage.css';
 
 
-const LandingPage = (props) => {
+const DoctorLandingPage = (props) => {
     useEffect(() => {
         props.dispatch(psychologistsAction())
     }, []);
@@ -33,7 +33,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(LandingPage);
-
-//about
-//list of psicologies(best rated)
+export default connect(mapStateToProps)(DoctorLandingPage);
