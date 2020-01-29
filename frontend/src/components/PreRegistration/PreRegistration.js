@@ -8,35 +8,28 @@ const PreRegistration = props => {
      
     const handleUserSubmit = (e) => {
         e.preventDefault();
-        props.history.push('/registration');
+        props.history.push('/registration/user');
     }
 
     const handleDoctorSubmit = (e) => {
         e.preventDefault();
-        props.history.push('/doctorRegistration');
+        props.history.push('/registration/doctor');
     }
 
     return (
         <div className='mainContainer'>
-            <div className='leftContainer'>
-                
-            </div>
-
-            <div className='rightContainer'>
-                <form onSubmit={handleUserSubmit}>
-                    <div className="optionUser">
-                        <label className='labelRegistration'>User</label>
-                        <button className='buttonRegistration' type='submit'>REGISTER</button>
-                    </div>
-                </form>
-                <form onSubmit={handleDoctorSubmit}>
-                    <div className="optionDoctor">
-                        <label className='labelRegistration'>Psychologist</label>
-                        <button className='buttonRegistration' type='submit'>REGISTER</button>
-                    </div>  
-                </form>
-            </div>
-
+            <form onSubmit={handleUserSubmit}>
+                <div className="optionUser">
+                    <label className='labelRegistration'>User</label>
+                    <button className='buttonRegistration' type='submit'>REGISTER</button>
+                </div>
+            </form>
+            <form onSubmit={handleDoctorSubmit}>
+                <div className="optionDoctor">
+                    <label className='labelRegistration'>Psychologist</label>
+                    <button className='buttonRegistration' type='submit'>REGISTER</button>
+                </div>  
+            </form>
         </div>
     )
 }

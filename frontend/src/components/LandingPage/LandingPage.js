@@ -1,9 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
-import simpleParallax from 'simple-parallax-js'
-//import background from "./Images/background.jpg";
 import './LandingPage.css';
+import {useEffect} from "react"
+import RegistrationModal from '../RegistrationModal/RegistrationModal'
+import {setModal} from "../../store/action/modalAction";
+
 
 
 const LandingPage = (props) => {
@@ -11,17 +13,22 @@ const LandingPage = (props) => {
         props.dispatch(psychologistsAction())
     }, []);
 
-    var image = document.getElementsByClassName('thumbnail');
-    new simpleParallax(image, {
-        scale: 22
-    });
+    
+ 
+    const handleOpen = () => props.dispatch(setModal("RegistrationModal", null, true));
 
    
     return (
         <div className='landingPage'>
-          {/* <img className="thumbnail" src={background} alt="image" /> */}
-          {/* <div className="parallax-window" data-parallax="scroll" data-image-src={background}></div> */}
+            <button type='submit' onClick={handleOpen}>Register</button>
+            <button>Login</button>
+         
           <p>Landing page</p>
+
+            <RegistrationModal />
+        
+
+
         </div>    
     )
 }

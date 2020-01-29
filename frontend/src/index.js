@@ -21,13 +21,15 @@ ReactDOM.render(
         <Router>
             <App>
                 <Switch>
-                    <Route exact path='/preregistration' component={PreRegistration}/>
+                    {/* <Route exact path='/preregistration' component={PreRegistration}/>
                     <Route exact path='/registration' component={Registration}/>
                     <Route exact path='/doctorRegistration' component={DoctorRegistration}/>
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='doctorVerification' component={DoctorVerification}/>
-                    <Route exact path='/login' component={Login}/>
-                    <Route exact path='/' component={LandingPage}/>
+                    <Route exact path='/login' component={Login}/> */}
+
+
+                    <Route path='/' component={LandingPage}/>
                     <Route exact path='/doctorLandingPage' component={DoctorLandingPage}/>
                 </Switch>
             </App>

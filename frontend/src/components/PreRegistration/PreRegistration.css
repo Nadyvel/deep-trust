@@ -1,26 +1,10 @@
 .mainContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
-    background-color: #d4c7a6;
-    min-height: 100vh;
-}
-
-.leftContainer {
-    display: flex;
-    flex-direction: column;
-    background-image: url("../images/backgroundRegistration.jpg");
-    width: 50%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;  
-}
-
-.rightContainer {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
     justify-content: center;
-    margin-top: 20%;
+    background-color: #d4c7a6;
+    width: 550px;
+    height: 290px;
 }
 
 .optionUser {
@@ -28,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
+    margin-top: 40px;
 }
 
 .optionDoctor {
@@ -35,6 +20,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 20px;
+    margin-top: 40px;
 }
 
 .labelRegistration {
