@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul {
+    padding: 0;
+    margin: 15px;
+}
+
+li {
+    display: inline-block;
+    padding-right: 45px;
+    margin: 0;
+    font-size: 20px;
+    color: gray;
+}
+
+.imgFooter {
+    height: 35px;
+    width: 35px;
+    margin: 5px;
+    padding-right: 15px;
+    padding-top: 6%;
+}
