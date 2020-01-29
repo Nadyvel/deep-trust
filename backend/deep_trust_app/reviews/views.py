@@ -1,16 +1,17 @@
-from rest_framework import filters, status
-from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework import status
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from deep_trust_app.reviews.models import Review
-from deep_trust_app.reviews.permissions import IsOwnerOfReviewOrReadOnly
+from deep_trust_app.reviews.permissions import IsOwnerOfReviewOrReadOnly, PsychologistCannotReviewPsychologist, \
+    DeleteReviewIsCurrentUser
 from deep_trust_app.reviews.seralizers import ReviewSerializer
 
 
 # creates review
 class CreateReview(CreateAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [PsychologistCannotReviewPsychologist]
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
@@ -27,7 +28,7 @@ class CreateReview(CreateAPIView):
 
 # lists reviews for one doctor
 class ListReviewsForPsychologist(ListAPIView):
-    permission_classes = []
+    permission_classes = [IsOwnerOfReviewOrReadOnly]
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     lookup_url_kwarg = 'psychologist_id'
@@ -42,6 +43,6 @@ class DeleteUpdateReview(RetrieveUpdateDestroyAPIView):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
     lookup_url_kwarg = 'review_id'
-    permission_classes = [IsAuthenticated, IsOwnerOfReviewOrReadOnly]
+    permission_classes = [IsAuthenticated, DeleteReviewIsCurrentUser]
 
 

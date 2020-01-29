@@ -8,7 +8,6 @@ from deep_trust_app.users.serializer import UserSerializer
 class PatientSerializer(serializers.ModelSerializer):
 
     user = UserSerializer(read_only=True)
-    psychologist = PsychologistSerializer(read_only=True)
 
     class Meta:
         model = Patient

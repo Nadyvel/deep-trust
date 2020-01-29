@@ -10,3 +10,10 @@ class IsOwnerOfPatientCardOrReadOnly(permissions.BasePermission):
             return True
         else:
             return False
+
+
+class PatientCardOnlyPsychologist(permissions.BasePermission):
+
+    def has_permission(self, request, view):
+        if bool(request.user and request.user.is_psychologist):
+            return True
