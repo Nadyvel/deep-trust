@@ -15,27 +15,27 @@ class RetrieveUpdateUserProfile(RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
 
-
-class ListAllUsers(ListAPIView):
-    permission_classes = [ObjIsLoggedInUser]
-    queryset = User.objects.filter(is_user=True)
-    serializer_class = UserSerializer
-
-
-class SearchForUsers(ListAPIView):
-    permission_classes = [ObjIsLoggedInUser]
-    serializer_class = UserSerializer
-
-    def get_queryset(self):
-        query_search = self.request.query_params['search']
-
-        query_result = User.objects.filter((Q(is_user=True) & Q(first_name__iexact=query_search))
-                                           | (Q(is_user=True) & Q(last_name__iexact=query_search)))
-        return query_result
+#
+# class ListAllUsers(ListAPIView):
+#     permission_classes = [ObjIsLoggedInUser]
+#     queryset = User.objects.filter(is_user=True)
+#     serializer_class = UserSerializer
 
 
-class RetrieveASpecificUser(RetrieveAPIView):
-    permission_classes = [ObjIsLoggedInUser]
-    serializer_class = UserSerializer
-    queryset = User.objects.filter(is_user=True)
-    lookup_url_kwarg = 'user_id'
+# class SearchForUsers(ListAPIView):
+#     permission_classes = [ObjIsLoggedInUser]
+#     serializer_class = UserSerializer
+#
+#     def get_queryset(self):
+#         query_search = self.request.query_params['search']
+#
+#         query_result = User.objects.filter((Q(is_user=True) & Q(first_name__iexact=query_search))
+#                                            | (Q(is_user=True) & Q(last_name__iexact=query_search)))
+#         return query_result
+
+
+# class RetrieveASpecificUser(RetrieveAPIView):
+#     permission_classes = [ObjIsLoggedInUser]
+#     serializer_class = UserSerializer
+#     queryset = User.objects.filter(is_user=True)
+#     lookup_url_kwarg = 'user_id'

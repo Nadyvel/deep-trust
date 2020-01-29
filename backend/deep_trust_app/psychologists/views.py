@@ -1,17 +1,16 @@
 from django.db.models import Q
-from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from deep_trust_app.psychologists.models import Psychologist
-from deep_trust_app.psychologists.permissions import IsOwnerOfProfileOrReadOnly
 from deep_trust_app.psychologists.serializers import PsychologistSerializer
 from deep_trust_app.users.models import User
-from deep_trust_app.users.permissions import ObjIsLoggedInUser
+from deep_trust_app.users.permissions import ObjIsLoggedInUser, isPsychologistTrue, ObjIsLoggedInUserDelete
 from deep_trust_app.users.serializer import UserSerializer
 
 
 class ListCreatePsychologistProfile(ListCreateAPIView):
-    permission_classes = [IsOwnerOfProfileOrReadOnly]
+    permission_classes = [isPsychologistTrue]
     queryset = Psychologist.objects.all()
     serializer_class = PsychologistSerializer
 
@@ -37,13 +36,17 @@ class SearchPsychologists(ListAPIView):
 
 # deletes or updates psychologist
 class UpdateDestroyPsychologist(RetrieveUpdateDestroyAPIView):
-    permission_classes = [ObjIsLoggedInUser]
+    permission_classes = [IsAuthenticated, ObjIsLoggedInUserDelete]
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_url_kwarg = 'user_id'
-    #
-    # def perform_update(self, serializer):
-    #     serializer.save(is_active=False)
+
+
+class UpdatePsychologistProfile(UpdateAPIView):
+    permission_classes = [IsAuthenticated, ObjIsLoggedInUser]
+    queryset = Psychologist.objects.all()
+    serializer_class = PsychologistSerializer
+    lookup_url_kwarg = 'user_id'
 
 
 # # get all patients from one psychologist     this code gets read, not executed. Only def method gets executed
