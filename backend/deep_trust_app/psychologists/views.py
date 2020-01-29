@@ -1,5 +1,5 @@
 from django.db.models import Q
-from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from deep_trust_app.psychologists.models import Psychologist
@@ -41,9 +41,13 @@ class UpdateDestroyPsychologist(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_url_kwarg = 'user_id'
-    #
-    # def perform_update(self, serializer):
-    #     serializer.save(is_active=False)
+
+
+class UpdatePsychologistProfile(UpdateAPIView):
+    permission_classes = [ObjIsLoggedInUser]
+    queryset = Psychologist.objects.all()
+    serializer_class = PsychologistSerializer
+    lookup_url_kwarg = 'user_id'
 
 
 # # get all patients from one psychologist     this code gets read, not executed. Only def method gets executed
