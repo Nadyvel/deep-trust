@@ -22,3 +22,5 @@ export const verificationAction = props => async (dispatch, getState) => {
     //console.log('verification fetch', data)
     return response
 }
+
+

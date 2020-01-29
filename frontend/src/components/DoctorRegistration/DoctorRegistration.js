@@ -19,7 +19,7 @@ const DoctorRegistration = props => {
         const response = await props.dispatch(doctorRegistrationAction(state));
         if (Number(response.status) === 200) {
             //display pop up message
-            props.history.push("/verification");
+            props.history.push("/doctorVerification");
             console.log('doctor is registered')
         }
     }
