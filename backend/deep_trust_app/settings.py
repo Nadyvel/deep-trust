@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'deep_trust_app.emails',
     'deep_trust_app.registration',
     'deep_trust_app.patient_card',
+    'deep_trust_app.booking',
 ]
 
 MIDDLEWARE = [
