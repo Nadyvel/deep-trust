@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {verificationAction} from '../../store/action/verificationAction';
-import './Verification.css'
+import './Verification.css';
+import {withRouter} from 'react-router-dom';
 
 const Verification = (props) => {
     let [state, setState] = useState({
@@ -49,4 +50,4 @@ const Verification = (props) => {
     )
 }
 
-export default connect()(Verification);
+export default withRouter(connect()(Verification))

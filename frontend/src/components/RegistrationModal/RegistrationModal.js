@@ -5,8 +5,6 @@ import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router
 //import {useEffect} from "react";
 import Modal from '../Modal/Modal';
 import {setModal} from "../../store/action/modalAction";
-import Verification from '../Verification/Verification';
-import DoctorVerification from '../DoctorVerification/DoctorVerification';
 import Registration from '../Registration/Registration';
 import DoctorRegistration from '../DoctorRegistration/DoctorRegistration';
 import SignUpMessage from '../SignUpMessage/SignUpMessage';
@@ -34,8 +32,8 @@ const RegistrationModal = ({isVisible, data, dispatch, history}) => {
                     <Route exact path='/registration/pre' component={PreRegistration}/>
                     <Route exact path='/registration/user' component={Registration}/>
                     <Route exact path='/registration/doctor' component={DoctorRegistration}/>
-                    <Route exact path='/registration/verification' component={Verification}/>
-                    <Route exact path='/registration/doctorVerification' component={DoctorVerification}/>
+                    {/* <Route exact path='/registration/verification' component={Verification}/> */}
+                    {/* <Route exact path='/registration/doctorVerification' component={DoctorVerification}/> */}
                     <Route exact path='/registration/message' component={SignUpMessage}/>
                     <Redirect from="" to="/registration/pre" />
                  </Router>

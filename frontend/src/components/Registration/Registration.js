@@ -17,7 +17,7 @@ const Registration = props => {
         const response = await props.dispatch(registrationAction(state.email));
         if (Number(response.status) === 200) {
             //display pop up message
-            props.history.push("/verification");
+            props.history.push("/message");
         }
     }
     

@@ -21,7 +21,7 @@ const DoctorLandingPage = (props) => {
         <div className='landingPage'>
           {/* <img className="thumbnail" src={background} alt="image" /> */}
           {/* <div className="parallax-window" data-parallax="scroll" data-image-src={background}></div> */}
-          <p>Landing page</p>
+          <p>Doctor Landing page</p>
         </div>    
     )
 }
