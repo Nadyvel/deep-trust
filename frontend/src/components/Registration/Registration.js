@@ -22,17 +22,21 @@ const Registration = props => {
     }
     
     return (
-        <div className="signup__container">
+        <div className="mainUserContainer">
             
-            <div>
+            <div className='titleContainer'>
+               
                 <h5>USER REGISTRATION PAGE</h5>
-            
             </div>
-            <form onSubmit={handleRegistration}>
-                <input className='registrationInput' placeholder={'E-Mail address'} name='email' value={state.email}
-                onChange={handleChange}/>
-                <button>Submit</button>
-            </form>
+            <div className='inputContainer'>
+                <form onSubmit={handleRegistration}>
+
+                    <input className='registrationInput' placeholder={'E-Mail address'} name='email' value={state.email}
+                    onChange={handleChange}/>
+                    <button className='buttonUserRegistration'>Submit</button>
+                </form>
+               
+            </div>
         </div>
     )
 }

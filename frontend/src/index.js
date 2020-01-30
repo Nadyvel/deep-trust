@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import LandingPage from './components/LandingPage/LandingPage';
 import DoctorLandingPage from './components/DoctorLandingPage/DoctorLandingPage';
 import Verification from './components/Verification/Verification';
-
+import DoctorVerification from './components/DoctorVerification/DoctorVerification';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -19,6 +19,7 @@ ReactDOM.render(
                     <Route exact path='/' component={LandingPage}/>
                     <Route exact path='/doctorLandingPage' component={DoctorLandingPage}/>
                     <Route exact path='/verification' component={Verification}/>
+                    <Route exact path='/doctorVerification' component={DoctorVerification}/>
                 </Switch>
             </App>
         </Router>

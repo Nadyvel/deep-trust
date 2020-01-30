@@ -23,13 +23,17 @@ const Login = props => {
     }
  
     return(
-        <div className='loginForm'>
-            <h5 className='loginTitle'>LOGIN</h5>
-            <form onSubmit={handleSubmit}>
-                <input placeholder='Email' value={state.email} onChange={handleChange}/>
-                <input placeholder='Password' value={state.password} onChange={handleChange}/>
-                <button>Submit</button>
-            </form>
+        <div className="mainUserContainer">
+            <div className='titleContainer'>
+                <h5 className='loginTitle'>LOGIN</h5>
+            </div>
+            <div className='inputContainer'>
+                <form onSubmit={handleSubmit}>
+                    <input className='registrationInput' placeholder='Email' value={state.email} onChange={handleChange}/>
+                    <input className='registrationInput' placeholder='Password' value={state.password} onChange={handleChange}/>
+                    <button className='buttonUserRegistration'>Submit</button>
+                </form>
+            </div>
         </div>
     )
 }

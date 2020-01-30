@@ -1,46 +1,33 @@
-.registrationInput {
-    width: 150px;
+.mainUserContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.signup__container {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    transform: translateY(-50%);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: remy(800px);
-    height: remy(480px);
-    border-radius: remy(3px);
-    box-shadow: 0px remy(3px) remy(7px) rgba(0,0,0,.25);
-  }
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .container__child {
-    width: 50%;
-    height: 100%;
-    color: #fff;
-  }
+.registrationInput {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  background-color: transparent;
+}
 
-  .signup__thumbnail {
-    position: relative;
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    background: url(http://ultraimg.com/images/spectre-login.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-  }
-
-.thumbnail__logo,
-.thumbnail__content,
-.thumbnail__links {
-  position: relative;
-  z-index: 2;  
+.buttonUserRegistration {
+  height: 50px;
+  width: 150px;
+  border-radius: 30px;
+  border: transparent;
+  font-size: 12px;
+  color: white; 
+  background-color: black;
 }
