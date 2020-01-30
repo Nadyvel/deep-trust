@@ -1,6 +1,3 @@
-
-
-
 // one action to rule them all. 
 export const setModal = (namespace, data, isVisible = null) => {
     return {

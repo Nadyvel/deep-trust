@@ -18,9 +18,9 @@ const Registration = props => {
         if (Number(response.status) === 200) {
             //display pop up message
             props.history.push("/verification");
-            console.log('user is registered')
         }
     }
+    
     return (
         <div className="signup__container">
             

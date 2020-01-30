@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
 import PreRegistration from '../PreRegistration/PreRegistration'
 import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router-dom'
@@ -9,6 +9,7 @@ import Verification from '../Verification/Verification';
 import DoctorVerification from '../DoctorVerification/DoctorVerification';
 import Registration from '../Registration/Registration';
 import DoctorRegistration from '../DoctorRegistration/DoctorRegistration';
+import SignUpMessage from '../SignUpMessage/SignUpMessage';
 
 const namespace = "RegistrationModal";
 const RegistrationModal = ({isVisible, data, dispatch, history}) => {
@@ -17,6 +18,10 @@ const RegistrationModal = ({isVisible, data, dispatch, history}) => {
         dispatch(setModal(namespace, null, false));
         history.push("/");
     };
+
+    useEffect(() => {
+       
+    })
    
     return (
         <>
@@ -24,13 +29,14 @@ const RegistrationModal = ({isVisible, data, dispatch, history}) => {
                 <Modal close={handleClose}>
                    
             {data.activePage === "pre" && <PreRegistration/> }
-
+         
                 <Router>
                     <Route exact path='/registration/pre' component={PreRegistration}/>
                     <Route exact path='/registration/user' component={Registration}/>
                     <Route exact path='/registration/doctor' component={DoctorRegistration}/>
                     <Route exact path='/registration/verification' component={Verification}/>
                     <Route exact path='/registration/doctorVerification' component={DoctorVerification}/>
+                    <Route exact path='/registration/message' component={SignUpMessage}/>
                     <Redirect from="" to="/registration/pre" />
                  </Router>
                     

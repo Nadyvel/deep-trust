@@ -8,6 +8,7 @@ const PreRegistration = props => {
      
     const handleUserSubmit = (e) => {
         e.preventDefault();
+        console.log("from preRegristration user")
         props.history.push('/registration/user');
     }
 

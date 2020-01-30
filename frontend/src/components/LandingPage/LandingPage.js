@@ -5,36 +5,31 @@ import './LandingPage.css';
 import {useEffect} from "react"
 import RegistrationModal from '../RegistrationModal/RegistrationModal'
 import {setModal} from "../../store/action/modalAction";
-
-
+import LoginModal from '../LoginModal/LoginModal';
 
 const LandingPage = (props) => {
     useEffect(() => {
         props.dispatch(psychologistsAction())
     }, []);
 
-    
- 
-    const handleOpen = () => props.dispatch(setModal("RegistrationModal", null, true));
-
+    const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
+    //namespace -> RegistrationModal/LoginModal
    
     return (
         <div className='landingPage'>
-            <button type='submit' onClick={handleOpen}>Register</button>
-            <button>Login</button>
+            <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
+            <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
          
           <p>Landing page</p>
 
             <RegistrationModal />
+            <LoginModal />
         
-
-
         </div>    
     )
 }
 
 const mapStateToProps = state => {
-    //console.log('mapStateToProps:', state)
     return {
         psychologists: state.psychologistsReducer.psychologists
     };
@@ -42,5 +37,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(LandingPage);
 
-//about
-//list of psicologies(best rated)

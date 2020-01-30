@@ -1,6 +1,3 @@
-
-
-
 const initialState = {
   
     RegistrationModal: {
@@ -8,10 +5,16 @@ const initialState = {
         data: {
             activePage: "prereg"
         }
+    },
+
+    LoginModal: {
+        isVisible: false,
+        data: {
+            activePage: "prereg"
+        }
     }
     // by dispatching SET_MODAL with a new "namespace", it will be added here automatically
 };
-
 
  const modalReducer = (state = initialState, action) => {
     switch (action.type) {
