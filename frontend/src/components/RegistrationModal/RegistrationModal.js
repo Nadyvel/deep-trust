@@ -32,9 +32,7 @@ const RegistrationModal = ({isVisible, data, dispatch, history}) => {
                     <Route exact path='/registration/pre' component={PreRegistration}/>
                     <Route exact path='/registration/user' component={Registration}/>
                     <Route exact path='/registration/doctor' component={DoctorRegistration}/>
-                    {/* <Route exact path='/registration/verification' component={Verification}/> */}
-                    {/* <Route exact path='/registration/doctorVerification' component={DoctorVerification}/> */}
-                    <Route exact path='/registration/message' component={SignUpMessage}/>
+                    <Route exact path='/message' component={SignUpMessage}/>
                     <Redirect from="" to="/registration/pre" />
                  </Router>
                     
