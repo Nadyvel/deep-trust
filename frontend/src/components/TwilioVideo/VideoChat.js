@@ -19,7 +19,6 @@ const VideoChat = () => {
 	const handleSubmit = useCallback(
 		async event => {
 			event.preventDefault();
-			console.log('click')
 			const result = await axios({
 				method: 'POST',
 				url: 'https://cadet-cichlid-4005.twil.io/create-token',
@@ -29,20 +28,6 @@ const VideoChat = () => {
 				}
 			})
 			setToken(result.data)
-			console.log(result.data)
-
-			// const data = await fetch('https://cadet-cichlid-4005.twil.io/create-token', {
-			// 	method: 'POST',
-			// 	body: {
-			// 		identity: username,
-			// 		room: roomName
-			// 	},
-			// 	headers: {
-			// 		'Content-Type': 'application/json'
-			// 	}
-			// }).then(res => res.json());
-			// setToken(data.token);
-			// console.log(data)
 		},
 		[roomName, username]
 	);
@@ -50,8 +35,7 @@ const VideoChat = () => {
 	const handleLogout = useCallback(event => {
 		setToken(null);
 	}, []);
-
-	console.log(username)
+	
 	let render;
 	if (token) {
 		render = (
