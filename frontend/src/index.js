@@ -14,6 +14,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import PreRegistration from './components/PreRegistration/PreRegistration';
 import DoctorRegistration from './components/DoctorRegistration/DoctorRegistration';
 import DoctorLandingPage from './components/DoctorLandingPage/DoctorLandingPage';
+import VideoChat from './components/TwilioVideo/VideoChat';
 
 
 ReactDOM.render(
@@ -29,6 +30,7 @@ ReactDOM.render(
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/' component={LandingPage}/>
                     <Route exact path='/doctorLandingPage' component={DoctorLandingPage}/>
+                    <Route exact path='/video' component={VideoChat} />
                 </Switch>
             </App>
         </Router>
