@@ -4,8 +4,8 @@ import './SignUpMessage.css';
 const SignUpMessage = (props) => {
    
     return (
-        <div className='landingPage'>
-            <p>Check email Message for verification, after registration process</p>
+        <div className='mainContainer'>
+            <p className='messageRegistration'>Check email Message for verification, after registration process</p>
         
         </div>    
     )
