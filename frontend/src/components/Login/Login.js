@@ -29,8 +29,8 @@ const Login = props => {
             </div>
             <div className='inputContainer'>
                 <form onSubmit={handleSubmit}>
-                    <input className='registrationInput' placeholder='Email' value={state.email} onChange={handleChange}/>
-                    <input className='registrationInput' placeholder='Password' value={state.password} onChange={handleChange}/>
+                    <input className='registrationInput' placeholder={'Email'} name='email' value={state.email} onChange={handleChange}/>
+                    <input className='registrationInput' placeholder={'Password'} type = 'password' name='password' value={state.password} onChange={handleChange}/>
                     <button className='buttonUserRegistration'>Submit</button>
                 </form>
             </div>
@@ -42,6 +42,7 @@ const Login = props => {
 const mapStateToProps = state => {
     return {
         user_data: state.loginReducer.user_data,
+        tokens: state.loginReducer.tokens,
     }
 }
 
