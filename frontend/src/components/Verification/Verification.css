@@ -1,10 +1,33 @@
+.verifMainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.verifLeftContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    background-image: url("../images/backgroundRegistration.jpg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.verifVerificationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;   
+    background-color: #d4c7a6;
+}
+
 .formInput {
     display: flex;
     flex-direction: column;
-    width: 100vw;
     margin: 15px;
-    align-items: center;
-    
     
 }
 
@@ -12,4 +35,18 @@
     padding: 10px;
     margin: 10px;
     width: 250px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    background-color: #d4c7a6;;
+}
+
+.verifButton {
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    border: transparent;
+    font-size: 12px;
+    color: white; 
+    background-color: black;
 }
