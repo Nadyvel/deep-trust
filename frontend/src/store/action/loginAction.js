@@ -16,11 +16,11 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/token/', config);
     const data = await response.json();
-    console.log('logging in: ', data)
     const action = {
         type: 'LOGIN_USER',
         payload: data,
     };
     dispatch(action)
+    return response
 };
 
