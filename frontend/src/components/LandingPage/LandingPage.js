@@ -13,7 +13,6 @@ const LandingPage = (props) => {
     }, []);
 
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
-    //namespace -> RegistrationModal/LoginModal
     
 
     return (
@@ -21,11 +20,38 @@ const LandingPage = (props) => {
             <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
             <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
           
-          <p>Landing page</p>
-
             <RegistrationModal />
             <LoginModal />
-        
+
+          <p>Landing page</p>
+            <div className='parallax1'>
+                <div class="layer">
+                    <p id="text">
+                        DEEP TRUST
+                    </p>
+                </div> 
+            </div>
+
+            <div className='middleImageContainer'>
+                <div className='leftMiddleImage'>
+
+                </div>
+
+                <div className='rightMiddleImage'>
+                        <span id="textMiddleImage">
+                            About deep trust
+                        </span>
+                </div>
+            </div>
+
+            <div className='psychologistsContainer'>
+                <p className='psychoList'>People you can trust</p>
+            </div>
+
+            
+            <div className='parallax2'>
+                
+            </div>
         </div>    
     )
 }
