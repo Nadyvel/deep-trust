@@ -18,8 +18,6 @@ const Room = ({ roomName, token, handleLogout }) => {
     };
 
     Video.connect(token, {
-      video: true,
-      audio: true,
       name: roomName
     }).then(room => {
       setRoom(room);
