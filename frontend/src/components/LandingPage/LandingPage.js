@@ -1,33 +1,35 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
-import simpleParallax from 'simple-parallax-js'
-//import background from "./Images/background.jpg";
 import './LandingPage.css';
-
+import {useEffect} from "react"
+import RegistrationModal from '../RegistrationModal/RegistrationModal'
+import {setModal} from "../../store/action/modalAction";
+import LoginModal from '../LoginModal/LoginModal';
 
 const LandingPage = (props) => {
     useEffect(() => {
         props.dispatch(psychologistsAction())
     }, []);
 
-    var image = document.getElementsByClassName('thumbnail');
-    new simpleParallax(image, {
-        scale: 22
-    });
-
+    const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
+    //namespace -> RegistrationModal/LoginModal
    
     return (
         <div className='landingPage'>
-          {/* <img className="thumbnail" src={background} alt="image" /> */}
-          {/* <div className="parallax-window" data-parallax="scroll" data-image-src={background}></div> */}
+            <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
+            <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
+         
           <p>Landing page</p>
+
+            <RegistrationModal />
+            <LoginModal />
+        
         </div>    
     )
 }
 
 const mapStateToProps = state => {
-    //console.log('mapStateToProps:', state)
     return {
         psychologists: state.psychologistsReducer.psychologists
     };
@@ -35,5 +37,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(LandingPage);
 
-//about
-//list of psicologies(best rated)

@@ -19,12 +19,12 @@ const DoctorRegistration = props => {
         const response = await props.dispatch(doctorRegistrationAction(state));
         if (Number(response.status) === 200) {
             //display pop up message
-            props.history.push("/doctorVerification");
+            props.history.push("/message");
             console.log('doctor is registered')
         }
     }
     return (
-        <div className="signup__container">
+        <div className="mainUserContainer">
             
             <div>
                 <h5>DCOTOR REGISTRATION PAGE</h5>
@@ -38,7 +38,7 @@ const DoctorRegistration = props => {
                 <input className='registrationInput' placeholder={'Last Name'} name='last_name' value={state.last_name}
                 onChange={handleChange}/>
 
-                <button>Submit</button>
+                <button className='buttonUserRegistration'>Submit</button>
             </form>
         </div>
     )
