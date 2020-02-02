@@ -9,7 +9,6 @@ import * as serviceWorker from './serviceWorker';
 import LandingPage from './components/LandingPage/LandingPage';
 import DoctorLandingPage from './components/DoctorLandingPage/DoctorLandingPage';
 import VideoChat from './components/TwilioVideo/VideoChat';
-
 import Verification from './components/Verification/Verification';
 import DoctorVerification from './components/DoctorVerification/DoctorVerification';
 

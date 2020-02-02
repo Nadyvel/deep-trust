@@ -6,7 +6,7 @@
 
 .landingPage {
     width: 100vw;
-    height: 2000px;
+    height: 260vw;
     margin: 0 auto;
     background: white;
     font-size: 24px;
@@ -29,7 +29,7 @@
 }
 
 #text {
-    z-index: 100;
+    z-index: 10;
     position: absolute;
     color: white;
     font-size: 24px;
@@ -67,7 +67,7 @@
 }
 
 #textMiddleImage {
-    z-index: 100;
+    z-index: 10;
     position: absolute;
     color: #706c6c;
     font-size: 38px;
@@ -82,7 +82,7 @@
     background-attachment: fixed;
     height: 800px;
     width: 100vw;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 .psychoList {
@@ -90,10 +90,36 @@
     color: black;
     font-size: 38px;
     font-weight: 300;
+    display: flex;
+    justify-content: center;
 }
 
 .psychologistsContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+}
+
+.line {
+    margin: 14px;
+}
+
+.squareInfo {
+    display: flex;
+    width: 440px;
+    height: 220px;
+    background-color: rgba(232,221,208,1);
+    z-index: 10;
+    position: absolute;
+    color: black;
+    font-size: 16px;
+    left: 50%;
+    top: 255vw;
+    font: 'Roboto';
+    font-weight: 300;
+    padding: 15px;
+}
+
+#text2 {
+    margin: 0px;
 }
