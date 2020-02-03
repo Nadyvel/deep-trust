@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import "./Psychologists.css";
 
 const Psychologists = props => {
-    console.log("mycomments from my comment", props)
+   
     return (
         <div className="psychologistsCard">
             {props.psychologists && props.psychologists.map((doctor, i)=> {

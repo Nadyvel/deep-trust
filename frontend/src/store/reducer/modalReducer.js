@@ -17,7 +17,6 @@ const initialState = {
 };
 
  const modalReducer = (state = initialState, action) => {
-     console.log('YYY', action)
     switch (action.type) {
         case 'SET_MODAL': {
             const { namespace, data, isVisible } = action.payload;
