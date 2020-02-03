@@ -6,7 +6,7 @@
 
 .landingPage {
     width: 100vw;
-    height: 260vw;
+    /* height: 260vw; */
     margin: 0 auto;
     background: white;
     font-size: 24px;
@@ -83,6 +83,7 @@
     height: 800px;
     width: 100vw;
     margin-bottom: 100px;
+    position: relative;
 }
 
 .psychoList {
@@ -114,7 +115,7 @@
     color: black;
     font-size: 16px;
     left: 50%;
-    top: 255vw;
+    top: 440px;
     font: 'Roboto';
     font-weight: 300;
     padding: 15px;

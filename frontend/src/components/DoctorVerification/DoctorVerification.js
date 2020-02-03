@@ -19,26 +19,17 @@ const DoctorVerification = (props) => {
 
     const handleVerification = async e => {
         e.preventDefault();
-        if (state.password !== state.password_repeat) {
-            setShowMessage("Password must be the same, please check")
-            return
+        const response = await props.dispatch(verificationAction(state));
+        if (Number(response.status) === 200) {
+            props.history.push('/doctorLandingPage');
         }
 
         const message = await props.dispatch(verificationAction(state));
         if (message.length > 0) {
             setShowMessage(message)
         }
-
-        const response = await props.dispatch(verificationAction(state));
-        if (Number(response.status) === 200) {
-            props.history.push('/doctorLandingPage');
-        }
-
-        if (Number(response.status) === 400 && (state.password === state.password_repeat)) {
-            setShowMessage("Wrong Email or Username already taken")
-        }
     }
-    
+
     return (
         <div className='verifMainContainer'>
             <div className='verifLeftContainer'>
