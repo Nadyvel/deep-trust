@@ -60,7 +60,7 @@ class UpdatePsychologistProfile(UpdateAPIView):
 
 class CreateFavouritePsychologist(GenericAPIView):
     """
-    POST: Like a review.
+    POST: favourite a psychologist
     """
     permission_classes = [IsAuthenticated, IsUserCurrentLoggedIn]
     serializer_class = PsychologistSerializer
@@ -75,6 +75,16 @@ class CreateFavouritePsychologist(GenericAPIView):
             return Response(self.get_serializer(instance=post_to_save).data)
         user.favourite_psychologist.add(post_to_save)
         return Response(self.get_serializer(instance=post_to_save).data)
+
+
+class ListAllFavouritePsychologist(ListAPIView):
+    permission_classes = [IsUserCurrentLoggedIn]
+    queryset = Psychologist.objects.all()
+    serializer_class = PsychologistSerializer
+
+    def get_queryset(self):
+        query_result = Psychologist.objects.filter(favourite_by=self.request.user)
+        return query_result
 
 
 # # get all patients from one psychologist     this code gets read, not executed. Only def method gets executed
