@@ -18,8 +18,13 @@ export const verificationAction = props => async (dispatch, getState) => {
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/validation/ ', config);
-    //const data = await response.json();
-    //console.log('verification fetch', data)
+    const data = await response.json();
+  
+    if (data.code) {
+        const message = data.code[0]
+        return message
+    }
+    
     return response
 }
 

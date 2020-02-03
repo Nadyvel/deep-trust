@@ -13,16 +13,8 @@ const LandingPage = (props) => {
         props.dispatch(psychologistsAction())
     }, []);
 
-    // const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
-    
-
     return (
         <div className='landingPage'>
-            {/* <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
-            <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
-          
-            <RegistrationModal />
-            <LoginModal /> */}
 
           <p className='line'></p>
             <div className='parallax1'>

@@ -14,6 +14,7 @@ export const registrationAction = (email) => async (dispatch, getState) => {
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/', config);
+    console.log('data', response)
     return response
     
 };
@@ -37,8 +38,10 @@ export const doctorRegistrationAction = (state) => async (dispatch, getState) =>
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/psychologist/', config);
+    console.log('data', response)
+  
     return response
-    
+
 };
 
 

@@ -10,6 +10,7 @@ const DoctorRegistration = props => {
         first_name: '',
         last_name: '',
     });
+    let [showMessage, setShowMessage] = useState(false);
 
     const handleChange = e =>
         setState({...state, [e.target.name]: e.target.value});
@@ -18,9 +19,10 @@ const DoctorRegistration = props => {
         e.preventDefault();
         const response = await props.dispatch(doctorRegistrationAction(state));
         if (Number(response.status) === 200) {
-            //display pop up message
             props.history.push("/message");
-            console.log('doctor is registered')
+        }
+        if (Number(response.status) === 400) {
+            setShowMessage("The Email is not been found")
         }
     }
     return (
@@ -37,6 +39,10 @@ const DoctorRegistration = props => {
                 onChange={handleChange}/>
                 <input className='registrationInput' placeholder={'Last Name'} name='last_name' value={state.last_name}
                 onChange={handleChange}/>
+
+                <div className="erroeMessage">
+                    <p>{showMessage}</p>
+                </div>
 
                 <button className='buttonUserRegistration'>Submit</button>
             </form>
