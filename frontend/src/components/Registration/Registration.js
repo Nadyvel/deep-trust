@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
 import {registrationAction} from '../../store/action/registrationAction';
 import './Registration.css' 
+
 
 const Registration = props => {
     let [state, setState] = useState({
         email: '',
     });
+    let [showMessage, setShowMessage] = useState(false);
 
     const handleChange = e =>
         setState({...state, [e.target.name]: e.target.value});
@@ -16,11 +18,16 @@ const Registration = props => {
         e.preventDefault();
         const response = await props.dispatch(registrationAction(state.email));
         if (Number(response.status) === 200) {
-            //display pop up message
+            console.log("from registration", response)
             props.history.push("/message");
         }
-    }
+        if (Number(response.status) === 400) {
+            console.log("from registration", response)
+            setShowMessage("This Email already exist")
+        }
+    } 
     
+ 
     return (
         <div className="mainUserContainer">
             
@@ -31,8 +38,13 @@ const Registration = props => {
             <div className='inputContainer'>
                 <form onSubmit={handleRegistration}>
 
-                    <input className='registrationInput' placeholder={'E-Mail address'} name='email' value={state.email}
+                    <input type='email' className='registrationInput' placeholder={'E-Mail address'} name='email' value={state.email}
                     onChange={handleChange}/>
+
+                    <div className="erroeMessage">
+                        <p>{showMessage}</p>
+                    </div>
+
                     <button className='buttonUserRegistration'>Submit</button>
                 </form>
                
@@ -41,4 +53,10 @@ const Registration = props => {
     )
 }
 
-export default withRouter(connect()(Registration))
+const mapStateToProps = state => {
+    return {
+        //user_data: state.loginReducer.user_data,
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(Registration))

@@ -12,15 +12,22 @@ const Verification = (props) => {
         password: '',
         password_repeat: '',
     })
+    let [showMessage, setShowMessage] = useState(false);
 
     const handleChange = e =>
         setState({...state, [e.target.name]: e.target.value});
 
     const handleVerification = async e => {
         e.preventDefault();
+
         const response = await props.dispatch(verificationAction(state));
         if (Number(response.status) === 200) {
             props.history.push('/');
+        }
+
+        const message = await props.dispatch(verificationAction(state));
+        if (message.length > 0) {
+            setShowMessage(message)
         }
     }
     return (
@@ -30,11 +37,11 @@ const Verification = (props) => {
             </div>
 
             <div className="verifVerificationForm">
-                <h5 className="verificationTitle">VERIFICATION FORM</h5>
+                <h5 className="verificationTitle">VERIFICATION USER FORM</h5>
 
                 <form className='formInput' onSubmit={handleVerification}>
             
-                    <input className='verifInput' placeholder={"E-Mail address"} name="email" 
+                    <input type='email' className='verifInput' placeholder={"E-Mail address"} name="email" 
                         value={state.email} onChange={handleChange}/>
 
                     <input className='verifInput' placeholder={"Validation code"} name="validation_code"
@@ -49,6 +56,10 @@ const Verification = (props) => {
                     <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
                         value={state.password_repeat} onChange={handleChange} type='password'/>
                 
+                    <div>
+                        <p>{showMessage}</p>
+                    </div>
+
                     <button className='verifButton' type="submit" content="Finish registration">Submit</button>
                 
                 </form>
