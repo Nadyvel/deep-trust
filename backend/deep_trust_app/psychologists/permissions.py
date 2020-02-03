@@ -13,3 +13,8 @@ class IsOwnerOfProfileOrReadOnly(permissions.BasePermission):
         else:
             return False
 
+
+class IsUserCurrentLoggedIn(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if bool(request.user and request.user.is_user):
+            return True
