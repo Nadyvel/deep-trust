@@ -1,5 +1,5 @@
 from django.db.models import Q
-from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from deep_trust_app.psychologists.models import Psychologist
@@ -9,13 +9,19 @@ from deep_trust_app.users.permissions import ObjIsLoggedInUser, isPsychologistTr
 from deep_trust_app.users.serializer import UserSerializer
 
 
-class ListCreatePsychologistProfile(ListCreateAPIView):
+class CreatePsychologistProfile(CreateAPIView):
     permission_classes = [isPsychologistTrue]
     queryset = Psychologist.objects.all()
     serializer_class = PsychologistSerializer
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class ListPsychologistProfile(ListAPIView):
+    permission_classes = []
+    queryset = Psychologist.objects.all()
+    serializer_class = PsychologistSerializer
 
 
 # gets a list of the psychologists and searches for a particular one by string

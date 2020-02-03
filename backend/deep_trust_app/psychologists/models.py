@@ -16,37 +16,47 @@ class Psychologist(models.Model):
     first_name = models.CharField(
         verbose_name='first name',
         max_length=50,
+        blank=True,
+        null=True
     )
 
     last_name = models.CharField(
         verbose_name='last name',
         max_length=50,
+        blank=True,
+        null=True
     )
 
     country = models.CharField(
-        verbose_name='select country',
+        verbose_name='country',
         max_length=50,
-
+        blank=True,
+        null=True
     )
 
     city = models.CharField(
         verbose_name='psychologist city',
         max_length=50,
+        null=True
     )
 
-    zip = models.CharField(
+    zip = models.IntegerField(
         verbose_name='psychologist_zip',
-        max_length=10,
         blank=True,
+        null=True
     )
 
     working_hours = models.CharField(
         verbose_name='working_hours',
         max_length=50,
+        blank=True,
+        null=True
     )
 
     price_per_hour = models.IntegerField(
         verbose_name='psychologist prise per hour',
+        blank=True,
+        null=True
     )
 
     # @property
@@ -63,13 +73,14 @@ class Psychologist(models.Model):
     )
 
     image = models.ImageField(
-        verbose_name='restaurant_image',
-        blank=True
+        verbose_name='psychologist_image',
+        blank=True,
+        null=True
     )
 
     timestamp = models.DateTimeField(
         verbose_name='timestamp',
-        auto_now_add=True  # adds date and time automatically to the restaurant.
+        auto_now_add=True
     )
 
     def __str__(self):

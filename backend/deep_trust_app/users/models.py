@@ -20,13 +20,15 @@ class User(AbstractUser):
     last_name = models.CharField(
         verbose_name='last name',
         max_length=100,
-        blank=True
+        blank=True,
+        null=True,
     )
 
     first_name = models.CharField(
         verbose_name='first name',
         max_length=100,
-        blank=True
+        blank=True,
+        null=True
     )
 
     is_active = models.BooleanField(
@@ -62,7 +64,20 @@ class User(AbstractUser):
     location = models.CharField(
         verbose_name='user location',
         max_length=200,
-        blank=True
+        blank=True,
+        null=True,
+    )
+
+    image = models.ImageField(
+        verbose_name='user image',
+        blank=True,
+        null=True
+    )
+
+    description = models.TextField(
+        verbose_name='description',
+        blank=True,
+        null=True
     )
 
     def __str__(self):
