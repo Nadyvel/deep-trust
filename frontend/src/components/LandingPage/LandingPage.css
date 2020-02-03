@@ -5,5 +5,95 @@
 }
 
 .landingPage {
-    height: 500px;
+    width: 100vw;
+    height: 2000px;
+    margin: 0 auto;
+    background: white;
+    font-size: 24px;
+}
+
+.parallax1 { 
+    background: url("../images/elephant.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 750px;
+    width: 100vw;
+    margin-bottom: 150px;
+}
+
+.layer {
+    background-color: rgba(48, 48, 41, 0.7);
+    position: absolute;
+    height: 750px;
+    width: 100vw;
+}
+
+#text {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    left: 48vw;
+    top: 350px;
+    font: 'Roboto';
+    font-weight: 300;
+}
+
+.middleImageContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    justify-content: center;
+}
+
+.leftMiddleImage {
+    background: url('../images/leaves.jpeg');
+    height: 560px;
+    width: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+
+.rightMiddleImage {
+    display: flex;
+    justify-content: center;
+    height: 560px;
+    width: 550px;
+    background-color: rgb(232, 221, 208);
+    margin-left: 20px;
+}
+
+#textMiddleImage {
+    z-index: 100;
+    position: absolute;
+    color: #706c6c;
+    font-size: 38px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin-top: 15vw;
+}
+
+.parallax2 {
+    background: url("../images/birds.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 800px;
+    width: 100vw;
+    margin-bottom: 300px;
+}
+
+.psychoList {
+    font-family: 'Roboto';
+    color: black;
+    font-size: 38px;
+    font-weight: 300;
+}
+
+.psychologistsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
