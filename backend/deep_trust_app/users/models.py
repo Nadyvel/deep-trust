@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from deep_trust_app.psychologists.models import Psychologist
+
 
 class User(AbstractUser):
     USERNAME_FIELD = 'email'
@@ -78,6 +80,13 @@ class User(AbstractUser):
         verbose_name='description',
         blank=True,
         null=True
+    )
+
+    favourite_psychologist = models.ManyToManyField(
+        verbose_name='favourite',
+        to=Psychologist,
+        related_name='favourite_by',
+        blank=True
     )
 
     def __str__(self):
