@@ -1,6 +1,11 @@
 export const userAction = () => async (dispatch, getState) => {
 
-    const myHeaders = new Headers({});
+    const token = getState().loginReducer.tokens.access;
+
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    });
     const config = {
         method: 'GET',
         headers: myHeaders,
@@ -12,7 +17,6 @@ export const userAction = () => async (dispatch, getState) => {
         type: 'STORE_USER_PROFILE',
         payload: data,
     }
-    console.log('USEEEER', data)
     dispatch(action)
 };
 

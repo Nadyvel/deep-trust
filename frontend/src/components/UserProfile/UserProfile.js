@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {userAction} from "../../store/action/userAction";
 import {withRouter} from "react-router-dom";
 import {connect }from "react-redux";
+import UserCard from "./UserCard/UserCard";
 
 const UserProfile = (props) => {
 
@@ -12,7 +13,7 @@ const UserProfile = (props) => {
 
     return (
         <div className='user-profile-component'>
-            <p>{props.userProfile.first_name}</p>
+            <UserCard userCard={props.userProfile}/>
         </div>
     )
 }

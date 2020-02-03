@@ -14,13 +14,15 @@ const LandingPage = (props) => {
 
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
     //namespace -> RegistrationModal/LoginModal
-    
+    const handleUser = () => {
+        props.history.push('/userprofile');
+    }
 
     return (
         <div className='landingPage'>
             <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
             <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
-          
+            <button onClick = {handleUser}>UserProfile</button>
           <p>Landing page</p>
 
             <RegistrationModal />
