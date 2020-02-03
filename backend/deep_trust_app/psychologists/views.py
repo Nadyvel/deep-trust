@@ -1,8 +1,11 @@
 from django.db.models import Q
-from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView, CreateAPIView, \
+    GenericAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from deep_trust_app.psychologists.models import Psychologist
+from deep_trust_app.psychologists.permissions import IsUserCurrentLoggedIn
 from deep_trust_app.psychologists.serializers import PsychologistSerializer
 from deep_trust_app.users.models import User
 from deep_trust_app.users.permissions import ObjIsLoggedInUser, isPsychologistTrue, ObjIsLoggedInUserDelete
@@ -53,6 +56,25 @@ class UpdatePsychologistProfile(UpdateAPIView):
     queryset = Psychologist.objects.all()
     serializer_class = PsychologistSerializer
     lookup_url_kwarg = 'user_id'
+
+
+class CreateFavouritePsychologist(GenericAPIView):
+    """
+    POST: Like a review.
+    """
+    permission_classes = [IsAuthenticated, IsUserCurrentLoggedIn]
+    serializer_class = PsychologistSerializer
+    queryset = Psychologist.objects.all()
+    lookup_url_kwarg = 'psychologist_id'
+
+    def post(self, request, psychologist_id):
+        post_to_save = self.get_object()
+        user = request.user
+        if post_to_save in user.favourite_psychologist.all():
+            user.favourite_psychologist.remove(post_to_save)
+            return Response(self.get_serializer(instance=post_to_save).data)
+        user.favourite_psychologist.add(post_to_save)
+        return Response(self.get_serializer(instance=post_to_save).data)
 
 
 # # get all patients from one psychologist     this code gets read, not executed. Only def method gets executed
