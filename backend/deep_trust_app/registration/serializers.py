@@ -22,7 +22,7 @@ def email_does_exist(email):
         User.objects.get(email=email)
         return email
     except User.DoesNotExist:
-        raise ValidationError(message='User does not exist!')
+        raise ValidationError(message='Email does not exist!')
 
 
 def username_does_not_exist(username):
