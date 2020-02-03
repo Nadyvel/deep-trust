@@ -1,3 +1,5 @@
 .user-image {
-    background: url('../../images/user_pic.jpg');
+    width: 400px;
+    height: 600px;
+    display: flex;
 }
