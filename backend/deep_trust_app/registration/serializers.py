@@ -22,7 +22,7 @@ def email_does_exist(email):
         User.objects.get(email=email)
         return email
     except User.DoesNotExist:
-        raise ValidationError(message='User does not exist!')
+        raise ValidationError(message='Email does not exist!')
 
 
 def username_does_not_exist(username):
@@ -66,7 +66,8 @@ class RegistrationSerializer(serializers.Serializer):
         reg_profile.save()
         #####
         email = Email(to=email, subject='Thank you for registering!',
-                      content=f'Here is your validation code: {reg_profile.code}')
+                      content=f'Here is your validation code: {reg_profile.code}\nClick the link below to complete '
+                              f'the verification.\nhttps://deep-trust.propulsion-learn.ch/verification')
         email.save(request=self.context['request'])
         return new_user
 

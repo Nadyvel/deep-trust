@@ -19,7 +19,7 @@ class UserAdmin(UserAdmin):
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions', 'is_psychologist', 'is_user')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
         ('Groups', {'fields': ('groups',)}),
-        ('Social', {'fields': ('location',)}),
+        ('Social', {'fields': ('location', 'description', 'image', 'favourite_psychologist')}),
     )
     list_display = ('email', 'first_name', 'last_name', 'is_psychologist', 'is_user')
     ordering = ('email',)

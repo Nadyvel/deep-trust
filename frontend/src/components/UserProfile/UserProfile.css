@@ -1,0 +1,6 @@
+.user-profile-component{
+    height: 100vh;
+    width:100%;
+    display:flex;
+    overflow: scroll;
+}
