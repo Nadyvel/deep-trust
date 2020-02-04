@@ -9,7 +9,6 @@ import * as serviceWorker from './serviceWorker';
 import LandingPage from './components/LandingPage/LandingPage';
 import DoctorLandingPage from './components/DoctorLandingPage/DoctorLandingPage';
 import VideoChat from './components/TwilioVideo/VideoChat';
-
 import Verification from './components/Verification/Verification';
 import DoctorVerification from './components/DoctorVerification/DoctorVerification';
 import UserProfile from "./components/UserProfile/UserProfile";
@@ -24,7 +23,7 @@ ReactDOM.render(
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
                     <Route exact path='/video' component={VideoChat} />
-                    <Route exact path='/userprofile' component={UserProfile}/>
+                    <Route path='/userprofile' component={UserProfile}/>
                 </Switch>
             </App>
         </Router>

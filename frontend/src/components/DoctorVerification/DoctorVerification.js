@@ -12,6 +12,8 @@ const DoctorVerification = (props) => {
         password_repeat: '',
     })
 
+    let [showMessage, setShowMessage] = useState(false);
+
     const handleChange = e =>
         setState({...state, [e.target.name]: e.target.value});
 
@@ -19,9 +21,15 @@ const DoctorVerification = (props) => {
         e.preventDefault();
         const response = await props.dispatch(verificationAction(state));
         if (Number(response.status) === 200) {
-            props.history.push('/doctorLandingPage');
+            props.history.push('/');
+        }
+
+        const message = await props.dispatch(verificationAction(state));
+        if (message.length > 0) {
+            setShowMessage(message)
         }
     }
+
     return (
         <div className='verifMainContainer'>
             <div className='verifLeftContainer'>
@@ -48,6 +56,10 @@ const DoctorVerification = (props) => {
                     <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
                         value={state.password_repeat} onChange={handleChange} type='password'/>
                 
+                    <div>
+                        <p>{showMessage}</p>
+                    </div>
+
                     <button className='verifButton' type="submit" content="Finish registration">Submit</button>
                 
                 </form>
