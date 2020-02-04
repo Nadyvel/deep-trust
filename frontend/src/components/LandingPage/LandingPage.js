@@ -36,7 +36,10 @@ const LandingPage = (props) => {
             <div className='parallax1'>
                 
                 <div className="layer">
-                <button onClick={(e) => handleSidebar(e)}>Display sidebar</button>
+                <button className='sidebarButton'  onClick={(e) => handleSidebar(e)}>
+                    <span className='sidebarLine'>-</span>
+                    <span className='sidebarLine'>-</span>
+                </button>
                     <p id="text">
                         DEEP TRUST
                     </p>

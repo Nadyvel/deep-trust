@@ -140,3 +140,19 @@
     right: 0%;
     position: fixed;
 }
+
+.sidebarButton {
+    height: 55px;
+    width: 55px;
+    position: fixed;
+    z-index: 19;
+    background-color: black;
+    border: transparent;
+}
+
+.sidebarLine {
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    z-index: 20;
+}
