@@ -23,7 +23,7 @@ ReactDOM.render(
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
                     <Route exact path='/video' component={VideoChat} />
-                    <Route exact path='/userprofile' component={UserProfile}/>
+                    <Route path='/userprofile' component={UserProfile}/>
                 </Switch>
             </App>
         </Router>
