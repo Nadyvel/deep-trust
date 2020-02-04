@@ -24,6 +24,7 @@ ReactDOM.render(
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
                     <Route exact path='/video' component={VideoChat} />
                     <Route exact path='/userprofile' component={UserProfile}/>
+                    {/* <Route exact path='/doctorList' component={DoctorList}/> */}
                 </Switch>
             </App>
         </Router>

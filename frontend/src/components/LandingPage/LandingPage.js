@@ -27,6 +27,16 @@ const LandingPage = (props) => {
         sideBarClassName = 'sidebarBox'
     }
 
+    let sidebarToggle = ''
+    if (showSidebar) {
+        sidebarToggle = 'sidebarToggle sidebarToggleVisible'
+    } else {
+        sidebarToggle = 'sidebarToggle'
+    }
+
+    let newList = props.psychologists.slice(0, 3)
+        // console.log('docs list', newList)
+        // console.log('list complete', props.psychologists)
     return (
         <div className='landingPage'>
 
@@ -36,10 +46,13 @@ const LandingPage = (props) => {
             <div className='parallax1'>
                 
                 <div className="layer">
-                <button className='sidebarButton'  onClick={(e) => handleSidebar(e)}>
-                    <span className='sidebarLine'>-</span>
-                    <span className='sidebarLine'>-</span>
-                </button>
+
+                <div className={sidebarToggle}  onClick={(e) => handleSidebar(e)}>
+                    <div className='sidebarLine'></div>
+                    <div className='sidebarLine'></div>
+                    <div className='sidebarLine'></div>
+                </div>
+
                     <p id="text">
                         DEEP TRUST
                     </p>
@@ -60,9 +73,11 @@ const LandingPage = (props) => {
 
             <div className='psychologistsContainer'>
                 <p className='psychoList'>People you can trust</p>
-                <Psychologists psychologists={props.psychologists}/>
+                    <Psychologists psychologists={newList}/>
             </div>
-
+            <div className='buttoWrapper'>
+                <button className='displayMoreDocs'>More</button>
+            </div>
             
             <div className='parallax2'>
                 <div className="squareInfo">
