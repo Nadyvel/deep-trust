@@ -21,7 +21,7 @@ const DoctorVerification = (props) => {
         e.preventDefault();
         const response = await props.dispatch(verificationAction(state));
         if (Number(response.status) === 200) {
-            props.history.push('/doctorLandingPage');
+            props.history.push('/');
         }
 
         const message = await props.dispatch(verificationAction(state));

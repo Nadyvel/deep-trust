@@ -124,3 +124,19 @@
 #text2 {
     margin: 0px;
 }
+
+.sidebarBox {
+    width: 20%;
+    min-height:100%;
+    /* height: 20vw; */
+    transition: right 1.5s ease;
+    background: black;
+    position: absolute;
+    right: -20%;
+    z-index: 20;
+}
+
+.sidebarVisible {
+    right: 0%;
+    position: fixed;
+}
