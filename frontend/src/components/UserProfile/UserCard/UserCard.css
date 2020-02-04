@@ -1,5 +1,63 @@
-.user-image {
-    width: 400px;
-    height: 600px;
+.user-card-component{
     display: flex;
+    flex-direction: row-reverse;
+    height: 100vh;
+}
+
+.user-image-and-description-container{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    width: 32%;
+    position: relative;
+}
+.user-image.container {
+    display: inline-block;
+    position: absolute;
+}
+.user-image{
+    width: 90%;
+    height: 100%;
+    z-index: 0;
+}
+
+.user-description{
+    font-family: Roboto;
+    font-weight: lighter;
+    margin-bottom: auto;
+    background-color: white;
+    width: 78%;
+    height: 30%;
+    z-index: 2;
+    position: absolute;
+    top: 62%;
+}
+
+.information-render-container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: 5%;
+}
+.user-menu-container{
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+    border-right: 1px solid gainsboro;
+}
+.logo-container{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+}
+.user-profile-logo{
+    width: 70%;
+    height: 70%;
+}
+.menu-items{
+    text-decoration: none;
 }
