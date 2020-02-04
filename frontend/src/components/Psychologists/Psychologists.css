@@ -1,0 +1,4 @@
+.psychologistsCard {
+    display: flex;
+    flex-direction: column;
+}
