@@ -20,6 +20,11 @@ const LandingPage = (props) => {
         setShowSidebar(!showSidebar)
     };
 
+    const handdleMoreDoctors = (e) => {
+        e.preventDefault();
+        props.history.push('/doctorList')
+    }
+
     let sideBarClassName = ''
     if (showSidebar){
         sideBarClassName = 'sidebarBox sidebarVisible'
@@ -35,8 +40,7 @@ const LandingPage = (props) => {
     }
 
     let newList = props.psychologists.slice(0, 3)
-        // console.log('docs list', newList)
-        // console.log('list complete', props.psychologists)
+    
     return (
         <div className='landingPage'>
 
@@ -76,7 +80,7 @@ const LandingPage = (props) => {
                     <Psychologists psychologists={newList}/>
             </div>
             <div className='buttoWrapper'>
-                <button className='displayMoreDocs'>More</button>
+                <button className='displayMoreDocs' onClick={(e) => handdleMoreDoctors(e)}>More</button>
             </div>
             
             <div className='parallax2'>
