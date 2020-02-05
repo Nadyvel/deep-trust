@@ -12,6 +12,7 @@ import VideoChat from './components/TwilioVideo/VideoChat';
 import Verification from './components/Verification/Verification';
 import DoctorVerification from './components/DoctorVerification/DoctorVerification';
 import UserProfile from "./components/UserProfile/UserProfile";
+import PsychologistsList from './components/PsychologistsList/PsychologistsList';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -23,7 +24,8 @@ ReactDOM.render(
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
                     <Route exact path='/video' component={VideoChat} />
-                    <Route path='/userprofile' component={UserProfile}/>
+                    <Route exact path='/userprofile' component={UserProfile}/>
+                    <Route exact path='/doctorList' component={PsychologistsList}/>
                 </Switch>
             </App>
         </Router>

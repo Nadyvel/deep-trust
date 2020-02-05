@@ -20,6 +20,11 @@ const LandingPage = (props) => {
         setShowSidebar(!showSidebar)
     };
 
+    const handdleMoreDoctors = (e) => {
+        e.preventDefault();
+        props.history.push('/doctorList')
+    }
+
     let sideBarClassName = ''
     if (showSidebar){
         sideBarClassName = 'sidebarBox sidebarVisible'
@@ -27,6 +32,15 @@ const LandingPage = (props) => {
         sideBarClassName = 'sidebarBox'
     }
 
+    let sidebarToggle = ''
+    if (showSidebar) {
+        sidebarToggle = 'sidebarToggle sidebarToggleVisible'
+    } else {
+        sidebarToggle = 'sidebarToggle'
+    }
+
+    let newList = props.psychologists.slice(0, 3)
+    
     return (
         <div className='landingPage'>
 
@@ -36,7 +50,13 @@ const LandingPage = (props) => {
             <div className='parallax1'>
                 
                 <div className="layer">
-                <button onClick={(e) => handleSidebar(e)}>Display sidebar</button>
+
+                <div className={sidebarToggle}  onClick={(e) => handleSidebar(e)}>
+                    <div className='sidebarLine'></div>
+                    <div className='sidebarLine'></div>
+                    <div className='sidebarLine'></div>
+                </div>
+
                     <p id="text">
                         DEEP TRUST
                     </p>
@@ -57,9 +77,11 @@ const LandingPage = (props) => {
 
             <div className='psychologistsContainer'>
                 <p className='psychoList'>People you can trust</p>
-                <Psychologists psychologists={props.psychologists}/>
+                    <Psychologists psychologists={newList}/>
             </div>
-
+            <div className='buttoWrapper'>
+                <button className='displayMoreDocs' onClick={(e) => handdleMoreDoctors(e)}>More</button>
+            </div>
             
             <div className='parallax2'>
                 <div className="squareInfo">
