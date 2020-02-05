@@ -3,62 +3,57 @@ import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
 import './LandingPage.css';
 import {useEffect} from "react"
-import RegistrationModal from '../RegistrationModal/RegistrationModal'
+import RegistrationModal from '../RegistrationModal/RegistrationModal';
 import {setModal} from "../../store/action/modalAction";
 import LoginModal from '../LoginModal/LoginModal';
-import Psychologists from '../Psychologists/Psychologists'
+import Psychologists from '../Psychologists/Psychologists';
 import Header from "../Header/Header";
 
 const LandingPage = (props) => {
     let [showSidebar, setShowSidebar] = useState(false);
 
     useEffect(() => {
-        props.dispatch(psychologistsAction())
+        props.dispatch(psychologistsAction());
     }, []);
 
     const handleSidebar = (e) => {
         e.preventDefault();
-        setShowSidebar(!showSidebar)
+        setShowSidebar(!showSidebar);
     };
 
     const handdleMoreDoctors = (e) => {
         e.preventDefault();
-        props.history.push('/doctorList')
-    }
+        props.history.push('/doctorList');
+    };
 
     const handdleAbout = (e) => {
         e.preventDefault();
-        window.scrollTo({
-            top: 900,
-            behavior: 'smooth',
-        });
+        document.getElementById('middleContainer').scrollIntoView();
+        
     };
 
     const handdleContact = (e) => {
         e.preventDefault();
-        window.scrollTo({
-            top: 2500,
-            behavior: 'smooth',
-        });
-    }
+        document.getElementById('downContainer').scrollIntoView();
+    };
 
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
 
     let sideBarClassName = ''
     if (showSidebar){
-        sideBarClassName = 'sidebarBox sidebarVisible'
+        sideBarClassName = 'sidebarBox sidebarVisible';
     } else {
-        sideBarClassName = 'sidebarBox'
+        sideBarClassName = 'sidebarBox';
     }
 
-    let sidebarToggle = ''
+    let sidebarToggle = '';
     if (showSidebar) {
-        sidebarToggle = 'sidebarToggle sidebarToggleVisible'
+        sidebarToggle = 'sidebarToggle sidebarToggleVisible';
     } else {
-        sidebarToggle = 'sidebarToggle'
+        sidebarToggle = 'sidebarToggle';
     }
 
-    let newList = props.psychologists.slice(0, 3)
+    let newList = props.psychologists.slice(0, 3);
     
     return (
         <div className='landingPage'>
@@ -96,7 +91,7 @@ const LandingPage = (props) => {
 
                 </div>
 
-                <div className='rightMiddleImage'>
+                <div className='rightMiddleImage' id='middleContainer'>
                         <span id="textMiddleImage">
                             About deep trust
                         </span>
@@ -111,7 +106,7 @@ const LandingPage = (props) => {
                 <button className='displayMoreDocs' onClick={(e) => handdleMoreDoctors(e)}>More</button>
             </div>
             
-            <div className='parallax2'>
+            <div className='parallax2' id='downContainer'>
                 <div className="squareInfo">
                     <div className='tittleQustions'>
                         <p id="text2">

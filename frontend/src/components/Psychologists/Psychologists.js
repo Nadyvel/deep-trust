@@ -11,7 +11,7 @@ const Psychologists = props => {
             <img className="profile_pic" src={doctor.image} alt="profile_pic"/>
             <p className='psychoName'>{doctor.first_name} {doctor.last_name} </p>
             <div className='underLine'></div>
-            <p>{doctor.description}</p></div> 
+            <p className='psychoDescription'>{doctor.description}</p></div> 
             })}
         </div>
     );
