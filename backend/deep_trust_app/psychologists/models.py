@@ -83,5 +83,11 @@ class Psychologist(models.Model):
         auto_now_add=True
     )
 
+    description = models.TextField(
+        verbose_name='description',
+        blank=True,
+        null=True
+    )
+
     def __str__(self):
         return f'{self.user}'
