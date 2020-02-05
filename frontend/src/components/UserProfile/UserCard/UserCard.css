@@ -58,6 +58,8 @@
     width: 70%;
     height: 70%;
 }
-.menu-items{
+.user-page-links-home{
+    color: pink;
     text-decoration: none;
+    font-weight: lighter;
 }

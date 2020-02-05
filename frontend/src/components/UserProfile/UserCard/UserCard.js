@@ -32,8 +32,8 @@ const UserCard = (props) => {
                 </div>
                 <div className='menu-items'>
                     <div className={PathName.includes('home')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
-                        <Link to={`/`} className='user-page-links-home'>
-                            <h2>Home</h2>
+                        <Link to={`/`}>
+                            <h2 className='user-page-links-home'>Home</h2>
                         </Link></div>
                     <div className={PathName.includes('calendar')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
                         <Link to={`/userprofile/bookings`} className='user-page-links-calendar'>
