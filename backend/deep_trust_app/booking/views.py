@@ -1,26 +1,44 @@
 from django.shortcuts import render
 
 # Create your views here.
-from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import status
+from rest_framework.generics import ListAPIView, UpdateAPIView, DestroyAPIView, GenericAPIView
+from rest_framework.response import Response
 
 from deep_trust_app.booking.models import Booking
 from deep_trust_app.booking.permissions import BookingViewOnlyPsychologist, ListBookingsOfCurrentUser, \
-    CreateBookingOnlyPatient, UpdateBookingOnlyPsychologist, DestroyBookingOnlyPatient, IsLoggedInUser
-from deep_trust_app.booking.serializers import BookingSerializer
+    CreateBookingOnlyPatient, UpdateBookingOnlyPsychologist, DestroyBookingOnlyPatient
+from deep_trust_app.booking.serializers import BookingEmailSerializer, BookingSerializer
+
+"""
+!!! REPLACED WITH NEW 'CREATEBOOKING' BELOW !!!
+"""
+# class CreateBooking(CreateAPIView):
+#     """
+#     POST:
+#     Patient/User creates new booking.
+#     """
+#     queryset = Booking.objects.all()
+#     serializer_class = BookingSerializer
+#     permission_classes = [CreateBookingOnlyPatient]
+#
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
 
 
-class CreateBooking(CreateAPIView):
+class CreateBooking(GenericAPIView):
     """
     POST:
-    Patient/User creates new booking.
+    Create a new booking and sends email for successful booking.
     """
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+    serializer_class = BookingEmailSerializer
     permission_classes = [CreateBookingOnlyPatient]
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(serializer.validated_data)
+        return Response(status=status.HTTP_200_OK)
 
 
 class ListBookingOfCurrentUser(ListAPIView):
