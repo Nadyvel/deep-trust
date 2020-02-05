@@ -74,12 +74,19 @@ class RegistrationSerializer(serializers.Serializer):
 
 class PsychologistRegistrationSerializer(serializers.Serializer):
     email = serializers.EmailField(label='Registration E-Mail Address', validators=[email_does_not_exist])
+    first_name = serializers.CharField(label='First name')
+    last_name = serializers.CharField(label='Last name')
 
     def save(self, validated_data):
         email = validated_data.get('email')
+        first_name = validated_data.get('first_name')
+        last_name = validated_data.get('last_name')
+
         new_user = User(
             username=email,
             email=email,
+            first_name=first_name,
+            last_name=last_name,
             is_active=False,
             is_psychologist=True
         )
@@ -94,7 +101,8 @@ class PsychologistRegistrationSerializer(serializers.Serializer):
         reg_profile.save()
         #####
         email = Email(to=email, subject='Thank you for registering!',
-                      content=f'Here is your validation code: {reg_profile.code}')
+                      content=f'Here is your validation code: {reg_profile.code}\nClick the link below to complete '
+                              f'the verification.\nhttps://deep-trust.propulsion-learn.ch/verification')
         email.save(request=self.context['request'])
         return new_user
 
