@@ -6,7 +6,6 @@
 
 .landingPage {
     width: 100vw;
-    /* height: 260vw; */
     margin: 0 auto;
     background: white;
     font-size: 24px;
@@ -95,10 +94,25 @@
     justify-content: center;
 }
 
-.psychologistsContainer {
+.buttoWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.displayMoreDocs {
+    width: 100px;
+    height: 45px;
+    border-radius: 25px;
+    border-color: black;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.doctContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .line {
@@ -128,8 +142,7 @@
 .sidebarBox {
     width: 20%;
     min-height:100%;
-    /* height: 20vw; */
-    transition: right 1.5s ease;
+    transition: right 1.2s ease;
     background: black;
     position: absolute;
     right: -20%;
@@ -140,3 +153,36 @@
     right: 0%;
     position: fixed;
 }
+
+.sidebarToggle {
+    height: 55px;
+    width: 55px;
+    position: fixed;
+    z-index: 20;
+    background-color: black;
+    background-size: cover;
+    border: transparent;
+    right: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: right 1.2s ease;
+}
+
+.sidebarToggleVisible {
+    right: 21%;
+    position: fixed;
+}
+
+.sidebarLine {
+    display: flex;
+    width: 40px;
+    height: 4px;
+    background-color: white;
+    z-index: 21;
+    margin-top: 10px;
+    margin-left: 7px;
+}
+
+
+

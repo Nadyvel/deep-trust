@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {verificationAction} from '../../store/action/verificationAction';
-import './DoctorVerification.css'
 
 const DoctorVerification = (props) => {
     let [state, setState] = useState({
@@ -32,37 +31,38 @@ const DoctorVerification = (props) => {
 
     return (
         <div className='verifMainContainer'>
-            <div className='verifLeftContainer'>
+            <div className='backgroundLayer'>
 
-            </div>
-
-            <div className="verifVerificationForm">
-                <h5 className="verificationTitle">DOCTOR VERIFICATION FORM</h5>
-
-                <form className='formInput' onSubmit={handleVerification}>
-            
-                    <input className='verifInput' placeholder={"E-Mail address"} name="email" 
-                        value={state.email} onChange={handleChange}/>
-
-                    <input className='verifInput' placeholder={"Validation code"} name="validation_code"
-                        value={state.validation_code} onChange={handleChange} type='password'/>
-                
-                    <input className='verifInput' placeholder={"Username"} name="username"
-                        value={state.username} onChange={handleChange}/>
-                
-                    <input className='verifInput' placeholder={"Password"} name="password"
-                        value={state.password} onChange={handleChange} type='password'/>
-
-                    <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
-                        value={state.password_repeat} onChange={handleChange} type='password'/>
-                
-                    <div>
-                        <p>{showMessage}</p>
+                <div className="verifVerificationForm">
+                    <div className="verificationTitle1"><h5 className='titlesverif'>Sign up for a free consultation with</h5> 
+                        <h5 className='titlesverif'>one of our specialists</h5>
                     </div>
 
-                    <button className='verifButton' type="submit" content="Finish registration">Submit</button>
+                    <form className='formInput' onSubmit={handleVerification}>
                 
-                </form>
+                        <input className='verifInput' placeholder={"E-Mail address"} name="email" 
+                            value={state.email} onChange={handleChange}/>
+
+                        <input className='verifInput' placeholder={"Validation code"} name="validation_code"
+                            value={state.validation_code} onChange={handleChange} type='password'/>
+                    
+                        <input className='verifInput' placeholder={"Username"} name="username"
+                            value={state.username} onChange={handleChange}/>
+                    
+                        <input className='verifInput' placeholder={"Password"} name="password"
+                            value={state.password} onChange={handleChange} type='password'/>
+
+                        <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
+                            value={state.password_repeat} onChange={handleChange} type='password'/>
+                    
+                        <div>
+                            <p>{showMessage}</p>
+                        </div>
+
+                        <button className='verificButton' type="submit" content="Finish registration">Sign up</button>
+                    
+                    </form>
+                </div>
             </div>
         </div>
     )

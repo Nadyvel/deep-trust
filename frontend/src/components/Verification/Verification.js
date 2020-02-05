@@ -32,37 +32,36 @@ const Verification = (props) => {
     }
     return (
         <div className='verifMainContainer'>
-            <div className='verifLeftContainer'>
-
-            </div>
-
-            <div className="verifVerificationForm">
-                <h5 className="verificationTitle">VERIFICATION USER FORM</h5>
-
-                <form className='formInput' onSubmit={handleVerification}>
-            
-                    <input type='email' className='verifInput' placeholder={"E-Mail address"} name="email" 
-                        value={state.email} onChange={handleChange}/>
-
-                    <input className='verifInput' placeholder={"Validation code"} name="validation_code"
-                        value={state.validation_code} onChange={handleChange} type='password'/>
-                
-                    <input className='verifInput' placeholder={"Username"} name="username"
-                        value={state.username} onChange={handleChange}/>
-                
-                    <input className='verifInput' placeholder={"Password"} name="password"
-                        value={state.password} onChange={handleChange} type='password'/>
-
-                    <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
-                        value={state.password_repeat} onChange={handleChange} type='password'/>
-                
-                    <div>
-                        <p>{showMessage}</p>
+            <div className='backgroundLayer'>
+                <div className="verifVerificationForm">
+                    <div className="verificationTitle1"><h5 className='titlesverif'>Sign up for a free consultation with</h5> 
+                    <h5 className='titlesverif'>one of our specialists</h5>
                     </div>
-
-                    <button className='verifButton' type="submit" content="Finish registration">Submit</button>
+                    <form className='formInput' onSubmit={handleVerification}>
                 
-                </form>
+                        <input type='email' className='verifInput' placeholder={"E-Mail address"} name="email" 
+                            value={state.email} onChange={handleChange}/>
+
+                        <input className='verifInput' placeholder={"Validation code"} name="validation_code"
+                            value={state.validation_code} onChange={handleChange} type='password'/>
+                    
+                        <input className='verifInput' placeholder={"Username"} name="username"
+                            value={state.username} onChange={handleChange}/>
+                    
+                        <input className='verifInput' placeholder={"Password"} name="password"
+                            value={state.password} onChange={handleChange} type='password'/>
+
+                        <input className='verifInput' placeholder={"Password repeat"} name="password_repeat"
+                            value={state.password_repeat} onChange={handleChange} type='password'/>
+                    
+                        <div>
+                            <p>{showMessage}</p>
+                        </div>
+
+                        <button className='verificButton' type="submit" content="Finish registration">Sign up</button>
+                    
+                    </form>
+                </div>
             </div>
         </div>
     )

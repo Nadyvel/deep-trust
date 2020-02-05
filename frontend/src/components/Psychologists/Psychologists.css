@@ -1,4 +1,33 @@
 .psychologistsCard {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
+    margin-left: 10%; 
+    margin-right: 10%;
+    /* flex-wrap: wrap; */
 }
+
+.eachProfile {
+    display: flex;
+    flex-direction: column;
+    height: 440px;
+    width: 350px;
+    margin-bottom: 40px;
+    margin: 15px;
+}
+
+.profile_pic {
+    height: 300px;
+    margin: 5px;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.psychoName {
+    font-family: 'Roboto';
+    color: black;
+    font-size: 22px;
+    font-weight: 300;
+    margin: 10px;
+}
+
