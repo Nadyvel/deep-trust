@@ -26,6 +26,22 @@ const LandingPage = (props) => {
         props.history.push('/doctorList')
     }
 
+    const handdleAbout = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 900,
+            behavior: 'smooth',
+        });
+    };
+
+    const handdleContact = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 2500,
+            behavior: 'smooth',
+        });
+    }
+
     let sideBarClassName = ''
     if (showSidebar){
         sideBarClassName = 'sidebarBox sidebarVisible'
@@ -47,10 +63,10 @@ const LandingPage = (props) => {
             <Header/>
 
             <div className={sideBarClassName}>{showSidebar}
-                <p className='sidebarText'>About us</p>
+                <p className='sidebarText' onClick={(e) => handdleAbout(e)}>About us</p>
                 <p className='sidebarText'>Profile</p>
                 <p className='sidebarText' onClick={(e) => handdleMoreDoctors(e)}>Psychologists List</p>
-                <p className='sidebarText'> Contact</p>
+                <p className='sidebarText' onClick={(e) => handdleContact(e)}> Contact</p>
             </div>            
 
             <div className='parallax1'>
