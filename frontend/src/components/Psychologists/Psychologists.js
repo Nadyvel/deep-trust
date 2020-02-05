@@ -9,7 +9,9 @@ const Psychologists = props => {
             {props.psychologists && props.psychologists.map((doctor, i)=> {
             return <div className="eachProfile" key={i}> 
             <img className="profile_pic" src={doctor.image} alt="profile_pic"/>
-            <p className='psychoName'>{doctor.first_name} {doctor.last_name} </p></div> 
+            <p className='psychoName'>{doctor.first_name} {doctor.last_name} </p>
+            <div className='underLine'></div>
+            <p>{doctor.description}</p></div> 
             })}
         </div>
     );

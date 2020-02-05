@@ -10,9 +10,12 @@ const PsychologistsList = (props) => {
     const headerTest = 'test header'
     return (
         <>
+            <Header />
             <div className='psychologistsContainer'>
-                <Header />
+                
                 <p className='psychoList'>People you can trust</p>
+                <p className='psychodescrip'>The smartest people work every day to provide  the</p>
+                <p className='psychodescrip'>greatest support to you</p>
                 <Psychologists psychologists={props.psychologists}/>
             </div>
         </>
