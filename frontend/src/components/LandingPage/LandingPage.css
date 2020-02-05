@@ -15,15 +15,23 @@
     background: url("../images/elephant.jpg") no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-    height: 750px;
+    height: 830px;
     width: 100vw;
     margin-bottom: 150px;
+}
+
+.sidebarText {
+    color: white;
+    font-size: 15px;
+    padding-left: 30px;
+    padding-top: 35px;
+    cursor: pointer;
 }
 
 .layer {
     background-color: rgba(48, 48, 41, 0.7);
     position: absolute;
-    height: 750px;
+    height: 830px;
     width: 100vw;
 }
 
@@ -44,6 +52,8 @@
     flex-direction: row;
     margin: 50px;
     justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 100px;
 }
 
 .leftMiddleImage {
@@ -81,7 +91,7 @@
     background-attachment: fixed;
     height: 800px;
     width: 100vw;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     position: relative;
 }
 
@@ -92,6 +102,7 @@
     font-weight: 300;
     display: flex;
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .buttoWrapper {
@@ -115,21 +126,19 @@
     flex-direction: column;
 }
 
-.line {
-    margin: 14px;
-}
-
 .squareInfo {
     display: flex;
-    width: 440px;
-    height: 220px;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 475px;
     background-color: rgba(232,221,208,1);
     z-index: 10;
     position: absolute;
     color: black;
     font-size: 16px;
     left: 50%;
-    top: 440px;
+    top: 200px;
     font: 'Roboto';
     font-weight: 300;
     padding: 15px;
@@ -137,6 +146,57 @@
 
 #text2 {
     margin: 0px;
+    color: rgb(88, 86, 86);
+    font-size: 22px;
+    padding-bottom: 5px;
+}
+
+.qustionaryInput {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 30px;
+    background-color: white;
+    margin: 6px;
+    border-radius: 5px;
+    border: transparent; 
+    padding-left: 15px; 
+}
+
+.inputQuestionsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+.qustionaryInputText {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 280px;
+    background-color: white;
+    margin: 12px;
+    border-radius: 5px;
+    border: transparent;
+    padding-left: 15px; 
+    padding-top: 15px; 
+}
+
+::placeholder {
+    font-size: 15px;
+}
+
+.qustionaryButton {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(88, 86, 86);
+    background-color: transparent;
+    border: rgb(88, 86, 86) 2px solid;
+    border-radius: 7px;
+    margin-left: 17px;
 }
 
 .sidebarBox {
