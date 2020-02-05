@@ -7,6 +7,7 @@ import {useEffect} from "react"
 // import {setModal} from "../../store/action/modalAction";
 // import LoginModal from '../LoginModal/LoginModal';
 import Psychologists from '../Psychologists/Psychologists'
+import Header from "../Header/Header";
 
 const LandingPage = (props) => {
     let [showSidebar, setShowSidebar] = useState(false);
@@ -23,6 +24,22 @@ const LandingPage = (props) => {
     const handdleMoreDoctors = (e) => {
         e.preventDefault();
         props.history.push('/doctorList')
+    }
+
+    const handdleAbout = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 900,
+            behavior: 'smooth',
+        });
+    };
+
+    const handdleContact = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 2500,
+            behavior: 'smooth',
+        });
     }
 
     let sideBarClassName = ''
@@ -43,10 +60,15 @@ const LandingPage = (props) => {
     
     return (
         <div className='landingPage'>
+            <Header/>
 
-            <div className={sideBarClassName}>{showSidebar}</div>            
+            <div className={sideBarClassName}>{showSidebar}
+                <p className='sidebarText' onClick={(e) => handdleAbout(e)}>About us</p>
+                <p className='sidebarText'>Profile</p>
+                <p className='sidebarText' onClick={(e) => handdleMoreDoctors(e)}>Psychologists List</p>
+                <p className='sidebarText' onClick={(e) => handdleContact(e)}> Contact</p>
+            </div>            
 
-            <p className='line'></p>
             <div className='parallax1'>
                 
                 <div className="layer">
@@ -85,9 +107,19 @@ const LandingPage = (props) => {
             
             <div className='parallax2'>
                 <div className="squareInfo">
-                    <p id="text2">
-                        More about Deep  TRUST
-                    </p>
+                    <div className='tittleQustions'>
+                        <p id="text2">
+                            More questions?
+                        </p>
+                    </div>
+                    <div>
+                        <form className='inputQuestionsForm'>
+                            <input className='qustionaryInput' placeholder={'Name'} name='name'  />
+                            <input className='qustionaryInput' placeholder={'Email'} name='email' />
+                            <textarea className='qustionaryInputText' placeholder={'Comments'} name='comments' />
+                            <button className='qustionaryButton'>Submit</button>
+                        </form>
+                    </div>
                 </div> 
             </div>
         </div>    
