@@ -12,10 +12,11 @@ class Footer extends React.Component {
         return(
             <div className="footer">
                 <div className="leftFooter">
+                    {/* <logo goes here></logo> */}
+                </div>
+                <div className="centerFooter">
                   <ul>
-                    <li>About Us</li>
-                    <li>Blog</li>
-                    <li>Contact</li>
+                    <li>Copyright  ©</li>
                   </ul>
                 </div>
                 <div className="rightFooter">

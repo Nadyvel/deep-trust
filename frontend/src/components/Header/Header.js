@@ -12,8 +12,8 @@ const Header = (props) => {
 
     return (
         <div className='header'>
-            <button type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
-            <button type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
+            <button className='headerSubmit' type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>
+            <button className='headerSubmit' type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>
           
             <RegistrationModal />
             <LoginModal />
