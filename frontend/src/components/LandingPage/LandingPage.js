@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
 import './LandingPage.css';
 import {useEffect} from "react"
-// import RegistrationModal from '../RegistrationModal/RegistrationModal'
-// import {setModal} from "../../store/action/modalAction";
-// import LoginModal from '../LoginModal/LoginModal';
+import RegistrationModal from '../RegistrationModal/RegistrationModal'
+import {setModal} from "../../store/action/modalAction";
+import LoginModal from '../LoginModal/LoginModal';
 import Psychologists from '../Psychologists/Psychologists'
 import Header from "../Header/Header";
 
@@ -42,6 +42,8 @@ const LandingPage = (props) => {
         });
     }
 
+    const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
+
     let sideBarClassName = ''
     if (showSidebar){
         sideBarClassName = 'sidebarBox sidebarVisible'
@@ -64,10 +66,14 @@ const LandingPage = (props) => {
 
             <div className={sideBarClassName}>{showSidebar}
                 <p className='sidebarText' onClick={(e) => handdleAbout(e)}>About us</p>
-                <p className='sidebarText'>Profile</p>
+                <p className='sidebarText' type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</p>
+                <p className='sidebarText' type='submit' onClick={() => handleOpen("LoginModal")}>Login</p>
                 <p className='sidebarText' onClick={(e) => handdleMoreDoctors(e)}>Psychologists List</p>
                 <p className='sidebarText' onClick={(e) => handdleContact(e)}> Contact</p>
             </div>            
+
+            <RegistrationModal />
+            <LoginModal />
 
             <div className='parallax1'>
                 
