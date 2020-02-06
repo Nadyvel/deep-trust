@@ -43,12 +43,15 @@ class SearchPsychologists(ListAPIView):
         return queryset
 
 
-class RetrievePsychologistProfile(RetrieveAPIView):
+class RetrievePsychologistProfile(ListAPIView):
     permission_classes = [IsAuthenticated, ObjIsLoggedInUser]
     queryset = Psychologist.objects.all()
     serializer_class = PsychologistSerializer
     lookup_url_kwarg = 'user_id'
 
+    def get_queryset(self):
+        query_result = Psychologist.objects.filter(user_id=self.kwargs.get('user_id'))
+        return query_result
 
 # deletes or updates psychologist
 class DestroyPsychologist(DestroyAPIView):
