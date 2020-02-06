@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
-import './Room.css'
+import './Room.scss'
 
 const Room = ({ roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
@@ -45,7 +45,12 @@ const Room = ({ roomName, token, handleLogout }) => {
 
   return (
     <div className="room">
-      <h2>Room: {roomName}</h2>
+      <div className="headerWrap">
+        <header className="header">
+          <h3>Deep Trust</h3>
+        </header>
+      </div>
+      {/* <h2>Room: {roomName}</h2> */}
       <div className="local-participant">
         {room ? (
           <Participant
@@ -57,7 +62,9 @@ const Room = ({ roomName, token, handleLogout }) => {
         )}
               {/* <h3>Remote Participants</h3> */}
       <div className="remote-participants">{remoteParticipants}</div>
-      <button className="logoutButton" onClick={handleLogout}>Log out</button>
+      <div className="buttonWrap">
+        <button className="logoutButton" onClick={handleLogout}></button>
+      </div>
       </div>
     </div>
   );

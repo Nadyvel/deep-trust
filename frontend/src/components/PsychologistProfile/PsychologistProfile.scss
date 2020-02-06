@@ -1,0 +1,39 @@
+.psychologist-profile-component{
+    height: 100vh;
+    width:100%;
+    display:flex;
+    // overflow: scroll;
+    border: solid red;
+
+    .psychologist-menu-nav-container {
+        width: 18%;
+        border-right: 1px solid gainsboro;
+        display: flex;
+        flex-direction: column;
+
+        .menu-nav-items {
+            margin-left: 10%;
+
+            .psychologist-page-links{
+                color: grey;
+                font-weight: lighter;
+            }
+        }
+
+        .psychologist-sos-link{
+            color: grey;
+            font-weight: lighter;
+            margin-left: 10%;
+        }
+    }
+
+    .psychologist-menu-content-container {
+        width: 50%;
+        border: solid green;
+    }
+
+    .psychologist-information-container {
+        width: 32%;
+        border: solid black;
+    }
+}

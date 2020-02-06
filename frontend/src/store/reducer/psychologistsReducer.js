@@ -1,5 +1,6 @@
 const initialState = {
-    psychologists: []
+    psychologists: [],
+    myProfile: '',
     // {
     //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
     // }
@@ -12,6 +13,12 @@ const psychologistsReducer = function (state = initialState, action) {
                 ...state,
                 psychologists: action.payload
             }  
+        
+        case 'GET_MY_PROFILE':
+            return {
+                ...state,
+                myProfile: action.payload
+            }
             
         default:
             return state;

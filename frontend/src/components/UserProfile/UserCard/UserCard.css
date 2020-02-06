@@ -37,9 +37,9 @@
     display: flex;
     width: 50%;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
     margin-left: 5%;
+    margin-top: 10%;
 }
 .user-menu-container{
     display: flex;
@@ -58,6 +58,19 @@
     width: 70%;
     height: 70%;
 }
+.user-page-links{
+    color: grey;
+    font-weight: lighter;
+}
 .menu-items{
-    text-decoration: none;
+    margin-left: 10%;
+}
+.sos-link-container{
+    display: flex;
+    flex-direction: column;
+}
+.user-sos-link{
+    color: grey;
+    font-weight: lighter;
+    margin-left: 10%;
 }

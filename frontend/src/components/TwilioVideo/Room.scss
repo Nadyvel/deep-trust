@@ -1,0 +1,151 @@
+@media all 
+  and (min-device-width: 320px)
+  and (max-device-width: 480px) {
+        .local-participant {
+            max-width: 480px;
+        } 
+    }
+
+@media all 
+    and (min-device-width: 480px)
+    and (max-device-width: 568px) {
+        .local-participant {
+            max-width: 568px;
+        } 
+    }
+
+@media all 
+    and (min-device-width: 568px)
+    and (max-device-width: 667px) {
+        .local-participant {
+            max-width: 667px;
+        } 
+    }
+
+@media all 
+    and (min-device-width: 667px)
+    and (max-device-width: 736px)  {
+        .local-participant {
+            max-width: 736px;
+        } 
+    }
+
+@media all 
+    and (min-device-width: 736px)
+    and (max-device-width: 812px)  {
+        .local-participant {
+            max-width: 812px;
+        } 
+    }
+
+@media all 
+    and (min-device-width: 812px)
+    and (max-device-width: 1080px) {
+        .local-participant {
+            max-width: 760px;
+        } 
+    }
+
+@media all
+  and (min-device-width: 1080px) 
+  and (max-device-width: 1366px) { 
+    .local-participant {
+        max-width: 560px;
+    } 
+}
+
+@media all
+  and (min-device-width: 1366px) 
+  and (max-device-width: 4000px) { 
+    .local-participant {
+        max-width: 940px;
+    } 
+}
+
+.room {
+    box-sizing: border-box;
+    width: 100%;
+    height: 94vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    // border: solid red;
+    position: relative;
+    background-color: white;
+
+    
+    .header {
+        // border: solid green;
+        margin: 0;
+        width: 100%;
+        height: 5%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+
+    }
+    
+    
+    .local-participant {
+        width: 100%;
+        // height: 100%;
+        // border: solid blue;
+        position: relative;
+        position: absolute;
+            
+        // display: flex;
+        // justify-content: space-evenly;
+        // flex-direction: row;
+        // align-items: center;
+
+        .participant {
+            // width: 100%;
+            // height: 100%;
+
+            // border: solid green;
+
+            video {
+                width: 100%;
+                max-width: 1080px;
+            }
+        }    
+
+
+        .remote-participants {
+            width: 30%;
+            // height: 30%;
+            // border: solid black;
+            position: absolute;
+            top: 0%;
+            left: 70%;
+
+            .participant {
+                // width: 100%;
+                // height: 100%;
+                // border: solid brown;
+
+                video {
+                    width: 100%;
+                }
+            }
+        }
+        .buttonWrap {
+            // border: solid green;
+            background-color: white;
+            
+            display: flex;
+            justify-content: center;
+
+            .logoutButton {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: url('../images/dropCall.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                border: none;
+            }
+        }
+    }
+}
