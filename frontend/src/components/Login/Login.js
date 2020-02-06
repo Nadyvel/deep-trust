@@ -36,7 +36,6 @@ const Login = props => {
         if (Number(response.status) === 401) {
             setShowMessage('Incorrent email or password, please try again')
         }
-   
     }
  
     return(
@@ -46,8 +45,10 @@ const Login = props => {
             </div>
             <div className='inputContainer'>
                 <form onSubmit={handleSubmit}>
-                    <input className='registrationInput' placeholder={'Email'} name='email' value={state.email} onChange={handleChange}/>
-                    <input className='registrationInput' placeholder={'Password'} type='password' name='password' value={state.password} onChange={handleChange}/>
+                    <input className='registrationInput' placeholder={'Email'} name='email' value={state.email} 
+                    onChange={handleChange}/>
+                    <input className='registrationInput' placeholder={'Password'} type='password' name='password' 
+                    value={state.password} onChange={handleChange}/>
                     
                     <div>
                         <p>{showMessage}</p>

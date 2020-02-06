@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
 import './LandingPage.css';
-import {useEffect} from "react"
+import {useEffect} from "react";
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
 import {setModal} from "../../store/action/modalAction";
 import LoginModal from '../LoginModal/LoginModal';
@@ -37,9 +37,14 @@ const LandingPage = (props) => {
         document.getElementById('downContainer').scrollIntoView();
     };
 
+    const handdleProfile = (e) => {
+        e.preventDefault();
+        props.history.push('/userprofile');
+    };
+
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
 
-    let sideBarClassName = ''
+    let sideBarClassName = '';
     if (showSidebar){
         sideBarClassName = 'sidebarBox sidebarVisible';
     } else {
@@ -61,10 +66,12 @@ const LandingPage = (props) => {
 
             <div className={sideBarClassName}>{showSidebar}
                 <p className='sidebarText' onClick={(e) => handdleAbout(e)}>About us</p>
-                <p className='sidebarText' type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</p>
-                <p className='sidebarText' type='submit' onClick={() => handleOpen("LoginModal")}>Login</p>
+                {!props.authenticated && <p className='sidebarText' type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</p>}
+                {!props.authenticated && <p className='sidebarText' type='submit' onClick={() => handleOpen("LoginModal")}>Login</p>}
                 <p className='sidebarText' onClick={(e) => handdleMoreDoctors(e)}>Psychologists List</p>
                 <p className='sidebarText' onClick={(e) => handdleContact(e)}> Contact</p>
+
+                {props.authenticated && <p className='sidebarText' onClick={(e) => handdleProfile(e)}> Profile</p>}
             </div>            
 
             <RegistrationModal />
@@ -124,12 +131,13 @@ const LandingPage = (props) => {
                 </div> 
             </div>
         </div>    
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
-        psychologists: state.psychologistsReducer.psychologists
+        psychologists: state.psychologistsReducer.psychologists,
+        authenticated: state.loginReducer.authenticated
     };
 };
 

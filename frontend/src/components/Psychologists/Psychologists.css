@@ -50,3 +50,10 @@
     font-weight: 300;
     margin: 10px;
 }
+
+#like {
+    border-radius: 50px;
+    border: solid 1px black;
+    width: 35px;
+    height: 35px;
+}

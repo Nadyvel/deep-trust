@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import {connect} from "react-redux";
 import {psychologistsAction} from '../../store/action/psychologistsAction';
 import './PsychologistsList.css';
-import {useEffect} from "react"
+import {useEffect} from "react";
 import Header from "../Header/Header";
-import Psychologists from '../Psychologists/Psychologists'
+import Psychologists from '../Psychologists/Psychologists';
 
 const PsychologistsList = (props) => {
     const headerTest = 'test header';
