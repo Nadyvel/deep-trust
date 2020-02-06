@@ -53,6 +53,7 @@ class RetrievePsychologistProfile(ListAPIView):
         query_result = Psychologist.objects.filter(user_id=self.kwargs.get('user_id'))
         return query_result
 
+
 # deletes or updates psychologist
 class DestroyPsychologist(DestroyAPIView):
     permission_classes = [IsAuthenticated, ObjIsLoggedInUserDelete]
