@@ -13,7 +13,30 @@ export const psychologistsAction = () => async (dispatch, getState) => {
         payload: data,
     }
     dispatch(action) 
+    console.log('psycholog', data)
 };
 
 
+export const LikeDocAction = (doctor) => async (dispatch, getState) => {
+    const token = getState().loginReducer.tokens.access;
+   
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    });
+    const config = {
+        method: 'POST',
+        headers: myHeaders,
+    };
+
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/favourite/${doctor}`, config);
+    const data = await response.json();
+    
+    const action = {
+        type: 'LIKE_PSYCHOLOGIST',
+        payload: data,
+    }
+    dispatch(action)
+    console.log('user id', data)
+}
 
