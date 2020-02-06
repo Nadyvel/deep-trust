@@ -1,6 +1,6 @@
 from django.db.models import Q
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView, CreateAPIView, \
-    GenericAPIView
+    GenericAPIView, DestroyAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -43,8 +43,17 @@ class SearchPsychologists(ListAPIView):
         return queryset
 
 
+class RetrievePsychologistProfile(RetrieveAPIView):
+    permission_classes = [IsAuthenticated, ObjIsLoggedInUser]
+    queryset = Psychologist.objects.all()
+    serializer_class = PsychologistSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
 # deletes or updates psychologist
-class UpdateDestroyPsychologist(RetrieveUpdateDestroyAPIView):
+class DestroyPsychologist(DestroyAPIView):
     permission_classes = [IsAuthenticated, ObjIsLoggedInUserDelete]
     queryset = User.objects.all()
     serializer_class = UserSerializer

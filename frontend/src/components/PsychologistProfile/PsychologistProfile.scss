@@ -7,7 +7,24 @@
 
     .psychologist-menu-nav-container {
         width: 18%;
-        border: solid blue;
+        border-right: 1px solid gainsboro;
+        display: flex;
+        flex-direction: column;
+
+        .menu-nav-items {
+            margin-left: 10%;
+
+            .psychologist-page-links{
+                color: grey;
+                font-weight: lighter;
+            }
+        }
+
+        .psychologist-sos-link{
+            color: grey;
+            font-weight: lighter;
+            margin-left: 10%;
+        }
     }
 
     .psychologist-menu-content-container {
