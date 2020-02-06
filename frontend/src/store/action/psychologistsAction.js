@@ -16,6 +16,15 @@ export const psychologistsAction = () => async (dispatch, getState) => {
     console.log('psycholog', data)
 };
 
+export const PsychologistProfileAction = () => async (dispatch, getState) => {
+    const headers = new Headers({})
+    const config = {
+        method: 'GET',
+        headers: headers
+    }
+
+    const response = await fetch('')
+}
 
 export const LikeDocAction = (doctor) => async (dispatch, getState) => {
     const token = getState().loginReducer.tokens.access;
