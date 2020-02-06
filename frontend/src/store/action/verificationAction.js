@@ -1,6 +1,9 @@
+import getCookie from '../../helper/cookies'
+
 export const verificationAction = props => async (dispatch, getState) => {
     const myHeaders = new Headers({
         'content-type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),
     });
 
     const body = {
