@@ -35,3 +35,11 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     return response
 };
 
+
+export const setAuthenticated = () => {
+    return {
+        type: 'setAuthenticated',
+        payload: false
+    };
+};
+

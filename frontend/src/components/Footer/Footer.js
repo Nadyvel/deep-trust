@@ -26,7 +26,7 @@ class Footer extends React.Component {
                     <img className="imgFooter" src={instagram} alt="instagramIcon" />
                 </div>
             </div>
-        )
+        );
     }
 
 }
