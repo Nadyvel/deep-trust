@@ -47,9 +47,10 @@ class RetrievePsychologistProfile(RetrieveAPIView):
     permission_classes = [IsAuthenticated, ObjIsLoggedInUser]
     queryset = Psychologist.objects.all()
     serializer_class = PsychologistSerializer
+    lookup_url_kwarg = 'user_id'
 
-    def get_object(self):
-        return self.request.user
+    # def get_object(self):
+        # return self.request.user
 
 
 # deletes or updates psychologist
