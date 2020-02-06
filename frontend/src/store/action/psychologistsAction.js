@@ -6,7 +6,7 @@ export const psychologistsAction = () => async (dispatch, getState) => {
         headers: myHeaders,
     };
     
-    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/psychologists/ ', config);
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/psychologists/', config);
     const data = await response.json();
     const action = {
         type: 'PSYCHOLOGISTS_LIST',
@@ -17,13 +17,24 @@ export const psychologistsAction = () => async (dispatch, getState) => {
 };
 
 export const PsychologistProfileAction = () => async (dispatch, getState) => {
-    const headers = new Headers({})
+    const token = getState().loginReducer.tokens.access;
+
+    const myHeaders = new Headers({
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    })
     const config = {
         method: 'GET',
-        headers: headers
+        headers: myHeaders
     }
 
-    const response = await fetch('')
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/psychologists/my/profile/', config)
+    const data = await response.json()
+    const action = {
+        type: 'GET_MY_PROFILE',
+        payload: data,
+    }
+    dispatch(action)
 }
 
 export const LikeDocAction = (doctor) => async (dispatch, getState) => {

@@ -12,5 +12,5 @@ urlpatterns = [
     path('', ListPsychologistProfile.as_view(), name='list-all-psychologist-profile'),
     path('favourite/<int:psychologist_id>/', CreateFavouritePsychologist.as_view(), name='create-favourite-psychologist'),
     path('my/favourites/', ListAllFavouritePsychologist.as_view(), name='list-all-favourite-psychologist'),
-    path('my/profile/', RetrievePsychologistProfile.as_view(), name='retrieve-psychologist-profile')
+    path('my/profile/<int:user_id>/', RetrievePsychologistProfile.as_view(), name='retrieve-psychologist-profile')
 ]
