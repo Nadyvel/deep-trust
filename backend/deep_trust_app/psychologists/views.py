@@ -49,9 +49,6 @@ class RetrievePsychologistProfile(RetrieveAPIView):
     serializer_class = PsychologistSerializer
     lookup_url_kwarg = 'user_id'
 
-    # def get_object(self):
-        # return self.request.user
-
 
 # deletes or updates psychologist
 class DestroyPsychologist(DestroyAPIView):
