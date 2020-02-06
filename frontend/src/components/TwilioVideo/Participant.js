@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './Room.scss'
 
 const Participant = ({ participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
@@ -61,7 +62,7 @@ const Participant = ({ participant }) => {
   return (
     <div className="participant">
       {/* <h3>{participant.identity}</h3> */}
-      <video ref={videoRef} autoPlay={true} width={1920} />
+      <video ref={videoRef} autoPlay={true} width={1080} />
       <audio ref={audioRef} autoPlay={true} />
     </div>
   );

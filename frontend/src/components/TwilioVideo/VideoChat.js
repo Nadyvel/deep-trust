@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Lobby from './Lobby';
 import Room from './Room';
-import axios from 'axios'
+import axios from 'axios';
 
 const VideoChat = () => {
 	const [username, setUsername] = useState('');
