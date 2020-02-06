@@ -4,7 +4,7 @@ import {Route, withRouter} from "react-router-dom";
 import {connect }from "react-redux";
 import UserCard from "./UserCard/UserCard";
 import UserSettings from "./UserSettings/UserSetting";
-import UserFavoritePsychologistList from "./UserFavoritePsychologistList/UserFavoritePsychologistList";
+import UserFavoritePsychologistList from "./UserFavoritePsychologistList/UserFavouritePsychologistList";
 
 const UserProfile = (props) => {
 
@@ -18,8 +18,6 @@ const UserProfile = (props) => {
         <>
         <div className='user-profile-component'>
             <UserCard userCard={props.userProfile}/>
-            <Route exact path='/userprofile/update' component={UserSettings}/>
-            <Route exact path='/userprofile/psychologists-list' component={UserFavoritePsychologistList}/>
         </div>
             </>
     )
