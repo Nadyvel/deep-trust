@@ -1,6 +1,6 @@
 const initialState = {
     psychologists: [],
-    myProfile: '',
+    myProfile: {},
     // {
     //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
     // }
