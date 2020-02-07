@@ -19,7 +19,16 @@ const psychologistsReducer = function (state = initialState, action) {
                 ...state,
                 myProfile: action.payload
             }
-            
+         
+        case 'LIKE_PSYCHOLOGIST':
+            const docLiked = state.psychologists.findIndex((psychologist) => action.payload.id === psychologist.id )
+            const newPsychologists = [ ...state.psychologists]
+            newPsychologists[docLiked] = action.payload
+            return {
+                ...state,
+                psychologist: newPsychologists
+            }    
+
         default:
             return state;
     }

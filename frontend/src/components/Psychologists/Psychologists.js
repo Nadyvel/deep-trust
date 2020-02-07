@@ -27,7 +27,6 @@ const Psychologists = props => {
     );
 };
 
-//path 'favourite/<int:psychologist_id>/'
 //<button id="like" className={this.props.isLiked ? "liked" : ""} onClick={this.handleLike}>Like</button>
 const mapStateToProps = state => {
     return {
