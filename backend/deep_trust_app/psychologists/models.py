@@ -6,7 +6,7 @@ from deep_trust_app.settings import AUTH_USER_MODEL
 
 class Psychologist(models.Model):
 
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         verbose_name='Psychologist profile',
         on_delete=models.CASCADE,
         to=AUTH_USER_MODEL,
