@@ -1,6 +1,7 @@
 const initialState = {
     psychologists: [],
     myProfile: {},
+    favPsychologists: [],
     // {
     //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
     // }
@@ -21,14 +22,23 @@ const psychologistsReducer = function (state = initialState, action) {
             }
          
         case 'LIKE_PSYCHOLOGIST':
-            const docLiked = state.psychologists.findIndex((psychologist) => action.payload.id === psychologist.id )
-            const newPsychologists = [ ...state.psychologists]
-            newPsychologists[docLiked] = action.payload
-            return {
-                ...state,
-                psychologist: newPsychologists
-            }    
+            let copyFavs = [ ...state.favPsychologists]
+            const item = copyFavs.find(item => item.id === action.payload.id);
 
+            if (item) {
+                const indexDislike = copyFavs.indexOf(item)
+                let newLiked = copyFavs.splice(indexDislike, 1)
+                return {
+                    ...state,
+                    favPsychologists: copyFavs   
+                }
+            } else {
+                const newFav = [ ...state.favPsychologists, action.payload]
+                return {
+                    ...state,
+                    favPsychologists: newFav
+                }
+            }          
         default:
             return state;
     }

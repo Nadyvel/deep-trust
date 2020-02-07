@@ -19,8 +19,11 @@ const Psychologists = props => {
             <p className='psychoName'>{doctor.first_name} {doctor.last_name} </p>
             <div className='underLine'></div>
             <p className='psychoDescription'>{doctor.description}</p>
+            
             {props.authenticated && <div className='likeTogle'><button id='like' 
+            // className={props.isLiked ? "liked" : ""} 
             onClick={() => handleLike(doctor)}>Like</button></div>}
+            
             </div>;
             })}
         </div>
@@ -30,7 +33,8 @@ const Psychologists = props => {
 //<button id="like" className={this.props.isLiked ? "liked" : ""} onClick={this.handleLike}>Like</button>
 const mapStateToProps = state => {
     return {
-        authenticated: state.loginReducer.authenticated
+        authenticated: state.loginReducer.authenticated,
+        favPsychologists: state.psychologistsReducer.favPsychologists
     };
 };
 
