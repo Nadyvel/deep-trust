@@ -8,6 +8,8 @@ import logo from '../images/wcs-umbrella-icon-grey.png'
 
 import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
 import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
+import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
+
 
 const PsychologistProfile = (props) => {
     useEffect(() => {
@@ -22,7 +24,10 @@ const PsychologistProfile = (props) => {
             </div>
 
             <div className='psychologist-menu-content-container'>
-
+                <h1> CONTAINER </h1>
+                <Switch>
+                <Route exact path='/psychologist/my/update' component={PsychologistSetting} />
+                </Switch>
             </div>
 
             <div className='psychologist-information-container'>

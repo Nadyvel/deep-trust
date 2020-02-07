@@ -3,7 +3,7 @@
     width:100%;
     display:flex;
     // overflow: scroll;
-    border: solid red;
+    // border: solid red;
 
     .psychologist-menu-nav-container {
         width: 18%;
@@ -28,18 +28,39 @@
     }
 
     .psychologist-menu-content-container {
+        display: flex;
         width: 50%;
-        border: solid green;
+        flex-direction: column;
+        align-content: center;
+        margin-left: 5%;
+        margin-top: 10%;
+        // border: solid green;
     }
 
     .psychologist-information-container {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
         width: 32%;
-        border: solid black;
+        // border: solid black;
+        position: relative;
 
-        .psychologist-image{
+        .psych-image{
             width: 90%;
             height: 100%;
             z-index: 0;
+        }
+
+        .psych-description {
+            font-family: Roboto;
+            font-weight: lighter;
+            margin-bottom: auto;
+            background-color: white;
+            width: 78%;
+            height: 30%;
+            z-index: 2;
+            position: absolute;
+            top: 62%;
         }
     }
 }
