@@ -35,5 +35,11 @@
     .psychologist-information-container {
         width: 32%;
         border: solid black;
+
+        .psychologist-image{
+            width: 90%;
+            height: 100%;
+            z-index: 0;
+        }
     }
 }

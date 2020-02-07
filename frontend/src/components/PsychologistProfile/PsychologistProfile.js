@@ -10,8 +10,6 @@ import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
 import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
 
 const PsychologistProfile = (props) => {
-    console.log('props in profile', props)
-
     useEffect(() => {
         props.dispatch(PsychologistProfileAction())
     },[])
@@ -35,9 +33,10 @@ const PsychologistProfile = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log('state in Profile', state)
     return {
-
+        authenticated: state.loginReducer.authenticated,
+        tokens: state.loginReducer.tokens,
+        myProfile: state.psychologistsReducer.myProfile
     }
 }
 export default connect(mapStateToProps)(withRouter(PsychologistProfile))
