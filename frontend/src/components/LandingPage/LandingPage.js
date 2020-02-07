@@ -39,7 +39,12 @@ const LandingPage = (props) => {
 
     const handdleProfile = (e) => {
         e.preventDefault();
-        props.history.push('/userprofile');
+        if (props.tokens.user.is_user === true) {
+            props.history.push('/userprofile');
+        }
+        else if (props.tokens.user.is_psychologist === true) {
+            props.history.push('/psychologist/me')
+        }
     };
 
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
@@ -137,7 +142,8 @@ const LandingPage = (props) => {
 const mapStateToProps = state => {
     return {
         psychologists: state.psychologistsReducer.psychologists,
-        authenticated: state.loginReducer.authenticated
+        authenticated: state.loginReducer.authenticated,
+        tokens: state.loginReducer.tokens,
     };
 };
 

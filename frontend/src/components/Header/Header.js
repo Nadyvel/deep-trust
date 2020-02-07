@@ -18,7 +18,12 @@ console.log(props);
 
     const handdleProfile = (e) => {
         e.preventDefault();
-        props.history.push('/userprofile');
+        if (props.tokens.user.is_user === true) {
+            props.history.push('/userprofile');
+        }
+        else if (props.tokens.user.is_psychologist === true) {
+            props.history.push('/psychologist/me')
+        }
     };
 
     const handdleLogout = () => props.dispatch(setAuthenticated());
@@ -43,7 +48,8 @@ console.log(props);
 
 const mapStateToProps = state => {
     return {
-        authenticated: state.loginReducer.authenticated
+        authenticated: state.loginReducer.authenticated,
+        tokens: state.loginReducer.tokens,
     };
 };
 
