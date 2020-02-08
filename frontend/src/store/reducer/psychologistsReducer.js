@@ -1,4 +1,5 @@
 const initialState = {
+    patientCards: [],
     psychologists: [],
     myProfile: {
         psychologists: {
@@ -34,10 +35,15 @@ const psychologistsReducer = function (state = initialState, action) {
                 ...state,
                 myProfile: action.payload
             }
+
+        case 'GET_PATIENT_CARD':
+            return {
+                ...state,
+                patientCards: action.payload
+            }
             
         default:
             return state;
     }
 }
-
 export default psychologistsReducer;

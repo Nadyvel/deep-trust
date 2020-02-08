@@ -18,7 +18,6 @@ const PsychologistInformation = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log('state: ', state)
     return {
         authenticated: state.loginReducer.authenticated,
         tokens: state.loginReducer.tokens,
