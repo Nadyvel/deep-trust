@@ -53,7 +53,7 @@ class ListBookingOfCurrentUser(ListAPIView):
     permission_classes = [ListBookingsOfCurrentUser]
 
     def get_queryset(self):
-        query_result = Booking.objects.filter(user=self.request.user)
+        query_result = Booking.objects.filter(user=self.request.user).order_by('date').reverse()
         return query_result
 
 
