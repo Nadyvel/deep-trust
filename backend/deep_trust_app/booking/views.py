@@ -8,7 +8,8 @@ from rest_framework.response import Response
 from deep_trust_app.booking.models import Booking
 from deep_trust_app.booking.permissions import BookingViewOnlyPsychologist, ListBookingsOfCurrentUser, \
     CreateBookingOnlyPatient, UpdateBookingOnlyPsychologist, DestroyBookingOnlyPatient
-from deep_trust_app.booking.serializers import BookingEmailSerializer, BookingSerializer
+from deep_trust_app.booking.serializers import BookingEmailSerializer, BookingSerializer, \
+    PsychologistAndUserBookingSerializer
 
 """
 !!! REPLACED WITH NEW 'CREATEBOOKING' BELOW !!!
@@ -48,7 +49,7 @@ class ListBookingOfCurrentUser(ListAPIView):
     Only accessible by the user.
     """
     queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+    serializer_class = PsychologistAndUserBookingSerializer
     permission_classes = [ListBookingsOfCurrentUser]
 
     def get_queryset(self):
@@ -63,11 +64,11 @@ class ListPsychologistAppointments(ListAPIView):
     Only accessible by psychologist current logged in
     """
     queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+    serializer_class = PsychologistAndUserBookingSerializer
     permission_classes = [BookingViewOnlyPsychologist]
 
     def get_queryset(self):
-        query_result = Booking.objects.filter(psychologist__user_id=self.request.user)
+        query_result = Booking.objects.filter(psychologist__user_id=self.request.user).order_by('date').reverse()
         return query_result
 
 
