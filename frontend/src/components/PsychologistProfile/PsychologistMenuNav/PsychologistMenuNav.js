@@ -26,7 +26,7 @@ const PsychologistMenuNav = (props) => {
             </div>
 
             <div className={PathName.includes('update')? 'psychologist-menu-profile-button-clicked': 'psychologist-menu-profile-button-unclicked'}>
-                <Link to={`/psychologist/my/update`} style={{textDecoration: 'none',}}>
+                <Link to={'/psychologist/my/update'} style={{textDecoration: 'none',}}>
                     <h2 className='psychologist-page-links'>Settings</h2>
                 </Link>
             </div>
