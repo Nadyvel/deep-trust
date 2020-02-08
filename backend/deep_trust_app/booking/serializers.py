@@ -10,8 +10,6 @@ from deep_trust_app.users.serializer import UserSerializer
 User = get_user_model()
 
 
-
-
 class BookingSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
 
@@ -62,7 +60,7 @@ class BookingEmailSerializer(serializers.Serializer):
                               f'Booking details:\n'
                               f'Psychologist: {psychologist_data.get().first_name} {psychologist_data.get().last_name}\n'
                               f'Date: {date}\n'
-                              f'Time: {Booking.time.field.choices[time-1][1]}\n\n'
+                              f'Time: {Booking.time.field.choices[time - 1][1]}\n\n'
                               f'Sincerely yours,\n'
                               f'Deep Trust')
         email.save(request=self.context['request'])
@@ -86,7 +84,7 @@ class PsychologistAndUserBookingSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_time_in_str(data):
-        return Booking.time.field.choices[data.time-1][1]
+        return Booking.time.field.choices[data.time - 1][1]
 
     class Meta:
         model = Booking
