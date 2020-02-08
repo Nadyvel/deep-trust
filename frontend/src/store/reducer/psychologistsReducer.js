@@ -1,6 +1,21 @@
 const initialState = {
     psychologists: [],
-    myProfile: [],
+    myProfile: {
+        psychologists: {
+            "first_name": null,
+            "last_name": null,
+            "country": null,
+            "city": null,
+            "zip": null,
+            "working_hours": null,
+            "price_per_hour": null,
+            "modified": null,
+            "image": null,
+            "timestamp": null,
+            "description": null,
+            "user": null
+        }
+    },
     // {
     //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
     // }

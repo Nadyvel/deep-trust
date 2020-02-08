@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './PsychologistProfile.scss'
 import { connect } from 'react-redux'
-import {Link, Route, Switch, withRouter} from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, withRouter} from "react-router-dom";
 import { PsychologistProfileAction } from '../../store/action/psychologistsAction'
 
 import logo from '../images/wcs-umbrella-icon-grey.png'
@@ -25,9 +25,7 @@ const PsychologistProfile = (props) => {
 
             <div className='psychologist-menu-content-container'>
                 <h1> CONTAINER </h1>
-                <Switch>
                 <Route exact path='/psychologist/my/update' component={PsychologistSetting} />
-                </Switch>
             </div>
 
             <div className='psychologist-information-container'>
