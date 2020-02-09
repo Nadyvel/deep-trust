@@ -14,6 +14,7 @@ import DoctorVerification from './components/DoctorVerification/DoctorVerificati
 import UserProfile from "./components/UserProfile/UserProfile";
 import PsychologistsList from './components/PsychologistsList/PsychologistsList';
 import PsychologistProfile from './components/PsychologistProfile/PsychologistProfile';
+import PsychologistSetting from './components/PsychologistProfile/PsychologistSetting/PsychologistSetting'
 
 const loadState = () => {
     try {
@@ -37,8 +38,6 @@ const action = {
 if (payload) {
     store.dispatch(action);
 }
-
-import PsychologistSetting from './components/PsychologistProfile/PsychologistSetting/PsychologistSetting'
 
 
 ReactDOM.render(

@@ -24,7 +24,7 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
         type: 'LOGIN_USER',
         payload: data,
     };
-    dispatch(action)
+    dispatch(action);
 
     // if(isUser === true) {
     //     return isUser, response
@@ -34,7 +34,7 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     //     return isUser, response
     // }
 
-    return response
+    return response;
 };
 
 
