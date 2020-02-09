@@ -10,11 +10,14 @@ const initialState = {
 const loginReducer = function (state = initialState, action) {
     switch (action.type) {
         case 'LOGIN_USER':
-            localStorage.setItem('access', action.payload.access);
-            return {
-                ...state,
+            console.log(action);
+            const newState = {
                 tokens: action.payload,
                 authenticated: true
+            }
+            return {
+                ...state,
+                ...newState
             }
           
         case 'setAuthenticated':

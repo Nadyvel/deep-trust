@@ -18,6 +18,8 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     const data = await response.json();
     // const isUser = data.user.is_user
 
+    localStorage.setItem('access', JSON.stringify(data));  //store info with setItem
+
     const action = {
         type: 'LOGIN_USER',
         payload: data,

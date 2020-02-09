@@ -34,7 +34,8 @@ const Psychologists = props => {
 const mapStateToProps = state => {
     return {
         authenticated: state.loginReducer.authenticated,
-        favPsychologists: state.psychologistsReducer.favPsychologists
+        favPsychologists: state.psychologistsReducer.favPsychologists,
+        favoritePsychologist: state.userReducer.favoritePsychologist
     };
 };
 
