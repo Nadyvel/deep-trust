@@ -38,6 +38,8 @@ if (payload) {
     store.dispatch(action);
 }
 
+import PsychologistSetting from './components/PsychologistProfile/PsychologistSetting/PsychologistSetting'
+
 
 ReactDOM.render(
     <Provider store={store}>
@@ -52,6 +54,7 @@ ReactDOM.render(
                     <Route path='/userprofile' component={UserProfile}/>
                     <Route exact path='/doctorList' component={PsychologistsList}/>
                     <Route exact path='/psychologist/me' component={PsychologistProfile} />
+                    <Route path='/psychologist/my/update' component={PsychologistSetting} />
                 </Switch>
             </App>
         </Router>

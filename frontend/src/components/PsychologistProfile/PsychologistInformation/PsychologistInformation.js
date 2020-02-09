@@ -4,22 +4,14 @@ import { connect } from 'react-redux'
 
 
 const PsychologistInformation = (props) => {
-    console.log('props', props)
-    console.log(props.myProfile.description)
-    console.log(props.myProfile.image)
-
-    // const myProfile_data = props.myProfile.map((myProfile, index) => {
-    //     return (key={index}
-    // })
-
     return (
         <>
         <div className='user-image-container'>
-            <img src={props.myProfile.image} className='psychologist-image' alt='pschologist-image'/>
+            <img src={props.myProfile.psychologists.image} className='psych-image' alt='pschologist-image'/>
         </div>
-        <div className='user-description'>
-             <h2>{props.myProfile.first_name} {props.myProfile.last_name}'s Profile</h2> 
-             {props.myProfile.description}
+        <div className='psych-description'>
+             <h2>{props.myProfile.psychologists.first_name} {props.myProfile.psychologists.last_name}'s Profile</h2> 
+             {props.myProfile.psychologists.description}
         </div>
         </>
     )
