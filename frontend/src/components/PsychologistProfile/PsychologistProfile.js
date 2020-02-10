@@ -9,6 +9,7 @@ import logo from '../images/wcs-umbrella-icon-grey.png'
 import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
 import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
 import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
+import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
 
 
 const PsychologistProfile = (props) => {
@@ -24,8 +25,8 @@ const PsychologistProfile = (props) => {
             </div>
 
             <div className='psychologist-menu-content-container'>
-                <h1> CONTAINER </h1>
-                <Route exact path='/psychologist/my/update' component={PsychologistSetting} />
+                <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
+                <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
             </div>
 
             <div className='psychologist-information-container'>

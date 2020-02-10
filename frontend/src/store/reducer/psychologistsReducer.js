@@ -1,4 +1,5 @@
 const initialState = {
+    patientCards: [],
     psychologists: [],
     favPsychologists: [],
     myProfile: {
@@ -53,10 +54,18 @@ const psychologistsReducer = function (state = initialState, action) {
                     ...state,
                     favPsychologists: newFav
                 };
-            }          
+            }   
+            
+        case 'GET_PATIENT_CARD':
+            return {
+                ...state,
+                patientCards: action.payload
+            };
+
         default:
             return state;
     }
 };
+
 
 export default psychologistsReducer;

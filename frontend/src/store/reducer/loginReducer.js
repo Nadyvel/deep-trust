@@ -14,21 +14,21 @@ const loginReducer = function (state = initialState, action) {
             const newState = {
                 tokens: action.payload,
                 authenticated: true
-            }
+            };
             return {
                 ...state,
                 ...newState
-            }
+            };
           
         case 'setAuthenticated':
             return {
                 ...state,
                 authenticated: action.payload
-            }
+            };
 
         default:
             return state;
     }
-}
+};
 
 export default loginReducer;
