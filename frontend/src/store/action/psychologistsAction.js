@@ -18,7 +18,6 @@ export const psychologistsAction = () => async (dispatch, getState) => {
 
 export const PsychologistProfileAction = () => async (dispatch, getState) => {
     const token = getState().loginReducer.tokens.access;
-    const userLoggedIn = getState().loginReducer.tokens.user.id;
 
     const myHeaders = new Headers({
         "Content-Type": "application/json",
@@ -29,7 +28,7 @@ export const PsychologistProfileAction = () => async (dispatch, getState) => {
         headers: myHeaders
     }
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/my/profile/${userLoggedIn}/`, config)
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/my/profile/`, config)
     const data = await response.json()
     const action = {
         type: 'GET_MY_PROFILE',
@@ -50,7 +49,7 @@ export const LikeDocAction = (doctor) => async (dispatch, getState) => {
         headers: myHeaders,
     };
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/favourite/${doctor}`, config);
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/favourite/${doctor}/`, config);
     const data = await response.json();
     
     const action = {
@@ -59,5 +58,28 @@ export const LikeDocAction = (doctor) => async (dispatch, getState) => {
     }
     dispatch(action)
     console.log('user id', data)
+}
+
+export const GetAllPatientCards = () => async (dispatch, getState) => {
+    const token = getState().loginReducer.tokens.access;
+
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    })
+
+    const config = {
+        method: 'GET',
+        headers: myHeaders,
+    };
+
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/psychologist/patient_cards/', config)
+    const data = await response.json()
+
+    const action = {
+        type: 'GET_PATIENT_CARD',
+        payload: data,
+    }
+    dispatch(action)
 }
 

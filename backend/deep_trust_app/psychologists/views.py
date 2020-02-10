@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 from deep_trust_app.psychologists.models import Psychologist
 from deep_trust_app.psychologists.permissions import IsUserCurrentLoggedIn
-from deep_trust_app.psychologists.serializers import PsychologistSerializer
+from deep_trust_app.psychologists.serializers import PsychologistSerializer, UserPsychologistSerializer
 from deep_trust_app.users.models import User
 from deep_trust_app.users.permissions import ObjIsLoggedInUser, isPsychologistTrue, ObjIsLoggedInUserDelete
 from deep_trust_app.users.serializer import UserSerializer
@@ -43,15 +43,17 @@ class SearchPsychologists(ListAPIView):
         return queryset
 
 
-class RetrievePsychologistProfile(ListAPIView):
+class RetrievePsychologistProfile(RetrieveAPIView):
     permission_classes = [IsAuthenticated, ObjIsLoggedInUser]
-    queryset = Psychologist.objects.all()
-    serializer_class = PsychologistSerializer
-    lookup_url_kwarg = 'user_id'
+    queryset = User.objects.all()
+    serializer_class = UserPsychologistSerializer
 
-    def get_queryset(self):
-        query_result = Psychologist.objects.filter(user_id=self.kwargs.get('user_id'))
-        return query_result
+    def get_object(self):
+        return self.request.user
+    # def retrieve(self, request, *args, **kwargs):
+    #     instance = self.request.user
+    #     serializer = self.get_serializer(instance)
+    #     return Response(serializer.data)
 
 
 # deletes or updates psychologist

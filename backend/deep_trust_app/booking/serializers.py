@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
@@ -6,6 +7,8 @@ from deep_trust_app.emails.models import Email
 from deep_trust_app.psychologists.models import Psychologist
 from deep_trust_app.users.serializer import UserSerializer
 
+User = get_user_model()
+
 
 class BookingSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
@@ -13,15 +16,6 @@ class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
-        """
-        https://www.django-rest-framework.org/api-guide/validators/
-        infos about unique validators in the link.
-        """
-        validators = [
-            UniqueTogetherValidator(
-                queryset=Booking.objects.all(),
-                fields=['psychologist', 'date', 'time']
-            )]
 
 
 class BookingEmailSerializer(serializers.Serializer):
@@ -66,8 +60,32 @@ class BookingEmailSerializer(serializers.Serializer):
                               f'Booking details:\n'
                               f'Psychologist: {psychologist_data.get().first_name} {psychologist_data.get().last_name}\n'
                               f'Date: {date}\n'
-                              f'Time: {Booking.time.field.choices[time+1][1]}\n\n'
+                              f'Time: {Booking.time.field.choices[time - 1][1]}\n\n'
                               f'Sincerely yours,\n'
                               f'Deep Trust')
         email.save(request=self.context['request'])
         return new_booking
+
+
+class PsychologistAndUserBookingSerializer(serializers.ModelSerializer):
+
+    user = UserSerializer(read_only=True)
+    psychologist_first_name = serializers.SerializerMethodField()
+    psychologist_last_name = serializers.SerializerMethodField()
+    time_in_str = serializers.SerializerMethodField()
+
+    @staticmethod
+    def get_psychologist_first_name(data):
+        return data.psychologist.first_name
+
+    @staticmethod
+    def get_psychologist_last_name(data):
+        return data.psychologist.last_name
+
+    @staticmethod
+    def get_time_in_str(data):
+        return Booking.time.field.choices[data.time - 1][1]
+
+    class Meta:
+        model = Booking
+        fields = ['user', 'id', 'date', 'time', 'time_in_str', 'psychologist', 'psychologist_first_name', 'psychologist_last_name', 'visited']

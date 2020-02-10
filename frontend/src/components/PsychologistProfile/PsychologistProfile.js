@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react'
 import './PsychologistProfile.scss'
 import { connect } from 'react-redux'
-import {Link, Route, Switch, withRouter} from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, withRouter} from "react-router-dom";
 import { PsychologistProfileAction } from '../../store/action/psychologistsAction'
 
 import logo from '../images/wcs-umbrella-icon-grey.png'
 
 import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
 import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
+import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
+import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
+
 
 const PsychologistProfile = (props) => {
     useEffect(() => {
@@ -22,7 +25,8 @@ const PsychologistProfile = (props) => {
             </div>
 
             <div className='psychologist-menu-content-container'>
-
+                <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
+                <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
             </div>
 
             <div className='psychologist-information-container'>

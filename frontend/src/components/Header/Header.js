@@ -22,12 +22,14 @@ console.log(props);
             props.history.push('/userprofile');
         }
         else if (props.tokens.user.is_psychologist === true) {
-            props.history.push('/psychologist/me')
+            props.history.push('/psychologist/me');
         }
     };
 
-    const handdleLogout = () => props.dispatch(setAuthenticated());
-    
+    const handdleLogout = () => {
+        props.dispatch(setAuthenticated());
+        localStorage.clear();
+    };
 
     return (
         <div className='header'>
