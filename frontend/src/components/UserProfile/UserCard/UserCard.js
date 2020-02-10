@@ -6,9 +6,10 @@ import logo from "../../images/wcs-umbrella-icon-grey.png"
 import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
 import UserSetting from "../UserSettings/UserSetting";
+import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar"
 
 const UserCard = (props) => {
-    
+
 
     const PathName=props.location.pathname;
     return (
@@ -22,7 +23,7 @@ const UserCard = (props) => {
 
             <div className='information-render-container'>
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
-                <Route exact path='/userprofile/update' component={UserSetting}/>
+                <Route exact path='/userprofile/settings' component={UserSetting}/>
             </div>
 
             <div className='user-menu-container'>
@@ -56,14 +57,14 @@ const UserCard = (props) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    };
-};
+    }
+}
 
 
 export default connect(mapStateToProps)(withRouter(UserCard));
