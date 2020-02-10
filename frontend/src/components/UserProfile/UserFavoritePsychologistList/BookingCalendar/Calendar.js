@@ -6,29 +6,32 @@ import CalendarReact from 'react-calendar'
 const Calendar = (props) => {
 
     const [state, setState] = useState({
-        value: new Date(),
+        value: new Date()
     })
-
-    const [show, setShow] = useState(false);
 
     const onChange = value => setState({ value })
 
-    const { value } = state
+    // const { value } = state
 
-    const onClickDay = () => {
-        setState({value})
-    }
+    // const data = state.value.map((val) => {
+    //     return val
+    // })
+
+    const data = state.value.toDateString().split(" ")
+    console.log('state', data)
 
     return (
         <>
         <div className="booking-calendar-container">
+            <div className="booking-calendar-wrapper" >
         <CalendarReact 
         onChange={onChange}
-        value={value}
-        onClickDay={console.log(value)}
+        value={state.value}
+        onClickDay={console.log(state)}
         />
 
         <div className="bookingBox">
+            <h3>{data[1]} {data[2]} {data[3]}</h3>
             <div className="bookingChoices">
                 <p>8:00 - 9:30</p> <button>Book now</button>
             </div>
@@ -50,6 +53,7 @@ const Calendar = (props) => {
             <div className="bookingChoices">
                 <p>18:00 - 19:30</p> <button>Book now</button>
             </div>
+        </div>
         </div>
         </div>
         </>
