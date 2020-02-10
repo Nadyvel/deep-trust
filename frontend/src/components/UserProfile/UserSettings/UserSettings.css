@@ -1,0 +1,38 @@
+.user-settings{
+    display: flex;
+    flex-direction: column;
+}
+.user-settings-styling{
+    /*display: flex;*/
+    width: 80%;
+    height: 5vh;
+    /*border: solid gainsboro 1px;*/
+    margin: 2%;
+}
+.settings-title{
+    font-weight: lighter;
+    font-family: Roboto;
+}
+.save-button{
+    border: solid rosybrown 1px;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    margin-top: 5%;
+
+}
+.update-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 3%;
+}
+
+.verifInput-2{
+    padding: 10px;
+    margin: 10px;
+    width: 450px;
+    height: 30px;
+    border: grey;
+    border-radius: 5px;
+}
