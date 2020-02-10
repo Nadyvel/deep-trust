@@ -4,10 +4,7 @@ import rootReducer from './reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 // import persistState from 'redux-localstorage'
  
-// const enhancer = compose(
-//   /* [middlewares] */,
-//   persistState(/*paths, config*/),
-// )
+
 export const loadState = () => {
     try {
       const serializedState = localStorage.getItem('access');
@@ -19,7 +16,6 @@ export const loadState = () => {
       return undefined;
     }
   };
-// const store = createStore(rootReducer, enhancer)
 
 
 const loginState = loadState();
