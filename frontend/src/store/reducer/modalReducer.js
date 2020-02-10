@@ -28,11 +28,11 @@ const initialState = {
             // prevents an undefined "isVisible" from overwriting the visibility to "false" instead of not changing it
             const newIsVisible = (isVisible === null || isVisible === undefined) ? oldIsVisible : isVisible;
 
-            return { ...state, [namespace]: { isVisible: newIsVisible, data: newData } }
+            return { ...state, [namespace]: { isVisible: newIsVisible, data: newData } };
         }
         default:
-            return state
+            return state;
     }
 };
 
-export default modalReducer
+export default modalReducer;

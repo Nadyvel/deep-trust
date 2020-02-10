@@ -10,7 +10,6 @@ const initialState = {
 const loginReducer = function (state = initialState, action) {
     switch (action.type) {
         case 'LOGIN_USER':
-            console.log(action);
             const newState = {
                 tokens: action.payload,
                 authenticated: true
