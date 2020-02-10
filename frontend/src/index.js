@@ -7,14 +7,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LandingPage from './components/LandingPage/LandingPage';
-import DoctorLandingPage from './components/DoctorLandingPage/DoctorLandingPage';
 import VideoChat from './components/TwilioVideo/VideoChat';
 import Verification from './components/Verification/Verification';
 import DoctorVerification from './components/DoctorVerification/DoctorVerification';
 import UserProfile from "./components/UserProfile/UserProfile";
 import PsychologistsList from './components/PsychologistsList/PsychologistsList';
 import PsychologistProfile from './components/PsychologistProfile/PsychologistProfile';
-import PsychologistSetting from './components/PsychologistProfile/PsychologistSetting/PsychologistSetting'
+
 
 const loadState = () => {
     try {
