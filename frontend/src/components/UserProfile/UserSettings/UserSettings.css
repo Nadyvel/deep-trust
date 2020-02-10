@@ -2,37 +2,55 @@
     display: flex;
     flex-direction: column;
 }
+
+.user-settings-title {
+    display: flex;
+    justify-content: center;
+}
+
 .user-settings-styling{
-    /*display: flex;*/
     width: 80%;
     height: 5vh;
-    /*border: solid gainsboro 1px;*/
     margin: 2%;
 }
 .settings-title{
     font-weight: lighter;
     font-family: Roboto;
 }
-.save-button{
-    border: solid rosybrown 1px;
-    border-radius: 30px;
-    width: 100px;
-    height: 40px;
-    margin-top: 5%;
 
+.profile-update-title {
+    color: rgb(28, 16, 70);
 }
+
 .update-form{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    align-items: center;
+    width: 100%;
     margin-top: 3%;
 }
 
-.verifInput-2{
-    padding: 10px;
-    margin: 10px;
-    width: 450px;
+.update-input {
+    width: 470px;
     height: 30px;
-    border: grey;
-    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+}
+
+.update-input[value] {
+    font-size: 15px;
+    color: rgb(28, 16, 70);
+}
+
+.save-button{
+    border: solid rgb(28, 16, 70) 1px;
+    background-color: rgb(28, 16, 70);
+    color: white;
+    border-radius: 30px;
+    width: 120px;
+    height: 50px;
+    margin-top: 5%;
 }

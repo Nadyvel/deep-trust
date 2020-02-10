@@ -8,7 +8,7 @@ import UserFavoritePsychologistList from "./UserFavoritePsychologistList/UserFav
 
 const UserProfile = (props) => {
 
-    console.log('user profile', props)
+    console.log('user profile', props);
     useEffect(() => {
         props.dispatch(userAction());
         props.dispatch(favoritePsychologistAction());
@@ -20,14 +20,14 @@ const UserProfile = (props) => {
             <UserCard userCard={props.userProfile}/>
         </div>
             </>
-    )
-}
+    );
+};
 const mapStateToProps = state => {
     return {
         tokens: state.loginReducer.tokens,
         userProfile: state.userReducer.userProfile,
         favoritePsychologist: state.userReducer.favoritePsychologist,
-    }
-}
+    };
+};
 
-export default withRouter(connect(mapStateToProps)(UserProfile))
+export default withRouter(connect(mapStateToProps)(UserProfile));

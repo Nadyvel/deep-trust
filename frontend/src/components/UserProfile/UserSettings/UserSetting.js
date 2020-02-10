@@ -21,52 +21,55 @@ const UserSettings = (props) => {
     const handleUpdate = async e => {
         e.preventDefault();
         const response = await props.dispatch(userAction(state));
-    }
+    };
 
 
     if(props.userProfile.email){
         return (
         <div className='user-settings'>
-            <div className='user-settings-title'><h1 className='profile-update-title'>Update your profile</h1>
+            <div className='user-settings-title'>
+                <h1 className='profile-update-title'>Update your profile</h1>
             </div>
+
             <form className='update-form' onSubmit={handleUpdate}>
-                        <input className='verifInput-2' name='image'
-                            value={props.userProfile.image} onChange={handleChange}/>
+                {/* <input className='update-input' name='image'
+                    value={props.userProfile.image} onChange={handleChange}/> */}
 
-                        <input className='update-form' name="email"
-                            value={props.userProfile.email} onChange={handleChange}/>
+                <input className='update-input' name="email"
+                    value={props.userProfile.email} onChange={handleChange}/>
 
-                        <input className='update-form' name="username"
-                            value={props.userProfile.username} onChange={handleChange}/>
+                <input className='update-input' name="username"
+                    value={props.userProfile.username} onChange={handleChange}/>
 
-                        <input className='update-form' name="first_name"
-                            value={props.userProfile.first_name} onChange={handleChange}/>
+                <input className='update-input' name="first_name"
+                    value={props.userProfile.first_name} onChange={handleChange}/>
 
-                        <input className='update-form' name="last_name"
-                            value={props.userProfile.last_name} onChange={handleChange}/>
+                <input className='update-input' name="last_name"
+                    value={props.userProfile.last_name} onChange={handleChange}/>
 
-                        <input className='update-form' name="password"
-                            value={props.userProfile.password} onChange={handleChange} />
+                {/* <input className='update-input' name="password"
+                    value={props.userProfile.password} onChange={handleChange} /> */}
 
-                        <input className='update-form'  name="location"
-                            value={props.userProfile.location} onChange={handleChange} />
+                <input className='update-input'  name="location"
+                    value={props.userProfile.location} onChange={handleChange} />
 
-                        <input className='update-form'  name="description"
-                            value={props.userProfile.description} onChange={handleChange} />
+                <input className='update-input'  name="description"
+                    value={props.userProfile.description} onChange={handleChange} />
 
-                        <button className='save-button' type="submit" content="Save">Save</button>
+                <button className='save-button' type="submit" content="Save">Save</button>
 
             </form>
-        </div>)
+        </div>
+        );
 }
     else
-        return(<div className='loading'>Loading</div>)
-}
+        return(<div className='loading'>Loading</div>);
+};
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps)(withRouter(UserSettings));

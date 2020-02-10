@@ -11,7 +11,7 @@ const Verification = (props) => {
         username: '',
         password: '',
         password_repeat: '',
-    })
+    });
     let [showMessage, setShowMessage] = useState(false);
 
     const handleChange = e =>
@@ -27,9 +27,9 @@ const Verification = (props) => {
 
         const message = await props.dispatch(verificationAction(state));
         if (message.length > 0) {
-            setShowMessage(message)
+            setShowMessage(message);
         }
-    }
+    };
     return (
         <div className='verifMainContainer'>
             <div className='backgroundLayer'>
@@ -64,7 +64,7 @@ const Verification = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default withRouter(connect()(Verification))
+export default withRouter(connect()(Verification));
