@@ -46,7 +46,6 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route exact path='/' component={LandingPage}/>
-                    <Route exact path='/doctorLandingPage' component={DoctorLandingPage}/>
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
                     <Route exact path='/video' component={VideoChat} />
