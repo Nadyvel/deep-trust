@@ -2,16 +2,16 @@ import {connect} from "react-redux";
 import {Link, Route, Switch, withRouter} from "react-router-dom";
 import React from "react";
 import './UserCard.css';
-import logo from "../../images/wcs-umbrella-icon-grey.png"
+import logo from "../../images/wcs-umbrella-icon-grey.png";
 import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
-import UserSetting from "../UserSettings/UserSetting";
-import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar"
+import UserSettings from "../UserSettings/UserSetting";
+import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar";
 
 const UserCard = (props) => {
-    console.log('USER CARD', props)
+    console.log('USER CARD', props);
 
-    const PathName=props.location.pathname
+    const PathName=props.location.pathname;
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
@@ -23,7 +23,7 @@ const UserCard = (props) => {
 
             <div className='information-render-container' id="main">
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
-                <Route exact path='/userprofile/settings' component={UserSetting}/>
+                <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
             </div>
 
@@ -45,7 +45,7 @@ const UserCard = (props) => {
                             <h2 className='user-page-links'>My Favourites</h2>
                         </Link></div>
                     <div className={PathName.includes('update')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
-                        <Link to={`/userprofile/update`} style={{textDecoration: 'none',}}>
+                        <Link to={`/userprofile/settings`} style={{textDecoration: 'none',}}>
                             <h2 className='user-page-links'>Settings</h2>
                         </Link></div>
                 </div>
@@ -58,14 +58,14 @@ const UserCard = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    }
-}
+    };
+};
 
 
 export default connect(mapStateToProps)(withRouter(UserCard));

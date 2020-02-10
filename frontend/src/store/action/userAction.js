@@ -73,5 +73,3 @@ export const userUpdateProfile = (updateUserData) => async (dispatch, getState) 
     dispatch(action);
     return data;
 };
-
-//https://deep-trust.propulsion-learn.ch/api/me/
