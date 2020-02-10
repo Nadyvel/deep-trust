@@ -19,6 +19,8 @@ export const userAction = () => async (dispatch, getState) => {
         payload: data,
     }
     dispatch(action)
+    
+    return response
 };
 
 

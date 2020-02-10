@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
-import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router-dom';
 //import {useEffect} from "react";
 import Modal from '../Modal/Modal';
 import {setModal} from "../../store/action/modalAction";
@@ -16,7 +16,7 @@ const LoginModal = ({isVisible, data, dispatch, history}) => {
 
     useEffect(() => {
        
-    })
+    });
    
     return (
         <>
@@ -33,8 +33,8 @@ const LoginModal = ({isVisible, data, dispatch, history}) => {
                 </Modal>  
             }
         </> 
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {

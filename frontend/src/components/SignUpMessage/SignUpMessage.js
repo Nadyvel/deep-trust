@@ -8,8 +8,8 @@ const SignUpMessage = (props) => {
             <p className='messageRegistration'>Check email Message for verification, after registration process</p>
         
         </div>    
-    )
-}
+    );
+};
 
 
-export default SignUpMessage
+export default SignUpMessage;

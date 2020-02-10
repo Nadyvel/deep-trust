@@ -49,7 +49,7 @@ export const LikeDocAction = (doctor) => async (dispatch, getState) => {
         headers: myHeaders,
     };
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/favourite/${doctor}`, config);
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/favourite/${doctor}/`, config);
     const data = await response.json();
     
     const action = {
