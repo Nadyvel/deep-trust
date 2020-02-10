@@ -56,25 +56,7 @@
     border-bottom: unset; 
   }
   
-  button {
-    display: flex;
-    border-bottom: #F26922 solid thin;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    padding: 1rem 2rem;
-    margin: 0;
-    text-decoration: none;
-    color: #4D5256;
-    font-family: sans-serif;
-    font-size: 1rem;
-    line-height: 1;
-    cursor: pointer;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  
+
   button:disabled {
     opacity: .45; 
   }
