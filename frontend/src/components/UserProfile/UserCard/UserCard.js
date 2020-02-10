@@ -1,16 +1,17 @@
 import {connect} from "react-redux";
 import {Link, Route, Switch, withRouter} from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import './UserCard.css';
 import logo from "../../images/wcs-umbrella-icon-grey.png"
 import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
 import UserSetting from "../UserSettings/UserSetting";
+import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar"
 
 const UserCard = (props) => {
-    
+    console.log('USER CARD', props)
 
-    const PathName=props.location.pathname;
+    const PathName=props.location.pathname
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
@@ -20,9 +21,10 @@ const UserCard = (props) => {
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
             </div>
 
-            <div className='information-render-container'>
+            <div className='information-render-container' id="main">
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
-                <Route exact path='/userprofile/update' component={UserSetting}/>
+                <Route exact path='/userprofile/settings' component={UserSetting}/>
+                <Route path='/userprofile/psychologist' component={BookingCalendar}/>
             </div>
 
             <div className='user-menu-container'>
@@ -56,14 +58,14 @@ const UserCard = (props) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    };
-};
+    }
+}
 
 
 export default connect(mapStateToProps)(withRouter(UserCard));
