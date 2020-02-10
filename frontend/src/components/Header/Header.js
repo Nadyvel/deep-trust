@@ -8,7 +8,6 @@ import {withRouter} from 'react-router-dom';
 import {setAuthenticated} from "../../store/action/loginAction";
 
 const Header = (props) => { 
-console.log(props);
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
 
     const handleHome = (e) => {

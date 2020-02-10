@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {Link, Route, Switch, withRouter} from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import './UserCard.css';
 import logo from "../../images/wcs-umbrella-icon-grey.png"
 import UserProfile from "../UserProfile";
@@ -8,9 +8,9 @@ import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserF
 import UserSetting from "../UserSettings/UserSetting";
 
 const UserCard = (props) => {
-    console.log('USER CARD', props)
+    
 
-    const PathName=props.location.pathname
+    const PathName=props.location.pathname;
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
@@ -56,14 +56,14 @@ const UserCard = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    }
-}
+    };
+};
 
 
 export default connect(mapStateToProps)(withRouter(UserCard));
