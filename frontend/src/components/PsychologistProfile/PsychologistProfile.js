@@ -10,6 +10,7 @@ import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
 import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
 import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
 import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
+import PatientDetails from "./PsychologistPatients/PatientDetails/PatientDetails";
 
 
 const PsychologistProfile = (props) => {
@@ -27,6 +28,7 @@ const PsychologistProfile = (props) => {
             <div className='psychologist-menu-content-container'>
                 <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
                 <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
+                <Route path='/psychologist/me/patient-details' component={PatientDetails} />
             </div>
 
             <div className='psychologist-information-container'>

@@ -1,0 +1,56 @@
+.user-settings{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-settings-title {
+    display: flex;
+    justify-content: center;
+}
+
+.user-settings-styling{
+    width: 80%;
+    height: 5vh;
+    margin: 2%;
+}
+.settings-title{
+    font-weight: lighter;
+    font-family: Roboto;
+}
+
+.profile-update-title {
+    color: rgb(28, 16, 70);
+}
+
+.update-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.update-input {
+    width: 470px;
+    height: 30px;
+    padding: 5px;
+    margin: 15px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+}
+
+.update-input[value] {
+    font-size: 15px;
+    color: rgb(28, 16, 70);
+}
+
+.save-button{
+    border: solid rgb(28, 16, 70) 1px;
+    background-color: rgb(28, 16, 70);
+    color: white;
+    border-radius: 30px;
+    width: 120px;
+    height: 50px;
+    margin-top: 5%;
+}

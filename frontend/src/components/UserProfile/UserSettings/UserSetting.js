@@ -2,38 +2,74 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import './UserSettings.css';
 import {withRouter} from 'react-router-dom';
+import {loginAction} from "../../../store/action/loginAction";
+import {setModal} from "../../../store/action/modalAction";
+import {userAction} from "../../../store/action/userAction";
 
 const UserSettings = (props) => {
-    console.log('user settings', props)
+    let [state, setState] = useState({
+      image:'',
+      email: '',
+      username:'',
+      password: '',
+      location:'',
+      description:'',
+    });
+    const handleChange = e =>
+        setState({ ...state, [e.target.name]: e.target.value });
+
+    const handleUpdate = async e => {
+        e.preventDefault();
+        const response = await props.dispatch(userAction(state));
+    };
+
+
     if(props.userProfile.email){
         return (
         <div className='user-settings'>
-            <div className='user-settings-image-styling'><div className='bold'>Image</div>{props.userProfile.image}
+            <div className='user-settings-title'>
+                <h1 className='profile-update-title'>Update your profile</h1>
             </div>
-            <div className='user-settings-title'>{props.userProfile.username}'s Profile
-            </div>
-            <div className='user-settings-styling'><div className='bold'>Email</div>{props.userProfile.email}
-            </div>
-            <div className='user-settings-styling'><div className='bold'>Username</div>{props.userProfile.username}
-            </div>
-            <div className='user-settings-styling'><div className='bold'>First name</div> {props.userProfile.first_name}
-            </div>
-            <div className='user-settings-styling'><div className='bold'>Last name</div> {props.userProfile.last_name}
-            </div>
-            <div className='user-settings-styling'><div className='bold'>Location</div> {props.userProfile.location}
-            </div>
-            <div className='user-settings-styling'><div className='bold'>Description</div> {props.userProfile.description}
-            </div>
-        </div>)
+
+            <form className='update-form' onSubmit={handleUpdate}>
+                {/* <input className='update-input' name='image'
+                    value={props.userProfile.image} onChange={handleChange}/> */}
+
+                <input className='update-input' name="email"
+                    value={props.userProfile.email} onChange={handleChange}/>
+
+                <input className='update-input' name="username"
+                    value={props.userProfile.username} onChange={handleChange}/>
+
+                <input className='update-input' name="first_name"
+                    value={props.userProfile.first_name} onChange={handleChange}/>
+
+                <input className='update-input' name="last_name"
+                    value={props.userProfile.last_name} onChange={handleChange}/>
+
+                {/* <input className='update-input' name="password"
+                    value={props.userProfile.password} onChange={handleChange} /> */}
+
+                <input className='update-input'  name="location"
+                    value={props.userProfile.location} onChange={handleChange} />
+
+                <input className='update-input'  name="description"
+                    value={props.userProfile.description} onChange={handleChange} />
+
+                <button className='save-button' type="submit" content="Save">Save</button>
+
+            </form>
+        </div>
+        );
 }
     else
-        return(<div className='loading'>Loading</div>)
-}
+        return(<div className='loading'>Loading</div>);
+};
 
 const mapStateToProps = state => {
     return {
         userProfile: state.userReducer.userProfile,
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps)(withRouter(UserSettings));
