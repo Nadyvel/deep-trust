@@ -8,13 +8,15 @@ const UserFavouritePsychologistList = (props) => {
     console.log('user favorite psychologists list', props)
 
         return (
-        <div className='user-favorite-psychologist-list'>
-             <h1 className='favourite-psychologist-title'>My favourite psychologists</h1>
-                {props.favoritePsychologists.map((psychologist, index) => {
-                    return <FavouritePsychologistCard key={index} psychologist={psychologist}/>
-                })
-                }
-            </div>
+            <>
+            <h1 className='favourite-psychologist-title'>My favourite psychologists</h1>
+                <div className='user-favorite-psychologist-list'>
+                    {props.favoritePsychologists.map((psychologist, index) => {
+                        return <FavouritePsychologistCard key={index} psychologist={psychologist}/>
+                    })
+                    }
+                </div>
+            </>
         )
 }
 

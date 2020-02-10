@@ -6,6 +6,7 @@ import logo from "../../images/wcs-umbrella-icon-grey.png"
 import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
 import UserSetting from "../UserSettings/UserSetting";
+import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar"
 
 const UserCard = (props) => {
     console.log('USER CARD', props)
@@ -20,9 +21,10 @@ const UserCard = (props) => {
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
             </div>
 
-            <div className='information-render-container'>
+            <div className='information-render-container' id="main">
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
                 <Route exact path='/userprofile/settings' component={UserSetting}/>
+                <Route path='/userprofile/psychologist' component={BookingCalendar}/>
             </div>
 
             <div className='user-menu-container'>

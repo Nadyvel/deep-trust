@@ -1,0 +1,32 @@
+.booking-psychologist-container {
+    width: 100%;
+    height: 100vh;
+    border: solid red;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    /* align-items: center; */
+    flex-wrap: wrap;
+}
+
+.booking-psychologist-information-wrapper {
+    /* border: solid blue; */
+}
+
+.booking-psychologist-work-info-wrapper {
+    /* border: solid green; */
+}
+
+.booking-psychologist-name-warp {
+    /* border: solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-psychologist-image {
+    width: 10vw;
+    height: 10vh;
+    border-radius: 50%;
+}
