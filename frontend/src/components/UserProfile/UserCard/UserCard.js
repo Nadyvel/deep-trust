@@ -22,7 +22,7 @@ const UserCard = (props) => {
 
             <div className='information-render-container'>
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
-                <Route exact path='/userprofile/settings' component={UserSetting}/>
+                <Route exact path='/userprofile/update' component={UserSetting}/>
             </div>
 
             <div className='user-menu-container'>
