@@ -23,11 +23,7 @@ const Psychologists = props => {
             <div className='underLine'></div>
 
             <p className='psychoDescription'>{doctor.description}</p>
-<<<<<<< HEAD
             
-=======
-
->>>>>>> master
             {props.authenticated && <div className='likeTogle'><button id='like' 
             // className={props.isLiked ? "liked" : ""} 
             onClick={() => handleLike(doctor)}>Like</button></div>}
