@@ -13,14 +13,14 @@
     /* border: solid green; */
     display: flex; 
     justify-content: space-evenly;
-    
 }
 
 
 .bookingBox {
     width: 50%;
-    /* border: solid red; */
-    border: solid #808080 1px;
+    /* border: solid red; *
+    /* border: solid #808080 1px; */
+    
     border-left: none;
 
     display: flex;
@@ -38,6 +38,10 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+
+    word-spacing: 1em;
+    border-bottom: 1px solid #ece9ea;
+    padding-left: 3%;
 }
 
 .time {
@@ -46,15 +50,18 @@
 }
 
 .bookBtn {
-    /* border: solid green; */
-    width: 70px;
-    height: 40px;
-    font-size: 16px;
-    color: rgb(202, 189, 174);
+    border: solid green;
+    width: 90px;
+    height: 30px;
+    /* color: rgb(202, 189, 174); */
+    color: white;
     background-color: transparent;
-    border: rgb(202, 189, 174) 2px solid;
-    border-radius: 5px;
-    margin-left: 17px;
+    /* border: rgb(202, 189, 174) 2px solid; */
+    border-radius: 30px;
+    margin-right: 5%;
+    font-size: 90%;
+    border: solid rgb(28, 16, 70) 1px;
+    background-color: rgb(28, 16, 70);
 }
 
 .calendar {
@@ -64,5 +71,20 @@
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    border: solid #808080 1px;
+    /* border: solid #808080 1px; */
+    border: none;
+    padding-top: 3%;
+    border-radius: 15px;
+}
+
+.date-wrap {
+    /* border: solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Date {
+    /* border: solid blue; */
+    font-size: 90%;
 }
