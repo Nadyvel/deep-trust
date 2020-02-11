@@ -35,7 +35,7 @@ const Calendar = (props) => {
 
         <div className="bookingBox">
             <div className="date-wrap">
-                <p class="Date">{data[1]} {data[2]} {data[3]}</p>
+                <p className="Date">{data[1]} {data[2]} {data[3]}</p>
             </div>
             <div className="bookingChoices">
                 <p className="time">8:00 - 9:30</p> <button className="bookBtn">Book now</button>
