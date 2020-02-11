@@ -16,6 +16,7 @@ const UserCard = (props) => {
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
                 <div className='user-image-container'>
+                    {props.location.pathname.includes('settings') && <button className='updateImageDoctor'>UPDATE IMAGE</button>}
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
                 </div>
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
