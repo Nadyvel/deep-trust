@@ -7,6 +7,8 @@ import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
 import UserSettings from "../UserSettings/UserSetting";
 import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar";
+import MyBookings from '../MyBookings/MyBookings'
+import MyBookingDetails from "../MyBookings/MyBookingDetails/MyBookingDetails";
 
 const UserCard = (props) => {
     console.log('USER CARD', props);
@@ -25,6 +27,8 @@ const UserCard = (props) => {
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
+                <Route exact path='/userprofile/myBookings' component={MyBookings} />
+                <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
             </div>
 
             <div className='user-menu-container'>
@@ -37,7 +41,7 @@ const UserCard = (props) => {
                             <h2 className='user-page-links'>Home</h2>
                         </Link></div>
                     <div className={PathName.includes('bookings')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
-                        <Link to={`/userprofile/bookings`} style={{textDecoration: 'none',}}>
+                        <Link to={`/userprofile/myBookings`} style={{textDecoration: 'none',}}>
                             <h2 className='user-page-links'>My Bookings</h2>
                         </Link></div>
                     <div className={PathName.includes('psychologists-list')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
