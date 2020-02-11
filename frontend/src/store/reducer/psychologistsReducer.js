@@ -18,6 +18,15 @@ const initialState = {
             "user": null
         }
     },
+    myAppointments: [{
+        user : {
+            "id": null,
+            "email": null,
+            "username": null,
+            "is_user": null,
+        },
+        id: null
+    }],
     // {
     //     access: tokenInLocalStorage ?  tokenInLocalStorage : ""
     // }
@@ -70,6 +79,12 @@ const psychologistsReducer = function (state = initialState, action) {
                 ...state,
                 myProfile: doctorUpdateData
             };
+
+        case 'GET_MY_APPOINTMENTS':
+            return {
+                ...state,
+                myAppointments: action.payload
+            }
 
         default:
             return state;

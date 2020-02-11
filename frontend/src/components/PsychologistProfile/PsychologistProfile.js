@@ -12,6 +12,7 @@ import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
 import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
 import PatientDetails from "./PsychologistPatients/PatientDetails/PatientDetails";
 import PsychologistAppointments from './PsychologistAppointments/PsychologistAppointments'
+import PsychologistAppointmentDetails from './PsychologistAppointmentDetails/PsychologistAppointmentDetails'
 
 
 const PsychologistProfile = (props) => {
@@ -37,6 +38,7 @@ const PsychologistProfile = (props) => {
                 <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
                 <Route path='/psychologist/me/patient-details' component={PatientDetails} />
                 <Route exact path='/psychologist/me/appointments' component={PsychologistAppointments} />
+                <Route path='/psychologist/me/appointments/details' component={PsychologistAppointmentDetails} />
             </div>
 
             <div className='psychologist-information-container'>

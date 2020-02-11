@@ -1,82 +1,95 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Lobby from './Lobby';
+// import Lobby from './Lobby';
 import Room from './Room';
 import axios from 'axios';
 
+import image from '../images/elephant.jpg'
+
 const VideoChat = (props) => {
-
-	console.log('videochat', props)
-
-	const [username, setUsername] = useState('');
-	const [roomName, setRoomName] = useState('');
+	// const [username, setUsername] = useState('');
+	// const [roomName, setRoomName] = useState('');
 	const [token, setToken] = useState(null);
 
-	const data = props.location.myBooking.user.username
-	console.log('username', data)
+	let username = '';
+	let roomName = '';
 
-	const rName = props.location.myBooking.user.id + props.location.myBooking.user.email 
-	+ props.location.myBooking.id + props.location.myBooking.date + props.location.myBooking.time 
-	+ props.location.myBooking.psychologist
-	console.log('room', rName)
+	if (props.location.data.user.is_user === true && props.location.is_patient === true) {
+		username = props.location.data.user.username
+	// console.log('username', data)
+		roomName = props.location.data.user.id + props.location.data.user.email 
+			+ props.location.data.id + props.location.data.date + props.location.data.time 
+			+ props.location.data.psychologist
+	// console.log('room', rName)
+	}
+	else if (props.location.data.user.is_psychologist === false && props.location.is_psychologist === true) {
+		username = props.location.data.psychologist_first_name+props.location.data.psychologist_last_name
+		// console.log('username', data)
+		roomName = props.location.data.user.id + props.location.data.user.email 
+			+ props.location.data.id + props.location.data.date + props.location.data.time 
+			+ props.location.data.psychologist
+		// console.log('room', rName)
+	}
+	else {
+		props.history.push('/')
+	}
 
-	console.log('in da state', username)
-	console.log('in da state', roomName)
+	// const handleUsernameChange = useCallback(event => {
+	// 	setUsername(event.currentTarget.value);
+	// }, []);
 
-	const handleUsernameChange = useCallback(event => {
-		setUsername(event.currentTarget.value);
-	}, []);
+	// const handleRoomNameChange = useCallback(event => {
+	// 	setRoomName(event.currentTarget.value);
+	// }, []);
 
-	const handleRoomNameChange = useCallback(event => {
-		setRoomName(event.currentTarget.value);
-	}, []);
-
-	const handleSubmit = useCallback(
-		async event => {
-			event.preventDefault();
-			const result = await axios({
-				method: 'POST',
-				url: 'https://cadet-cichlid-4005.twil.io/create-token',
-				data: {
-					identity: data,
-					room: rName
-				}
-			})
-			setToken(result.data)
-		},
-		[roomName, username]
-	);
+	// const handleSubmit = useCallback(
+	// 	async event => {
+	// 		event.preventDefault();
+	// 		const result = await axios({
+	// 			method: 'POST',
+	// 			url: 'https://cadet-cichlid-4005.twil.io/create-token',
+	// 			data: {
+	// 				identity: data,
+	// 				room: rName
+	// 			}
+	// 		})
+	// 		setToken(result.data)
+	// 	},
+	// 	[roomName, username]
+	// );
 
 	const handleLogout = useCallback(event => {
 		setToken(null);
+		props.history.push('/')
 	}, []);
 
-	useEffect( async () => {
+	useEffect(() => {
+		async function fetchData() {
 		const result = await axios({
 			method: 'POST',
 			url: 'https://cadet-cichlid-4005.twil.io/create-token',
 			data: {
-				identity: data,
-				room: rName
+				identity: username,
+				room: roomName
 			}
 		})
 		setToken(result.data)
+	}
+	fetchData()
 	},[])
-
-	
-	
-
 
 	let render;
 	if (token) {
 		render = (
 			<Room
-				roomName={rName}
+				roomName={roomName}
 				token={token}
 				handleLogout={handleLogout}
 			/>
 		);
 	} else {
 		render = (
+
+			<img src={image} alt="background"/>
 			// <Lobby
 			// 	username={username.username}
 			// 	roomName={roomName.roomName}
@@ -85,32 +98,32 @@ const VideoChat = (props) => {
 			// 	handleSubmit={handleSubmit}
 			// />
 
-			<form onSubmit={handleSubmit}>
-      			<h2>Enter a room</h2>
-      		<div>
-        		<label htmlFor="name">Name:</label>
-        	<input
-          		type="text"
-          		id="field"
-          		value={username.username}
-          		onChange={handleUsernameChange}
-          		required
-        	/>
-      		</div>
+			// <form onSubmit={handleSubmit}>
+      		// 	<h2>Enter a room</h2>
+      		// <div>
+        	// 	<label htmlFor="name">Name:</label>
+        	// <input
+          	// 	type="text"
+          	// 	id="field"
+          	// 	value={username.username}
+          	// 	onChange={handleUsernameChange}
+          	// 	required
+        	// />
+      		// </div>
 
-      		<div>
-        		<label htmlFor="room">Room name:</label>
-        	<input
-          		type="text"
-          		id="room"
-          		value={roomName}
-          		onChange={handleRoomNameChange}
-          		required
-        	/>
-      		</div>
+      		// <div>
+        	// 	<label htmlFor="room">Room name:</label>
+        	// <input
+          	// 	type="text"
+          	// 	id="room"
+          	// 	value={roomName}
+          	// 	onChange={handleRoomNameChange}
+          	// 	required
+        	// />
+      		// </div>
 
-      		<button type="submit">Submit</button>
-    		</form>
+      		// <button type="submit">Submit</button>
+    		// </form>
 		);
 	}
 	return render;
