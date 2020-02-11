@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BookingCalendar.css'
-import CalendarHardCoded from './CalendarHardCoded/CalendarHardCoded'
+import 'react-calendar/dist/Calendar.css';
+
+import Calendar from './Calendar'
 
 const BookingCalendar = (props) => {
+
+
+    const [state, setState] = useState({
+        value: new Date()
+    })
+
+    const onChange = value => setState({ value })
+
+    // const { value } = state
+
+    // const data = state.value.map((val) => {
+    //     return val
+    // })
+
+    const data = state.value.toDateString().split(" ")
+    console.log('state', data)
+
+
     console.log('BOOKING', props)
     return (
         <>
@@ -23,8 +43,45 @@ const BookingCalendar = (props) => {
             <p className='psychologistTodosNotes'>Price per hour: {props.location.psychologist.price_per_hour}</p>
         </div>
 
-        <CalendarHardCoded />
-        
+
+        <div className="booking-calendar-container">
+            <div className="booking-calendar-wrapper" >
+        {/* <CalendarReact
+        className="calendar-react"
+        onChange={onChange}
+        value={state.value}
+        onClickDay={console.log(state)}
+        /> */}
+
+        <Calendar />
+
+        <div className="bookingBox">
+            <h3>{data[1]} {data[2]} {data[3]}</h3>
+            <div className="bookingChoices">
+                <p className="time">8:00 - 9:30</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">9:30 - 11:00</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">13:30 - 15:00</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">11:00 - 12:30</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">15:00 - 16:30</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">16:30 - 18:00</p> <button className="bookBtn">Book now</button>
+            </div>
+            <div className="bookingChoices">
+                <p className="time">18:00 - 19:30</p> <button className="bookBtn">Book now</button>
+            </div>
+        </div>
+        </div>
+        </div>
+
         </div>
         </>
     )
