@@ -48,7 +48,6 @@ export const favoritePsychologistAction = (id) => async (dispatch, getState) => 
 };
 
 export const userUpdateProfile = (updateUserData) => async (dispatch, getState) => {
-    console.log('llamame')
     const token = getState().loginReducer.tokens.access;
 
     const myHeaders = new Headers({

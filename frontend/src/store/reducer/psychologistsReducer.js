@@ -62,6 +62,15 @@ const psychologistsReducer = function (state = initialState, action) {
                 patientCards: action.payload
             };
 
+        case 'UPDATE_PSYCHOLOGIST_PROFILE':
+            let psychologists = action.payload;
+            const doctorUpdateData = {psychologists};
+           
+            return {
+                ...state,
+                myProfile: doctorUpdateData
+            };
+
         default:
             return state;
     }
