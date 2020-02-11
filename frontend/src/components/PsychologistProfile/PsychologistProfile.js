@@ -26,6 +26,12 @@ const PsychologistProfile = (props) => {
             </div>
 
             <div className='psychologist-menu-content-container'>
+                {/*<div className='default-message-psychologist-profile'>*/}
+                {/*    <h1 className='default-message-title'>Deep Trust is here for you 24/7</h1>*/}
+                {/*    <p className='default-message-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,*/}
+                {/*        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,*/}
+                {/*        sed diam voluptua.</p>*/}
+                {/*</div>*/}
                 <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
                 <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
                 <Route path='/psychologist/me/patient-details' component={PatientDetails} />
