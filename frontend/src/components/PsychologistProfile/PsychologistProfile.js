@@ -11,6 +11,8 @@ import PsychologistInformation from './PsychologistInformation/PsychologistInfor
 import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
 import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
 import PatientDetails from "./PsychologistPatients/PatientDetails/PatientDetails";
+import PsychologistAppointments from './PsychologistAppointments/PsychologistAppointments'
+import PsychologistAppointmentDetails from './PsychologistAppointmentDetails/PsychologistAppointmentDetails'
 import Emergency from "../Emergency/Emergency";
 
 
@@ -30,6 +32,8 @@ const PsychologistProfile = (props) => {
                 <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
                 <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
                 <Route path='/psychologist/me/patient-details' component={PatientDetails} />
+                <Route exact path='/psychologist/me/appointments' component={PsychologistAppointments} />
+                <Route path='/psychologist/me/appointments/details' component={PsychologistAppointmentDetails} />
                 <Route exact path='/psychologist/me/emergency' component={Emergency}/>
             </div>
 
