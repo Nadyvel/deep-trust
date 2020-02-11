@@ -34,7 +34,19 @@
         align-content: center;
         margin-left: 5%;
         margin-top: 10%;
-        // border: solid green;
+        .default-message-title{
+            display: flex;
+            font-weight: lighter;
+            justify-content: center;
+            margin-right: 10%;
+        }
+        .default-message-text{
+            display: flex;
+            font-weight: lighter;
+            justify-content: center;
+            margin-right: 10%;
+            font-size: larger;
+        }
     }
 
     .psychologist-information-container {
