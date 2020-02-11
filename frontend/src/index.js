@@ -13,9 +13,8 @@ import DoctorVerification from './components/DoctorVerification/DoctorVerificati
 import UserProfile from "./components/UserProfile/UserProfile";
 import PsychologistsList from './components/PsychologistsList/PsychologistsList';
 import PsychologistProfile from './components/PsychologistProfile/PsychologistProfile';
-// import Calendar from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/Calendar'
-// import CalendarHardCoded from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/CalendarHardCoded/CalendarHardCoded'
-
+import Calendar from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/Calendar'
+import CalendarHardCoded from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/CalendarHardCoded/CalendarHardCoded'
 
 const loadState = () => {
     try {
@@ -54,8 +53,8 @@ ReactDOM.render(
                     <Route path='/userprofile' component={UserProfile}/>
                     <Route exact path='/doctorList' component={PsychologistsList}/>
                     <Route path='/psychologist/me' component={PsychologistProfile} />
-                    {/* <Route exact path='/calendar' component={Calendar} /> */}
-                    {/* <Route exact path='/hardCalendar' component={CalendarHardCoded} /> */}
+                    <Route exact path='/calendar' component={Calendar} />
+                    <Route exact path='/hardCalendar' component={CalendarHardCoded} />
                 </Switch>
             </App>
         </Router>

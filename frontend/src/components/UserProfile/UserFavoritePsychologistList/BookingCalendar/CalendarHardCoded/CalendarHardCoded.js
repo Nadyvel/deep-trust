@@ -1,6 +1,8 @@
 import React from 'react'
 import './CalendarHardCoded.css'
 
+import CalendarHardCoded2 from './CalendarHardCoded2'
+
 const CalendarHardCoded = () => {
 
     let data = [
@@ -628,7 +630,7 @@ const CalendarHardCoded = () => {
       
       console.log("updated data values: ", completeData);
     
-      let container = document.querySelector("#main");
+      let container = document.querySelector("#root");
       const body = document.querySelector("body");
       const tempFocus = document.createElement("div");
       tempFocus.id = "tempFocus";
@@ -936,7 +938,11 @@ const CalendarHardCoded = () => {
   
 
     return(
-       <div></div>
+      <>
+      <div id="book1"></div>
+      <div cl></div>
+       <CalendarHardCoded2 />
+       </>
     )
 }
 
