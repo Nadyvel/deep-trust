@@ -1,6 +1,12 @@
 const initialState={
     userProfile:{ favourite_psychologist: []},
     favoritePsychologist: [],
+    myBookings: [{
+        "id": null,
+        "email": null,
+        "username": null,
+        "is_user": null,
+    }],
 };
 
 const userReducer = (state=initialState, action) => {
@@ -22,6 +28,12 @@ const userReducer = (state=initialState, action) => {
                 ...state,
                 userProfile: action.payload,
             };
+        }
+        case 'GET_MY_BOOKINGS': {
+            return {
+                ...state,
+                myBookings: action.payload,
+            }
         }
         default:
             return state;

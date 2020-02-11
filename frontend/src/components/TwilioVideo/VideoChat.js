@@ -1,12 +1,25 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Lobby from './Lobby';
 import Room from './Room';
 import axios from 'axios';
 
-const VideoChat = () => {
+const VideoChat = (props) => {
+
+	console.log('videochat', props)
+
 	const [username, setUsername] = useState('');
 	const [roomName, setRoomName] = useState('');
 	const [token, setToken] = useState(null);
+
+	const data = props.location.myBooking.user.username
+	console.log('username', data)
+
+	// useEffect(() => {
+	// 	setUsername({
+	// 		username:props.location.myBooking.user.username 
+	// 	})
+	// 	console.log('setUsername', username)
+	// },[props.location, setUsername, username])
 
 	const handleUsernameChange = useCallback(event => {
 		setUsername(event.currentTarget.value);
@@ -36,6 +49,8 @@ const VideoChat = () => {
 		setToken(null);
 	}, []);
 	
+
+
 	let render;
 	if (token) {
 		render = (
