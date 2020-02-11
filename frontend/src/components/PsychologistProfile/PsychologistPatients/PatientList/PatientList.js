@@ -8,6 +8,7 @@ const PatientList = (props) => {
         <>
         <div className='patient-card-title'>
             <h1>MY PATIENTS</h1>
+            <button className='add-new-patient-button' type='submit'>ADD NEW</button>
         </div>
         <div className='patients-container'>
         <div className='patient-labels-container'>
