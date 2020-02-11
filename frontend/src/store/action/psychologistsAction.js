@@ -13,7 +13,6 @@ export const psychologistsAction = () => async (dispatch, getState) => {
         payload: data,
     };
     dispatch(action); 
-    console.log('psycholog', data);
 };
 
 export const PsychologistProfileAction = () => async (dispatch, getState) => {
@@ -57,7 +56,6 @@ export const LikeDocAction = (doctor) => async (dispatch, getState) => {
         payload: data,
     };
     dispatch(action);
-    console.log('user id', data);
 };
 
 export const GetAllPatientCards = () => async (dispatch, getState) => {
@@ -83,3 +81,30 @@ export const GetAllPatientCards = () => async (dispatch, getState) => {
     dispatch(action);
 };
 
+export const psychologistUpdateProfile = (updateData) => async (dispatch, getState) => {
+    const token = getState().loginReducer.tokens.access;
+    const doctorId = getState().psychologistsReducer.myProfile.psychologists.id;
+    
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    });
+    const config = {
+        method: 'PATCH',
+        headers: myHeaders,
+        body: JSON.stringify(updateData)
+    };
+
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/psychologists/profile/${doctorId}/` , config);
+    if (response.status !== 200) {
+        throw new Error('Wrong request');
+    };
+    const data = await response.json();
+    console.log('doc update data', data)
+    const action = {
+        type: 'UPDATE_PSYCHOLOGIST_PROFILE',
+        payload: data,
+    };
+    dispatch(action);
+    return data;
+};

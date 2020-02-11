@@ -32,8 +32,8 @@
         width: 50%;
         flex-direction: column;
         align-content: center;
-        margin-left: 5%;
-        margin-top: 6%;
+        // margin-left: 5%;
+        // margin-top: 10%;
         .default-message-title{
             display: flex;
             font-weight: lighter;
@@ -75,4 +75,40 @@
             top: 62%;
         }
     }
+}
+
+.LocationData {
+    display: flex;
+    flex-direction: row;   
+}
+
+.update-input-country {
+    width: 190px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 35px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    margin-right: 65px;
+}
+
+.update-input-city {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 35px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent; 
+}
+
+.update-input-city[value] {
+    font-size: 15px;
+    color: rgb(28, 16, 70);
+}
+
+.update-input-country[value] {
+    font-size: 15px;
+    color: rgb(28, 16, 70);
 }
