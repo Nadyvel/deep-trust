@@ -39,8 +39,8 @@ const PsychologistMenuNav = (props) => {
         </div>
 
         <div className='sos-link-container'>
-            <div className={PathName.includes('sos')? 'psychologist-menu-profile-button-clicked': 'psychologist-menu-profile-button-unclicked'}>
-                <Link to={`/sos`} style={{textDecoration: 'none',}} >
+            <div className={PathName.includes('emergency')? 'psychologist-menu-profile-button-clicked': 'psychologist-menu-profile-button-unclicked'}>
+                <Link to={`/psychologist/me/emergency`} style={{textDecoration: 'none',}} >
                     <h2 className='psychologist-sos-link'>Emergency</h2>
                 </Link>
             </div>

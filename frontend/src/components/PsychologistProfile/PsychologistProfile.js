@@ -13,6 +13,7 @@ import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
 import PatientDetails from "./PsychologistPatients/PatientDetails/PatientDetails";
 import PsychologistAppointments from './PsychologistAppointments/PsychologistAppointments'
 import PsychologistAppointmentDetails from './PsychologistAppointmentDetails/PsychologistAppointmentDetails'
+import Emergency from "../Emergency/Emergency";
 
 
 const PsychologistProfile = (props) => {
@@ -28,17 +29,12 @@ const PsychologistProfile = (props) => {
             </div>
 
             <div className='psychologist-menu-content-container'>
-                {/*<div className='default-message-psychologist-profile'>*/}
-                {/*    <h1 className='default-message-title'>Deep Trust is here for you 24/7</h1>*/}
-                {/*    <p className='default-message-text'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,*/}
-                {/*        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,*/}
-                {/*        sed diam voluptua.</p>*/}
-                {/*</div>*/}
                 <Route exact path='/psychologist/me/settings' component={PsychologistSetting} />
                 <Route exact path='/psychologist/me/patients' component={PsychologistPatients} />
                 <Route path='/psychologist/me/patient-details' component={PatientDetails} />
                 <Route exact path='/psychologist/me/appointments' component={PsychologistAppointments} />
                 <Route path='/psychologist/me/appointments/details' component={PsychologistAppointmentDetails} />
+                <Route exact path='/psychologist/me/emergency' component={Emergency}/>
             </div>
 
             <div className='psychologist-information-container'>

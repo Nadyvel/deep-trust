@@ -22,7 +22,7 @@ const DoctorRegistration = props => {
             props.history.push("/message");
         }
         if (Number(response.status) === 400) {
-            setShowMessage("The Email is not been found")
+            setShowMessage("The Email was not found")
         }
     }
     return (
