@@ -11,11 +11,10 @@ const UserSettings = (props) => {
         const initialState = {
             first_name: '',
             last_name: '',
-            email: '',
+            // email: '',
             username: '',
             location: '',
             description: '',
-            password: '',
         };
         setData(initialState);
     }, []);
@@ -54,28 +53,47 @@ const UserSettings = (props) => {
 
                 {/* <input className='update-input' name='image'
                     value={props.userProfile.image} onChange={handleChange}/> */}
-
+                <div>
+                <label className='update-label'>First Name</label>
                 <input className='update-input' name="first_name" type='text'
                     defaultValue={props.userProfile.first_name} onChange={handleChange}/>
+                </div>
 
+                <div>
+                <label className='update-label'>Last Name</label>
                 <input className='update-input' name="last_name" type='text'
                     defaultValue={props.userProfile.last_name} onChange={handleChange}/>
+                </div>
 
-
+                {/* <div>
+                <label className='update-label'>Email</label>
                 <input className='update-input' name="email" type='text'
                     defaultValue={props.userProfile.email} onChange={handleChange}/>
+                </div> */}
 
+                <div>
+                <label className='update-label'>Username</label>
                 <input className='update-input' name="username" type='text'
                     defaultValue={props.userProfile.username} onChange={handleChange}/>
+                </div>
 
-                {/* <input className='update-input' name="password" type='password'
-                    value={props.userProfile.password} onChange={handleChange} /> */}
+                {/* <div>
+                <label className='update-label'>Password</label>
+                <input className='update-input' name="password" type='password'
+                    defaultValue={props.userProfile.password} onChange={handleChange} />
+                </div> */}
 
+                <div>
+                <label className='update-label'>Location</label>
                 <input className='update-input'  name="location" type='text'
                     defaultValue={props.userProfile.location} onChange={handleChange} />
+                </div>
 
+                <div>
+                <label className='update-label'>Description</label>
                 <input className='update-input'  name="description" type='text'
                     defaultValue={props.userProfile.description} onChange={handleChange} />
+                </div>
 
                 <button className='save-button' type="submit" content="Save">Save</button>
 
