@@ -5,7 +5,7 @@ export const registrationAction = (email) => async (dispatch, getState) => {
 
     const body = {
         'email': email,
-    }
+    };
 
     const config = {
         method: 'POST',
@@ -14,8 +14,8 @@ export const registrationAction = (email) => async (dispatch, getState) => {
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/', config);
-    console.log('data', response)
-    return response
+    console.log('data', response);
+    return response;
     
 };
 
@@ -29,7 +29,7 @@ export const doctorRegistrationAction = (state) => async (dispatch, getState) =>
         'email': state.email,
         'first_name': state.first_name,
         'last_name': state.last_name,
-    }
+    };
 
     const config = {
         method: 'POST',
@@ -38,7 +38,7 @@ export const doctorRegistrationAction = (state) => async (dispatch, getState) =>
     };
 
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/registration/psychologist/', config);
-    return response
+    return response;
 
 };
 

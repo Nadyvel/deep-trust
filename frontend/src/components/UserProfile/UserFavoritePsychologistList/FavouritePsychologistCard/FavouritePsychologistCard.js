@@ -4,7 +4,6 @@ import './FavouritePsychologistCard.css';
 import {Link, withRouter} from 'react-router-dom';
 
 const FavoritePsychologistCard = (props) => {
-    console.log('favourite psychologist card', props);
 
         return (
         <div className='favourite-psychologist-card'>

@@ -8,7 +8,6 @@ import UserFavoritePsychologistList from "./UserFavoritePsychologistList/UserFav
 
 const UserProfile = (props) => {
 
-    console.log('user profile', props);
     useEffect(() => {
         props.dispatch(userAction());
         props.dispatch(favoritePsychologistAction());
