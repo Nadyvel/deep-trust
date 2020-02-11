@@ -19,23 +19,8 @@ const VideoChat = (props) => {
 	+ props.location.myBooking.psychologist
 	console.log('room', rName)
 
-	const roName = ''
-
-
-	useEffect(() => {
-		if(!username) {
-		setUsername({
-			username:props.location.myBooking.user.username 
-		})
-		setRoomName({
-			roomName: rName
-		})
-	}
-		console.log('setUsername', username)
-		console.log('roomName', roomName)
-	},[])
-
 	console.log('in da state', username)
+	console.log('in da state', roomName)
 
 	const handleUsernameChange = useCallback(event => {
 		setUsername(event.currentTarget.value);
@@ -52,8 +37,8 @@ const VideoChat = (props) => {
 				method: 'POST',
 				url: 'https://cadet-cichlid-4005.twil.io/create-token',
 				data: {
-					identity: username,
-					room: roomName
+					identity: data,
+					room: rName
 				}
 			})
 			setToken(result.data)
@@ -64,6 +49,20 @@ const VideoChat = (props) => {
 	const handleLogout = useCallback(event => {
 		setToken(null);
 	}, []);
+
+	useEffect( async () => {
+		const result = await axios({
+			method: 'POST',
+			url: 'https://cadet-cichlid-4005.twil.io/create-token',
+			data: {
+				identity: data,
+				room: rName
+			}
+		})
+		setToken(result.data)
+	},[])
+
+	
 	
 
 
@@ -71,7 +70,7 @@ const VideoChat = (props) => {
 	if (token) {
 		render = (
 			<Room
-				roomName={roomName}
+				roomName={rName}
 				token={token}
 				handleLogout={handleLogout}
 			/>
