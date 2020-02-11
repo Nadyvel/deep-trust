@@ -17,13 +17,14 @@ const Calendar = (props) => {
     //     return val
     // })
 
-    const data = state.value.toDateString().split(" ")
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const data = state.value.toLocaleDateString('en-EN', options).split(" ")
     console.log('state', data)
 
     return (
         <>
-        {/* <div className="booking-calendar-container"> */}
-            {/* <div className="booking-calendar-wrapper" > */}
+        <div className="booking-calendar-container">
+            <div className="booking-calendar-wrapper" >
         <CalendarReact 
         className="calendar"
         onChange={onChange}
@@ -32,32 +33,34 @@ const Calendar = (props) => {
         tileDisabled={({activeStartDate, date, view }) => date.getDay() === 0}
         />
 
-        {/* <div className="bookingBox">
-            <h3>{data[1]} {data[2]} {data[3]}</h3>
-            <div className="bookingChoices">
-                <p>8:00 - 9:30</p> <button>Book now</button>
+        <div className="bookingBox">
+            <div className="date-wrap">
+                <p class="Date">{data[1]} {data[2]} {data[3]}</p>
             </div>
             <div className="bookingChoices">
-                <p>9:30 - 11:00</p> <button>Book now</button>
+                <p className="time">8:00 - 9:30</p> <button className="bookBtn">Book now</button>
             </div>
             <div className="bookingChoices">
-                <p>13:30 - 15:00</p> <button>Book now</button>
+                <p className="time">9:30 - 11:00</p> <button className="bookBtn">Book now</button>
             </div>
             <div className="bookingChoices">
-                <p>11:00 - 12:30</p> <button>Book now</button>
+                <p className="time">13:30 - 15:00</p> <button className="bookBtn">Book now</button>
             </div>
             <div className="bookingChoices">
-                <p>15:00 - 16:30</p> <button>Book now</button>
+                <p className="time">11:00 - 12:30</p> <button className="bookBtn">Book now</button>
             </div>
             <div className="bookingChoices">
-                <p>16:30 - 18:00</p> <button>Book now</button>
+                <p className="time">15:00 - 16:30</p> <button className="bookBtn">Book now</button>
             </div>
             <div className="bookingChoices">
-                <p>18:00 - 19:30</p> <button>Book now</button>
+                <p className="time">16:30 - 18:00</p> <button className="bookBtn">Book now</button>
             </div>
-        </div> */}
-        {/* </div> */}
-        {/* </div> */}
+            <div className="bookingChoices">
+                <p className="time">18:00 - 19:30</p> <button className="bookBtn">Book now</button>
+            </div>
+        </div>
+        </div>
+        </div>
         </>
     )
 }

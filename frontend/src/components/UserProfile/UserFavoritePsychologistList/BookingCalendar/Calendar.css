@@ -9,10 +9,12 @@
 }
 
 .booking-calendar-wrapper {
-    width: 100%;
+    width: 80%;
     /* border: solid green; */
     display: flex; 
     justify-content: space-evenly;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     
 }
 
@@ -20,7 +22,8 @@
 .bookingBox {
     width: 50%;
     /* border: solid red; */
-    border: solid #808080 1px;
+    /* border: solid #808080 1px; */
+    
     border-left: none;
 
     display: flex;
@@ -38,6 +41,10 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+
+    word-spacing: 1em;
+    border-bottom: 1px solid #ece9ea;
+    padding-left: 3%;
 }
 
 .time {
@@ -46,9 +53,9 @@
 }
 
 .bookBtn {
-    /* border: solid green; */
-    width: 70px;
-    height: 40px;
+    border: solid green;
+    width: 40%;
+    height: 60%;
     font-size: 16px;
     color: rgb(202, 189, 174);
     background-color: transparent;
@@ -64,5 +71,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    border: solid #808080 1px;
+    /* border: solid #808080 1px; */
+    border: none;
+    padding-top: 3%;
+}
+
+.date-wrap {
+    /* border: solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Date {
+    /* border: solid blue; */
+    font-size: 90%;
 }
