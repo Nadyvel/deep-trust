@@ -6,10 +6,10 @@ const PsychologistSetting = (props) => {
     console.log('setting props', props)
     return (
         <div className="settings_container">
-            <div className='user-settings-image-styling'>
-                <div className='bold'>Image</div>
-                {props.myProfile.psychologists.image}
-            </div>
+            {/*<div className='user-settings-image-styling'>*/}
+            {/*    <div className='bold'>Image</div>*/}
+            {/*    {props.myProfile.psychologists.image}*/}
+            {/*</div>*/}
             <div className='user-settings-title'>
                 {props.myProfile.username}'s Profile
             </div>

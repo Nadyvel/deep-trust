@@ -2,18 +2,51 @@
     color:black;
 }
 
+.patient-labels-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    border-bottom: 2px gainsboro solid;
+    font-family: Roboto;
+    color: grey;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.patient-labels{
+    font-weight: bold;
+    display: flex;
+    width: 25%;
+}
+
 .patient-card-container{
     display: flex;
     flex-direction: column;
-    width: 90%;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
 
 }
 .patient-cards-container{
     display: flex;
-    word-spacing: 2em;
+    flex-direction: row;
+    justify-content: space-evenly;
     border-bottom: 1px solid #ece9ea;
     padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 
+}
+.patient-card-content{
+    display: flex;
+    width: 25%;
+}
+
+.patients-container{
+    border-radius: 15px;
+    width: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
