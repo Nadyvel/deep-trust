@@ -1,5 +1,20 @@
 .patient-card-title{
     color:black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding-bottom: 2%;
+}
+
+.add-new-patient-button{
+    color: white;
+    border-radius: 15%;
+    width: 20%;
+    height: 60%;
+    margin-top: 3%;
+    border: none;
+    background: linear-gradient(to right, #0ECE1B 0%, #4140A4 0%, #C53FB4 100%);
 }
 
 .patient-labels-container{
@@ -49,4 +64,10 @@
     border-radius: 15px;
     width: 90%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-new-patient-container{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
 }

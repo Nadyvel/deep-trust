@@ -48,7 +48,7 @@ ReactDOM.render(
                     <Route exact path='/' component={LandingPage}/>
                     <Route exact path='/verification' component={Verification}/>
                     <Route exact path='/doctorVerification' component={DoctorVerification}/>
-                    <Route exact path='/video' component={VideoChat} />
+                    <Route path='/video' component={VideoChat} />
                     <Route path='/userprofile' component={UserProfile}/>
                     <Route exact path='/doctorList' component={PsychologistsList}/>
                     <Route path='/psychologist/me' component={PsychologistProfile} />
