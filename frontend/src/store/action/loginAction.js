@@ -6,7 +6,7 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     const body = {
         'email': email,
         'password': password
-    }
+    };
 
     const config = {
         method: 'POST',
@@ -16,7 +16,6 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
     
     const response = await fetch('https://deep-trust.propulsion-learn.ch/api/auth/token/', config);
     const data = await response.json();
-    // const isUser = data.user.is_user
 
     localStorage.setItem('access', JSON.stringify(data));  //store info with setItem
 
@@ -25,14 +24,6 @@ export const loginAction = (email, password) => async (dispatch, getState) => {
         payload: data,
     };
     dispatch(action);
-
-    // if(isUser === true) {
-    //     return isUser, response
-    // }
-
-    // if(isUser === false) {
-    //     return isUser, response
-    // }
 
     return response;
 };
