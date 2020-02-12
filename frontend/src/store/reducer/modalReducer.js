@@ -1,3 +1,5 @@
+
+
 const initialState = {
   
     RegistrationModal: {
@@ -8,6 +10,13 @@ const initialState = {
     },
 
     LoginModal: {
+        isVisible: false,
+        data: {
+            activePage: "prereg"
+        }
+    },
+
+    DeleteUserModal: {
         isVisible: false,
         data: {
             activePage: "prereg"

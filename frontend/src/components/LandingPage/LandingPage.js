@@ -43,7 +43,7 @@ const LandingPage = (props) => {
             props.history.push('/userprofile');
         }
         else if (props.tokens.user.is_psychologist === true) {
-            props.history.push('/psychologist/me')
+            props.history.push('/psychologist/me');
         }
     };
 
@@ -91,7 +91,9 @@ const LandingPage = (props) => {
                     <div className='sidebarLine'></div>
                     <div className='sidebarLine'></div>
                 </div>
+                    <div className='lpLogo'>
 
+                    </div>
                     <p id="text">
                         DEEP TRUST
                     </p>
@@ -104,9 +106,19 @@ const LandingPage = (props) => {
                 </div>
 
                 <div className='rightMiddleImage' id='middleContainer'>
+                        <div className='about-us-container'>
                         <span id="textMiddleImage">
                             About deep trust
                         </span>
+                        <p className='about-us-text'>Deep Trust is a platform that supports you in
+                           a difficult moment. If you experience pressure,
+                           apathy to this life, mental instability, then you
+                           can always contact our specialists to guide
+                           you trough the problem. Our special feature is
+                           your personality protection - incognito mode
+                           during consultations.
+                        </p>
+                        </div>
                 </div>
             </div>
 

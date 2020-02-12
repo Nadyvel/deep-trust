@@ -1,34 +1,56 @@
 import {connect} from "react-redux";
+import React, {useState, useEffect} from "react";
 import {Link, Route, Switch, withRouter} from "react-router-dom";
-import React from "react";
 import './UserCard.css';
 import logo from "../../images/wcs-umbrella-icon-grey.png";
 import UserProfile from "../UserProfile";
 import UserFavouritePsychologistList from "../UserFavoritePsychologistList/UserFavouritePsychologistList";
 import UserSettings from "../UserSettings/UserSetting";
 import BookingCalendar from "../UserFavoritePsychologistList/BookingCalendar/BookingCalendar";
-import MyBookings from '../MyBookings/MyBookings'
+import MyBookings from '../MyBookings/MyBookings';
 import MyBookingDetails from "../MyBookings/MyBookingDetails/MyBookingDetails";
+import {setModal} from "../../../store/action/modalAction";
+import DeleteUserModal from '../DeleteUserModal/DeleteUserModal';
+
 
 const UserCard = (props) => {
-    console.log('USER CARD', props);
+    const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
+
+    useEffect(() => {
+       
+    });
 
     const PathName=props.location.pathname;
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
                 <div className='user-image-container'>
+                    {props.location.pathname.includes('settings') && <button className='updateImageDoctor'>UPDATE IMAGE</button>}
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
                 </div>
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
+                {props.location.pathname.includes('settings') && <button onClick={() => handleOpen("DeleteUserModal")} className='deleteProfile'>DELETE ACCOUNT?</button>}
+           
             </div>
 
             <div className='information-render-container' id="main">
+
+                <div>
+                {props.location.pathname === '/userprofile' && 
+                    <div className='userprofileMessageContainer'>
+                      <div><p className='userprofileMessage'>Life is a beautiful journey.</p></div>
+                      <div><p className='userprofileMessage1'>Deep Trust is here to </p></div>
+                      <div><p className='userprofileMessage1'>walk you through it.</p></div>
+                    </div>}
+                </div>
+
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
                 <Route exact path='/userprofile/myBookings' component={MyBookings} />
                 <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
+           
+                <DeleteUserModal />
             </div>
 
             <div className='user-menu-container'>

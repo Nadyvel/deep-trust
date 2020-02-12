@@ -33,7 +33,8 @@ const Header = (props) => {
     return (
         <div className='header'>
             {!props.authenticated && <button className='headerSubmit' type='submit' onClick={() => handleOpen("RegistrationModal")}>Sign up</button>}
-            {!props.authenticated && <button className='headerSubmit' type='submit' onClick={() => handleOpen("LoginModal")}>Login</button>}
+            {!props.authenticated && <button className='headerSubmit' type='submit' 
+            onClick={() => handleOpen("LoginModal")}>Login</button>}
 
             {props.location.pathname === "/doctorList"  && <button className='headerSubmit' 
             onClick={(e) => handleHome(e)}>Home</button>}

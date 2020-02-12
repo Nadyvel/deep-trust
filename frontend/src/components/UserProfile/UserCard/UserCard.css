@@ -55,8 +55,8 @@
     align-items: center;
 }
 .user-profile-logo{
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
 }
 .user-page-links{
     color: grey;
@@ -75,3 +75,43 @@
     margin-left: 10%;
 }
 
+.deleteProfile {
+    display: flex;
+    justify-content: center;
+    width: 195px;
+    height: 55px;
+    border-radius: 25px;
+    z-index: 10;
+    position: absolute;
+    top: 85%;
+    background-color: black;
+    color: white;
+}
+
+.modalDeleteAccount {
+    width: 450px;
+    height: 300px;
+    z-index: 20;
+    position: fixed;
+    background-color: rgb(232, 221, 208);
+    border-radius: 10px;
+    top: 25%;
+    left: 30%;
+}
+
+.userprofileMessageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userprofileMessage {
+    font-size: 39px;
+    margin-top: 35%;
+    margin-bottom: 20%;
+}
+
+.userprofileMessage1 {
+    font-size: 28px;
+    margin-top: 2%;
+}
