@@ -15,7 +15,7 @@ const MyBookingDetails = (props) => {
             <p className='myBooking-detail'>Birth date: {props.location.myBooking.time_in_str}</p>
         </div>
         <div className="video-chat-container">
-            <Link to={{pathname: '/video', myBooking: props.location.myBooking }}>Video Link here</Link>>
+            <Link to={{pathname: '/video', data: props.location.myBooking, is_patient: true}}>Video Link here</Link>>
         </div>
     </>
     )

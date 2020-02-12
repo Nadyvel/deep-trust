@@ -24,7 +24,7 @@ const MyBookings = (props) => {
             </div>
             <div className="myBookings-card-container">
                 {props.myBookings && props.myBookings.map((myBooking, index) => {
-                    return <MyBookingCards myBooking={myBooking}/>
+                    return <MyBookingCards key={index} myBooking={myBooking}/>
                 })}
             </div>
         </div>
