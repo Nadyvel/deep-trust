@@ -7,7 +7,7 @@ const Modal = ({ children, close }) => {
         try {
             close();
         } catch (error) {
-            console.error('You forgot to pass close() as a prop to GenericModalContainer');
+           
         }
     };
     return (

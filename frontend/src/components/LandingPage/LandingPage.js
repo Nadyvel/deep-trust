@@ -43,7 +43,7 @@ const LandingPage = (props) => {
             props.history.push('/userprofile');
         }
         else if (props.tokens.user.is_psychologist === true) {
-            props.history.push('/psychologist/me')
+            props.history.push('/psychologist/me');
         }
     };
 
