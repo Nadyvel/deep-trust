@@ -91,7 +91,9 @@ const LandingPage = (props) => {
                     <div className='sidebarLine'></div>
                     <div className='sidebarLine'></div>
                 </div>
+                    <div className='lpLogo'>
 
+                    </div>
                     <p id="text">
                         DEEP TRUST
                     </p>

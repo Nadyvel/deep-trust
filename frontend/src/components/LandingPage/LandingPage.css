@@ -20,6 +20,17 @@
     margin-bottom: 150px;
 }
 
+.lpLogo {
+    display: flex;
+    background: url('../images/wcs-umbrella-icon-grey.png') no-repeat center;
+    background-size: cover;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 240px;
+    left: 45vw;  
+}
+
 .sidebarText {
     color: white;
     font-size: 15px;
@@ -41,7 +52,7 @@
     color: white;
     font-size: 24px;
     font-weight: bold;
-    left: 48vw;
+    left: 43.5vw;
     top: 350px;
     font: 'Roboto';
     font-weight: 300;
@@ -91,7 +102,7 @@
     background-attachment: fixed;
     height: 800px;
     width: 100vw;
-    margin-bottom: 40px;
+    /* margin-bottom: 2px; */
     position: relative;
 }
 

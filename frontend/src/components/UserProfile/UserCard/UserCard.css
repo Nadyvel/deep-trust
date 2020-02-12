@@ -55,8 +55,8 @@
     align-items: center;
 }
 .user-profile-logo{
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
 }
 .user-page-links{
     color: grey;
@@ -99,4 +99,19 @@
     left: 30%;
 }
 
+.userprofileMessageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.userprofileMessage {
+    font-size: 39px;
+    margin-top: 35%;
+    margin-bottom: 20%;
+}
+
+.userprofileMessage1 {
+    font-size: 28px;
+    margin-top: 2%;
+}
