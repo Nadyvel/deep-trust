@@ -94,3 +94,26 @@ export const UserMyBookings = () => async (dispatch, getState) => {
     }
     dispatch(action)
 }
+
+
+export const GetBookedDatesOfPSychologist = (doctor_id) => async (dispatch, getState) => {
+    const token = getState().loginReducer.tokens.access;
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    })
+
+    const config = {
+        method: 'GET',
+        headers: myHeaders
+    }
+
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/?psychologist=${doctor_id}`, config)
+    const data = await response.json()
+
+    const action = {
+        type: 'GET_BOOKED_DATES',
+        payload: data
+    }
+    dispatch(action)
+}

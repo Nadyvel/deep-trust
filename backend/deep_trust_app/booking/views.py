@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render
 
 # Create your views here.
@@ -103,9 +104,10 @@ class DestroyAppointmentsByUser(DestroyAPIView):
 class ListAllBookedDatesOfPsychologist(ListAPIView):
     queryset = Booking.objects.all()
     serializer_class = PsychologistAndUserBookingSerializer
-    lookup_url_kwarg = 'psychologist_id'
     permission_classes = []
 
-    def get_queryset(self):
-        query_result = Booking.objects.filter(psychologist_id=self.kwargs.get('psychologist_id'))
-        return query_result
+    def filter_queryset(self, queryset):
+        psychologist = self.request.query_params.get('psychologist')
+        date = self.request.query_params.get('date')
+        queryset = queryset.filter(psychologist_id=psychologist, date=date).order_by('date').reverse()
+        return queryset
