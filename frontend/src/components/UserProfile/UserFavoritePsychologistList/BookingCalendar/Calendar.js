@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import CalendarReact from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css'
+import { GetBookedDatesOfPSychologist } from '../../../../store/action/userAction'
 
 const Calendar = (props) => {
     console.log('calendar', props)
@@ -9,6 +11,10 @@ const Calendar = (props) => {
     const [state, setState] = useState({
         value: new Date()
     })
+
+    // useEffect(() => {
+    //     props.dispatch(GetBookedDatesOfPSychologist(props.location.psychologist.id, currentDate[0]))
+    // },[])
 
     const onChange = value => setState({ value })
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -103,4 +109,11 @@ const Calendar = (props) => {
     )
 }
 
-export default Calendar
+const mapStateToProps = (state) => {
+    console.log('state in da BC',state)
+    return {
+        bookedDates: state.userReducer.bookedDates
+    }
+}
+
+export default connect(mapStateToProps)(Calendar)
