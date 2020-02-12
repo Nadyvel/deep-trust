@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
-// import {connect} from 'react-redux';
-// import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {BrowserRouter as Router, Route, Redirect, withRouter} from 'react-router-dom';
 import './DeleteUser.css'; 
+import {setModal} from '../../../store/action/modalAction';
 
-
-const DeleteUser = props => {
+const namespace = "DeleteUserModal";
+const DeleteUser = ({isVisible, data, dispatch, history}) => {
      
-    // const handleUserSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log("from preRegristration user");
-    //     props.history.push('/registration/user');
-    // };
-
-    // const handleDoctorSubmit = (e) => {
-    //     e.preventDefault();
-    //     props.history.push('/registration/doctor');
-    // };
+    const handdleClose = (e) => {
+        e.preventDefault();
+        dispatch(setModal(namespace, null, false));
+        history.push('/user/settings/');
+    };
 
     return (
         <div className='mainContainer2'>
@@ -34,11 +30,19 @@ const DeleteUser = props => {
         
             
                 <div className="optionYN">
-                    <button className='buttonRegistration' type='submit'>No</button>
+                    <button className='buttonRegistration' type='submit' onClick={handdleClose}>No</button>
                 </div>  
             </div>
         </div>
     );
 };
 
-export default DeleteUser;
+
+const mapStateToProps = state => {
+    return {
+      isVisible: state.modalReducer[namespace].isVisible,
+      data: state.modalReducer[namespace].data
+    };
+};
+
+export default withRouter(connect(mapStateToProps)(DeleteUser));
