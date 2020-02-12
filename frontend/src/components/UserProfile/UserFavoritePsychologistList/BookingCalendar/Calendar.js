@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import CalendarReact from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css'
+import { PsychologistMyAppointments } from '../../../../store/action/psychologistsAction'
 
 const Calendar = (props) => {
+    console.log(props)
+
+    useEffect(() => {
+        props.dispatch(PsychologistMyAppointments())
+    })
 
     const [state, setState] = useState({
         value: new Date()
@@ -18,8 +25,8 @@ const Calendar = (props) => {
     // })
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const data = state.value.toLocaleDateString('en-EN', options).split(" ")
-    console.log('state', data)
+    const monthDayYear = state.value.toLocaleDateString('en-EN', options).split(" ")
+    console.log('state', monthDayYear)
 
     return (
         <>
@@ -29,13 +36,12 @@ const Calendar = (props) => {
         className="calendar"
         onChange={onChange}
         value={state.value}
-        onClickDay={console.log(state)}
         tileDisabled={({activeStartDate, date, view }) => date.getDay() === 0}
         />
 
         <div className="bookingBox">
             <div className="date-wrap">
-                <p className="Date">{data[1]} {data[2]} {data[3]}</p>
+                <p className="Date">{monthDayYear[1]} {monthDayYear[2]} {monthDayYear[3]}</p>
             </div>
             <div className="bookingChoices">
                 <p className="time">8:00 - 9:30</p> <button className="bookBtn">Book now</button>
@@ -65,4 +71,12 @@ const Calendar = (props) => {
     )
 }
 
-export default Calendar
+
+const mapStateToProps = (state, props) => {
+    console.log('StateToProps', state)
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(Calendar)
