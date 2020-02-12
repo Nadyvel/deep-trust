@@ -16,12 +16,6 @@ import DeleteUserModal from '../DeleteUserModal/DeleteUserModal';
 const UserCard = (props) => {
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
 
-    // let [showModal, setShowModal] = useState(false);
-
-    // const handdleDeleteAccount = () => {
-    //     setShowModal(true);
-    // };
-
     useEffect(() => {
        
     });
@@ -40,13 +34,22 @@ const UserCard = (props) => {
             </div>
 
             <div className='information-render-container' id="main">
+
+                <div>
+                {props.location.pathname === '/userprofile' && 
+                    <div className='userprofileMessageContainer'>
+                      <div><p className='userprofileMessage'>Life is a beautiful journey.</p></div>
+                      <div><p className='userprofileMessage1'>Deep Trust is here to </p></div>
+                      <div><p className='userprofileMessage1'>walk you through it.</p></div>
+                    </div>}
+                </div>
+
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
                 <Route exact path='/userprofile/myBookings' component={MyBookings} />
                 <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
            
-                {/* {showModal && <div className='modalDeleteAccount'>Are you sure you want to delete your account?</div>} */}
                 <DeleteUserModal />
             </div>
 

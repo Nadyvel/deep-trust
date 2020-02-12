@@ -26,7 +26,7 @@ const Psychologists = props => {
             
             {props.authenticated && <div className='likeTogle'><button id='like' 
             // className={props.isLiked ? "liked" : ""} 
-            onClick={() => handleLike(doctor)}>Like</button></div>}
+            onClick={() => handleLike(doctor)}>Add to favourite</button></div>}
             
             </div>;
             })}
