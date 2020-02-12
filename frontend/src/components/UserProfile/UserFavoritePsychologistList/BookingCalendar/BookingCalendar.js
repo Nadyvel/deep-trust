@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
 import './BookingCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 
 import Calendar from './Calendar'
-import { GetBookedDatesOfPSychologist } from '../../../../store/action/userAction'
 //cursor: pointer
 
 const BookingCalendar = (props) => {
     console.log('BC props', props)
-
-    useEffect(() => {
-        props.dispatch(GetBookedDatesOfPSychologist(props.location.psychologist.id))
-    },[])
 
     console.log(props)
     return (
@@ -34,19 +28,11 @@ const BookingCalendar = (props) => {
             <p className='psychologistTodosNotes'>Price per hour: {props.location.psychologist.price_per_hour}</p>
         </div>
         </div>
-        <Calendar bookedDates={props.bookedDates}/>
+        <Calendar />
         </div>
         </div>
         </>
     )
 }
 
-
-const mapStateToProps = (state) => {
-    console.log('state in da BC',state)
-    return {
-        bookedDates: state.userReducer.bookedDates
-    }
-}
-
-export default connect(mapStateToProps)(BookingCalendar)
+export default BookingCalendar
