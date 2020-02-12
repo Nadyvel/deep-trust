@@ -37,6 +37,11 @@ const LandingPage = (props) => {
         document.getElementById('downContainer').scrollIntoView();
     };
 
+    const handdleDown = (e) => {
+        e.preventDefault();
+        document.getElementById('dialog2').scrollIntoView();
+    };
+
     const handdleProfile = (e) => {
         e.preventDefault();
         if (props.tokens.user.is_user === true) {
@@ -97,6 +102,9 @@ const LandingPage = (props) => {
                     <p id="text">
                         DEEP TRUST
                     </p>
+                </div>
+                <div>
+                    <div id="dialog2" class="triangle_down1" onClick={handdleDown}></div>   
                 </div> 
             </div>
 
