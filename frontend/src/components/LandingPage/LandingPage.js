@@ -94,9 +94,15 @@ const LandingPage = (props) => {
                     <div className='lpLogo'>
 
                     </div>
-                    <p id="text">
+
+                    <h1 id="text">
                         DEEP TRUST
-                    </p>
+                    </h1>
+                    <div className='naming-container'>
+                    <h5 className='lp-tagline'>
+                        We are you personal guides in difficult moments
+                    </h5>
+                    </div>
                 </div> 
             </div>
 
