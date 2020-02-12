@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react'
-import './PsychologistProfile.scss'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react';
+import './PsychologistProfile.scss';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Link, Route, Switch, withRouter} from "react-router-dom";
-import { PsychologistProfileAction } from '../../store/action/psychologistsAction'
-
-import logo from '../images/wcs-umbrella-icon-grey.png'
-
-import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav'
-import PsychologistInformation from './PsychologistInformation/PsychologistInformation'
-import PsychologistSetting from './PsychologistSetting/PsychologistSetting'
-import PsychologistPatients from './PsychologistPatients/PsychologistPatients'
+import { PsychologistProfileAction } from '../../store/action/psychologistsAction';
+import logo from '../images/wcs-umbrella-icon-grey.png';
+import PsychologistMenuNav from './PsychologistMenuNav/PsychologistMenuNav';
+import PsychologistInformation from './PsychologistInformation/PsychologistInformation';
+import PsychologistSetting from './PsychologistSetting/PsychologistSetting';
+import PsychologistPatients from './PsychologistPatients/PsychologistPatients';
 import PatientDetails from "./PsychologistPatients/PatientDetails/PatientDetails";
 import PsychologistAppointments from './PsychologistAppointments/PsychologistAppointments'
 import PsychologistAppointmentDetails from './PsychologistAppointmentDetails/PsychologistAppointmentDetails'
@@ -17,9 +15,10 @@ import Emergency from "../Emergency/Emergency";
 
 
 const PsychologistProfile = (props) => {
+
     useEffect(() => {
-        props.dispatch(PsychologistProfileAction())
-    },[])
+        props.dispatch(PsychologistProfileAction());
+    },[]);
 
     return (
         <div className='psychologist-profile-component'>
@@ -41,14 +40,14 @@ const PsychologistProfile = (props) => {
                 <PsychologistInformation />
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state, props) => {
     return {
         authenticated: state.loginReducer.authenticated,
         tokens: state.loginReducer.tokens,
         myProfile: state.psychologistsReducer.myProfile
-    }
-}
-export default connect(mapStateToProps)(withRouter(PsychologistProfile))
+    };
+};
+export default connect(mapStateToProps)(withRouter(PsychologistProfile));

@@ -1,21 +1,20 @@
 import React, {useState} from 'react';
 // import {connect} from 'react-redux';
 // import {withRouter} from 'react-router-dom';
-import './PreRegistration.css' 
+import './PreRegistration.css'; 
 
 
 const PreRegistration = props => {
      
     const handleUserSubmit = (e) => {
         e.preventDefault();
-        console.log("from preRegristration user")
         props.history.push('/registration/user');
-    }
+    };
 
     const handleDoctorSubmit = (e) => {
         e.preventDefault();
         props.history.push('/registration/doctor');
-    }
+    };
 
     return (
         <div className='mainContainer'>
@@ -32,7 +31,7 @@ const PreRegistration = props => {
                 </div>  
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default PreRegistration
+export default PreRegistration;

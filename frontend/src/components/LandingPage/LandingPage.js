@@ -43,7 +43,7 @@ const LandingPage = (props) => {
             props.history.push('/userprofile');
         }
         else if (props.tokens.user.is_psychologist === true) {
-            props.history.push('/psychologist/me')
+            props.history.push('/psychologist/me');
         }
     };
 
@@ -91,7 +91,9 @@ const LandingPage = (props) => {
                     <div className='sidebarLine'></div>
                     <div className='sidebarLine'></div>
                 </div>
+                    <div className='lpLogo'>
 
+                    </div>
                     <p id="text">
                         DEEP TRUST
                     </p>

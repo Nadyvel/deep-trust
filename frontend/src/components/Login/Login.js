@@ -36,7 +36,7 @@ const Login = props => {
         if (Number(response.status) === 401) {
             setShowMessage('Incorrent email or password, please try again')
         }
-    }
+    };
  
     return(
         <div className="mainUserContainer">
@@ -58,15 +58,15 @@ const Login = props => {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
 
 const mapStateToProps = state => {
     return {
         user_data: state.loginReducer.user_data,
         tokens: state.loginReducer.tokens,
-    }
-}
+    };
+};
 
-export default withRouter(connect(mapStateToProps)(Login))
+export default withRouter(connect(mapStateToProps)(Login));

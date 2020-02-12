@@ -12,7 +12,9 @@ class Footer extends React.Component {
         return(
             <div className="footer">
                 <div className="leftFooter">
-                    {/* <logo goes here></logo> */}
+                  <ul>
+                    <li>Deep Trust</li>
+                  </ul>
                 </div>
                 <div className="centerFooter">
                   <ul>
