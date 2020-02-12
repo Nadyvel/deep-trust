@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import status
-from rest_framework.generics import ListAPIView, UpdateAPIView, DestroyAPIView, GenericAPIView
+from rest_framework.generics import ListAPIView, UpdateAPIView, DestroyAPIView, GenericAPIView, RetrieveAPIView
 from rest_framework.response import Response
 
 from deep_trust_app.booking.models import Booking
@@ -98,3 +98,14 @@ class DestroyAppointmentsByUser(DestroyAPIView):
     serializer_class = BookingSerializer
     lookup_url_kwarg = 'booking_id'
     permission_classes = [DestroyBookingOnlyPatient]
+
+
+class ListAllBookedDatesOfPsychologist(ListAPIView):
+    queryset = Booking.objects.all()
+    serializer_class = PsychologistAndUserBookingSerializer
+    lookup_url_kwarg = 'psychologist_id'
+    permission_classes = []
+
+    def get_queryset(self):
+        query_result = Booking.objects.filter(psychologist_id=self.kwargs.get('psychologist_id'))
+        return query_result
