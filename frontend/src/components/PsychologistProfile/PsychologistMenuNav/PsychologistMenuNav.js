@@ -25,6 +25,12 @@ const PsychologistMenuNav = (props) => {
                 </Link>
             </div>
 
+            <div className={PathName.includes('appointments')? 'psychologist-menu-profile-button-clicked': 'psychologist-menu-profile-button-unclicked'}>
+                <Link to={'/psychologist/me/appointments'} style={{textDecoration: 'none',}}>
+                    <h2 className='psychologist-page-links'>My Appointments</h2>
+                </Link>
+            </div>
+
             <div className={PathName.includes('settings')? 'psychologist-menu-profile-button-clicked': 'psychologist-menu-profile-button-unclicked'}>
                 <Link to={'/psychologist/me/settings'} style={{textDecoration: 'none',}}>
                     <h2 className='psychologist-page-links'>Settings</h2>
