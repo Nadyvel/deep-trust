@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import CalendarReact from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import './Calendar.css'
-import TimeChoices from './TimeChoices'
 
 const Calendar = (props) => {
     console.log('calendar', props)

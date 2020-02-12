@@ -108,7 +108,7 @@ export const GetBookedDatesOfPSychologist = (doctor_id) => async (dispatch, getS
         headers: myHeaders
     }
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/${doctor_id}/`, config)
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/?psychologist=${doctor_id}`, config)
     const data = await response.json()
 
     const action = {
