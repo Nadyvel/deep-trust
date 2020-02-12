@@ -42,6 +42,11 @@ const userReducer = (state=initialState, action) => {
                 bookedDates: action.payload
             }
         }
+        case 'POST_NEW_BOOKING': {
+            return {
+                ...state
+            }
+        }
         default:
             return state;
     }

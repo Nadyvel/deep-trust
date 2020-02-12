@@ -108,7 +108,7 @@ export const GetBookedDatesOfPSychologist = (doctor_id, date) => async (dispatch
         headers: myHeaders
     }
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/?psychologist=${doctor_id}&date=${date}`, config)
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/psychologist/date/?psychologist=${doctor_id}&date=${date}`, config)
     const data = await response.json()
 
     const action = {
@@ -116,4 +116,32 @@ export const GetBookedDatesOfPSychologist = (doctor_id, date) => async (dispatch
         payload: data
     }
     dispatch(action)
+}
+
+
+export const CreateNewBooking = (date, time, psychologist) => async (dispatch, getState) => {
+    const token = getState().loginReducer.tokens.access;
+    const myHeaders = new Headers({
+        "content-type": "application/json",
+        "Authorization": "Bearer " + token
+    })
+
+    const body = {
+        date: date,
+        time: time,
+        psychologist: psychologist
+    }
+
+    const config = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(body)
+    }
+
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/me/`, config)
+    const action = {
+        type: 'POST_NEW_BOOKING',
+    }
+    dispatch(action)
+    return response
 }

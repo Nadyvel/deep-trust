@@ -28,7 +28,7 @@ const BookingCalendar = (props) => {
             <p className='psychologistTodosNotes'>Price per hour: {props.location.psychologist.price_per_hour}</p>
         </div>
         </div>
-        <Calendar />
+        <Calendar psychologist={props.location.psychologist.id}/>
         </div>
         </div>
         </>
