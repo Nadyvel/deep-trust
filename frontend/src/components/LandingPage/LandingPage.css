@@ -83,6 +83,18 @@
     font-family: 'Roboto';
     font-weight: 300;
     margin-top: 15vw;
+    top: 117%;
+    left: 60%
+}
+
+.about-us-text{
+    text-align: justify;
+    width: 32%;
+    position: absolute;
+    top: 151%;
+    left: 54%;
+    line-height: 1.5;
+    font-weight: lighter
 }
 
 .parallax2 {
