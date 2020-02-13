@@ -1,6 +1,65 @@
 .pageDisplay {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
+.pageDisplay > div:not(.footer) {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
 
+.user-profile-component {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+}
+
+.myBookings-title::before {
+  content: "Booking";
+  position: absolute;
+  transform: rotate(90deg);
+  top: 100px;
+  left: -80px;
+  z-index: -2;
+  opacity: 0.1;
+  font-size: 100px;
+}
+
+.myBookings-title {
+  position: relative;
+}
+
+button:focus,
+button:active,
+textarea:focus,
+textarea:active,
+input:focus,
+input:active {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.myBooking-card-content {
+  background-color: #fff;
+  padding: 7px 5px;
+}
+
+.myBooking-cards-container {
+  border-bottom: 1px solid #000;
+}
+
+.myBooking-cards-container > a {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  color: #000 !important;
+  font-size: 1.1rem !important;
+}
+
+.myBookings-card-container {
+  margin-top: 20px;
+}

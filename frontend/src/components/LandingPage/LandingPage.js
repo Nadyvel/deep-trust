@@ -101,17 +101,17 @@ const LandingPage = (props) => {
                     </div>
 
                     <h1 id="text">
-                        DEEP TRUST
+                        Discover Deep Trust
                     </h1>
                     <div className='naming-container'>
-                    <h5 className='lp-tagline'>
-                        We are you personal guides in difficult moments
-                    </h5>
+                    <span className='lp-tagline'>
+                        Your personal guides in difficult moments
+                    </span>
                     </div>
-
+        
                 </div>
                 <div>
-                    <div id="dialog2" class="triangle_down1" onClick={handdleDown}></div>
+                    <div id="dialog2" className="triangle_down1" onClick={handdleDown}></div>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@ const LandingPage = (props) => {
                 <div className='rightMiddleImage' id='middleContainer'>
                         <div className='about-us-container'>
                         <span id="textMiddleImage">
-                            About deep trust
+                            About Deep Trust
                         </span>
                         <p className='about-us-text'>Deep Trust is a platform that supports you in
                            a difficult moment. If you experience pressure,
@@ -134,7 +134,7 @@ const LandingPage = (props) => {
                         </div>
                         </div>
                 </div>
-            </div>
+            
 
             <div className='psychologistsContainer'>
                 <p className='psychoList'>People you can trust</p>
@@ -159,9 +159,9 @@ const LandingPage = (props) => {
                             <button className='qustionaryButton'>Submit</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
-        </div>    
+            </div>
     );
 };
 

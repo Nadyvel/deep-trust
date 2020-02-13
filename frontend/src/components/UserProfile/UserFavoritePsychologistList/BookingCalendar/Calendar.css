@@ -50,33 +50,37 @@
 }
 
 .bookBtn {
-    border: solid green;
     width: 90px;
     height: 30px;
-    /* color: rgb(202, 189, 174); */
-    color: white;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
     background-color: transparent;
-    /* border: rgb(202, 189, 174) 2px solid; */
-    border-radius: 30px;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 5px;
     margin-right: 5%;
-    font-size: 90%;
-    border: solid rgb(28, 16, 70) 1px;
-    background-color: rgb(28, 16, 70);
 }
 
 .bookBtnBlocked {
-    border: solid green;
     width: 90px;
     height: 30px;
-    /* color: rgb(202, 189, 174); */
-    color: white;
-    background-color: transparent;
-    /* border: rgb(202, 189, 174) 2px solid; */
-    border-radius: 30px;
-    margin-right: 5%;
-    font-size: 90%;
-    border: solid rgb(28, 16, 70) 1px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
     background-color: rgb(241, 12, 12);
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 5px;
+    margin-right: 5%;
+    /*border: solid green;*/
+    /*width: 90px;*/
+    /*height: 30px;*/
+    /*!* color: rgb(202, 189, 174); *!*/
+    /*color: white;*/
+    /*background-color: transparent;*/
+    /*!* border: rgb(202, 189, 174) 2px solid; *!*/
+    /*border-radius: 30px;*/
+    /*margin-right: 5%;*/
+    /*font-size: 90%;*/
+    /*border: solid rgb(28, 16, 70) 1px;*/
+    /*background-color: rgb(241, 12, 12);*/
 }
 
 .calendar {

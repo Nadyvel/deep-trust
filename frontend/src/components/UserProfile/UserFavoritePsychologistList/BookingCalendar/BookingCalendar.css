@@ -29,6 +29,7 @@
 .booking-psychologist-image {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -44,6 +45,7 @@
 
 .information-contianer-wrapper {
     width: 80%;
+    background-color: white;
     /* border: solid blue; */
     display: flex;
     flex-direction: column;

@@ -12,7 +12,7 @@ const MyBookings = (props) => {
 
         <>
         <div className='myBookings-title'>
-            <h1>MY PATIENTS</h1>
+            <h1>MY BOOKINGS</h1>
         </div>
         <div className='myBookings-container'>
             <div className='myBookings-labels-container'>
