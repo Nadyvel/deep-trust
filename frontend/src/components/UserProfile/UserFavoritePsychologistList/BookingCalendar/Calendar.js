@@ -7,8 +7,6 @@ import './Calendar.css'
 import { GetBookedDatesOfPSychologist, CreateNewBooking } from '../../../../store/action/userAction'
 
 const Calendar = (props) => {
-    console.log('calendar', props)
-
     const [state, setState] = useState({
         value: new Date()
     })
@@ -29,7 +27,8 @@ const Calendar = (props) => {
         { id: 7, time: '18:00 - 19:30' }
     ];
 
-    const onChange = value => setState({ value })
+    const onChange = value => {
+        setState({ value })}
 
     const timeFromDatabase = props.bookedDates.map((time, index) => {
         return time.time
@@ -37,11 +36,11 @@ const Calendar = (props) => {
 
     useEffect(() => {
         props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date))
-    },[])
+    },[date])
 
-    const onClickHandler = (event) => {
-        props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date))
-    }
+    // const onClickHandler = (event) => {
+    //     props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date))
+    // }
 
     const onClickBookHandler = (event) => {
         event.preventDefault()
@@ -59,7 +58,7 @@ const Calendar = (props) => {
                     onChange={onChange}
                     value={state.value}
                     minDate={new Date()}
-                    onClickDay={onClickHandler}
+                    // onClickDay={onClickHandler}
                     tileDisabled={({activeStartDate, date, view }) => date.getDay() === 0}
                 />
 
@@ -71,7 +70,6 @@ const Calendar = (props) => {
                     </div>
                     {times.map((el, index)=> {
                             const bookedOut = timeFromDatabase.includes(el.id);
-                            console.log(bookedOut)
                             return (
                                 <div className='bookingChoices' key={index}>
                                     <p className='time' id={el.id}>
@@ -100,7 +98,6 @@ const Calendar = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state in da BC',state)
     return {
         bookedDates: state.userReducer.bookedDates
     }
