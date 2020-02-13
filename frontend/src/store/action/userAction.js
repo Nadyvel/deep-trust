@@ -78,22 +78,22 @@ export const UserMyBookings = () => async (dispatch, getState) => {
     const myHeaders = new Headers({
         "content-type": "application/json",
         "Authorization": "Bearer " + token
-    })
+    });
 
     const config = {
         method: 'GET',
         headers: myHeaders
-    }
+    };
 
-    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/booking/mybookings/', config)
-    const data = await response.json()
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/booking/mybookings/', config);
+    const data = await response.json();
 
     const action = {
         type: 'GET_MY_BOOKINGS',
         payload: data
-    }
-    dispatch(action)
-}
+    };
+    dispatch(action);
+};
 
 
 export const GetBookedDatesOfPSychologist = (doctor_id, date) => async (dispatch, getState) => {
@@ -101,22 +101,22 @@ export const GetBookedDatesOfPSychologist = (doctor_id, date) => async (dispatch
     const myHeaders = new Headers({
         "content-type": "application/json",
         "Authorization": "Bearer " + token
-    })
+    });
 
     const config = {
         method: 'GET',
         headers: myHeaders
-    }
+    };
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/psychologist/date/?psychologist=${doctor_id}&date=${date}`, config)
-    const data = await response.json()
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/retrieve/psychologist/date/?psychologist=${doctor_id}&date=${date}`, config);
+    const data = await response.json();
 
     const action = {
         type: 'GET_BOOKED_DATES',
         payload: data
-    }
-    dispatch(action)
-}
+    };
+    dispatch(action);
+};
 
 
 export const CreateNewBooking = (date, time, psychologist) => async (dispatch, getState) => {
@@ -124,24 +124,24 @@ export const CreateNewBooking = (date, time, psychologist) => async (dispatch, g
     const myHeaders = new Headers({
         "content-type": "application/json",
         "Authorization": "Bearer " + token
-    })
+    });
 
     const body = {
         date: date,
         time: time,
         psychologist: psychologist
-    }
+    };
 
     const config = {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify(body)
-    }
+    };
 
-    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/me/`, config)
+    const response = await fetch(`https://deep-trust.propulsion-learn.ch/api/booking/me/`, config);
     const action = {
         type: 'POST_NEW_BOOKING',
-    }
-    dispatch(action)
-    return response
-}
+    };
+    dispatch(action);
+    return response;
+};

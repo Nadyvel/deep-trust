@@ -100,7 +100,7 @@ export const psychologistUpdateProfile = (updateData) => async (dispatch, getSta
         throw new Error('Wrong request');
     };
     const data = await response.json();
-    console.log('doc update data', data)
+    console.log('doc update data', data);
     const action = {
         type: 'UPDATE_PSYCHOLOGIST_PROFILE',
         payload: data,
@@ -115,19 +115,19 @@ export const PsychologistMyAppointments = () => async (dispatch, getState) => {
     const myHeaders = new Headers({
         "content-type": "application/json",
         "Authorization": "Bearer " + token
-    })
+    });
 
     const config = {
         method: 'GET',
         headers: myHeaders
-    }
+    };
 
-    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/booking/psychologist/', config)
-    const data = await response.json()
+    const response = await fetch('https://deep-trust.propulsion-learn.ch/api/booking/psychologist/', config);
+    const data = await response.json();
 
     const action = {
         type: 'GET_MY_APPOINTMENTS',
         payload: data
-    }
-    dispatch(action)
-}
+    };
+    dispatch(action);
+};

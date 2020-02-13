@@ -13,7 +13,7 @@ import DoctorVerification from './components/DoctorVerification/DoctorVerificati
 import UserProfile from "./components/UserProfile/UserProfile";
 import PsychologistsList from './components/PsychologistsList/PsychologistsList';
 import PsychologistProfile from './components/PsychologistProfile/PsychologistProfile';
-import Calendar from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/Calendar'
+import Calendar from './components/UserProfile/UserFavoritePsychologistList/BookingCalendar/Calendar';
 
 const loadState = () => {
     try {
