@@ -7,6 +7,7 @@ const initialState={
         "username": null,
         "is_user": null,
     }],
+    bookedDates: [],
 };
 
 const userReducer = (state=initialState, action) => {
@@ -33,6 +34,17 @@ const userReducer = (state=initialState, action) => {
             return {
                 ...state,
                 myBookings: action.payload,
+            }
+        }
+        case 'GET_BOOKED_DATES': {
+            return {
+                ...state,
+                bookedDates: action.payload
+            }
+        }
+        case 'POST_NEW_BOOKING': {
+            return {
+                ...state
             }
         }
         default:

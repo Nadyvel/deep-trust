@@ -20,6 +20,10 @@ const UserCard = (props) => {
        
     });
 
+    const onClickLogoHandler = (event) => {
+        props.history.push('/')
+    }
+
     const PathName=props.location.pathname;
     return (
         <div className='user-card-component'>
@@ -55,7 +59,7 @@ const UserCard = (props) => {
 
             <div className='user-menu-container'>
                 <div className='logo-container'>
-                    <img src={logo} alt='logo' className='user-profile-logo'/>
+                    <img onClick={onClickLogoHandler} src={logo} alt='logo' className='user-profile-logo' style={{cursor: 'pointer'}}/>
                 </div>
                 <div className='menu-items'>
                     <div className={PathName.includes('home')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>

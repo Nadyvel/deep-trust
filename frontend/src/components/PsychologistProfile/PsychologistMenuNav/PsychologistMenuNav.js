@@ -5,11 +5,15 @@ import logo from '../../images/wcs-umbrella-icon-grey.png'
 
 const PsychologistMenuNav = (props) => {
 
+    const onClickLogoHandler = (event) => {
+        props.history.push('/')
+    }
+
     const PathName=props.location.pathname
     return (
         <>
         <div className='logo-container'>
-            <img src={logo} alt='logo' className='user-profile-logo'/>
+            <img onClick={onClickLogoHandler} src={logo} alt='logo' className='user-profile-logo' style={{cursor: 'pointer'}}/>
         </div>
 
         <div className="menu-nav-items">

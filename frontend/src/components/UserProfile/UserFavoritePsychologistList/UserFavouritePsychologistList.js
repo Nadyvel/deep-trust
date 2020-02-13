@@ -5,8 +5,6 @@ import {withRouter} from 'react-router-dom';
 import FavouritePsychologistCard from './FavouritePsychologistCard/FavouritePsychologistCard';
 
 const UserFavouritePsychologistList = (props) => {
-    console.log('user favorite psychologists list', props)
-
         return (
             <>
             <h1 className='favourite-psychologist-title'>My favourite psychologists</h1>

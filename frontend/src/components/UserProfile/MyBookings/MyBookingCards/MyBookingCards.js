@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const MyBookingCards = (props) => {
-    console.log('card', props.myBooking.id)
     return (
 
         <div className="myBooking-cards-container">

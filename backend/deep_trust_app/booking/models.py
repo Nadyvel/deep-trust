@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from django.utils import timezone
+
 from deep_trust_app.psychologists.models import Psychologist
 from deep_trust_app.settings import AUTH_USER_MODEL
 
@@ -32,6 +34,10 @@ class Booking(models.Model):
                  (5, "15:00 - 16:30"),
                  (6, "16:30 - 18:00"),
                  (7, "18:00 - 19:30"))
+    )
+
+    booking_created = models.DateTimeField(
+        auto_now_add=True
     )
 
     visited = models.BooleanField(

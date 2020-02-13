@@ -37,6 +37,11 @@ const LandingPage = (props) => {
         document.getElementById('downContainer').scrollIntoView();
     };
 
+    const handdleDown = (e) => {
+        e.preventDefault();
+        document.getElementById('dialog2').scrollIntoView();
+    };
+
     const handdleProfile = (e) => {
         e.preventDefault();
         if (props.tokens.user.is_user === true) {
@@ -103,13 +108,15 @@ const LandingPage = (props) => {
                         We are you personal guides in difficult moments
                     </h5>
                     </div>
-                </div> 
+
+                </div>
+                <div>
+                    <div id="dialog2" class="triangle_down1" onClick={handdleDown}></div>
+                </div>
             </div>
 
             <div className='middleImageContainer'>
-                <div className='leftMiddleImage'>
-
-                </div>
+                <div className='leftMiddleImage'></div>
 
                 <div className='rightMiddleImage' id='middleContainer'>
                         <div className='about-us-container'>
@@ -124,6 +131,7 @@ const LandingPage = (props) => {
                            your personality protection - incognito mode
                            during consultations.
                         </p>
+                        </div>
                         </div>
                 </div>
             </div>

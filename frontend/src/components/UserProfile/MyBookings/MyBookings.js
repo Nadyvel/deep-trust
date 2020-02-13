@@ -4,8 +4,6 @@ import { UserMyBookings } from '../../../store/action/userAction'
 import MyBookingCards from './MyBookingCards/MyBookingCards'
 
 const MyBookings = (props) => {
-    console.log('props', props)
-
     useEffect(() => {
         props.dispatch(UserMyBookings())
     },[])
@@ -34,7 +32,6 @@ const MyBookings = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log('state', state)
     return {
         myBookings: state.userReducer.myBookings
     }
