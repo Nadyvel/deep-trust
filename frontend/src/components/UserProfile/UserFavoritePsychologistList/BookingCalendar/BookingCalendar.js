@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './BookingCalendar.css'
 import 'react-calendar/dist/Calendar.css';
 
@@ -6,6 +6,9 @@ import Calendar from './Calendar'
 //cursor: pointer
 
 const BookingCalendar = (props) => {
+    console.log('BC props', props)
+
+    console.log(props)
     return (
         <>
         <div className="booking-psychologist-container">
@@ -25,7 +28,7 @@ const BookingCalendar = (props) => {
             <p className='psychologistTodosNotes'>Price per hour: {props.location.psychologist.price_per_hour}</p>
         </div>
         </div>
-        <Calendar />
+        <Calendar psychologist={props.location.psychologist.id}/>
         </div>
         </div>
         </>
