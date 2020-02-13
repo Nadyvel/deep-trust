@@ -6,9 +6,6 @@ import Calendar from './Calendar'
 //cursor: pointer
 
 const BookingCalendar = (props) => {
-    console.log('BC props', props)
-
-    console.log(props)
     return (
         <>
         <div className="booking-psychologist-container">

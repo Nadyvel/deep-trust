@@ -88,4 +88,4 @@ class PsychologistAndUserBookingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Booking
-        fields = ['user', 'id', 'date', 'time', 'time_in_str', 'psychologist', 'psychologist_first_name', 'psychologist_last_name', 'visited']
+        fields = ['user', 'id', 'date', 'time', 'time_in_str', 'psychologist', 'psychologist_first_name', 'psychologist_last_name', 'visited', 'booking_created']

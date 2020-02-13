@@ -54,7 +54,7 @@ class ListBookingOfCurrentUser(ListAPIView):
     permission_classes = [ListBookingsOfCurrentUser]
 
     def get_queryset(self):
-        query_result = Booking.objects.filter(user=self.request.user).order_by('date').reverse()
+        query_result = Booking.objects.filter(user=self.request.user).order_by('booking_created').reverse()
         return query_result
 
 
@@ -69,7 +69,7 @@ class ListPsychologistAppointments(ListAPIView):
     permission_classes = [BookingViewOnlyPsychologist]
 
     def get_queryset(self):
-        query_result = Booking.objects.filter(psychologist__user_id=self.request.user).order_by('date').reverse()
+        query_result = Booking.objects.filter(psychologist__user_id=self.request.user).order_by('booking_created').reverse()
         return query_result
 
 
