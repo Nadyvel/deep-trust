@@ -1,11 +1,24 @@
 .user-settings{
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
+}
+
+.user-settings-title::before {
+    content: "Settings";
+    position: absolute;
+    transform: rotate(90deg);
+    top: 160px;
+    left: -80px;
+    z-index: -2;
+    opacity: 0.1;
+    font-size: 100px;
 }
 
 .user-settings-title {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .user-settings-styling{
@@ -25,9 +38,12 @@
 .update-form{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
     margin-top: 3%;
+}
+
+.update-input:focus,
+.update-input:active {
+    background-color: #fff;
 }
 
 .update-input {
@@ -38,6 +54,7 @@
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
+    background-color: transparent;
 }
 
 .update-input[value] {
@@ -46,18 +63,98 @@
 }
 
 .update-label {
-    color: gray;
+    color: black;
     font-size: 12px;
     display: flex;
     padding-left: 5px;
 }
 
 .save-button{
-    border: solid rgb(28, 16, 70) 1px;
-    background-color: rgb(28, 16, 70);
-    color: white;
-    border-radius: 30px;
-    width: 120px;
-    height: 50px;
-    margin-top: 5%;
+    width: 110px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 5px;
 }
+
+.user-menu-profile-button-unclicked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  width: 0px;
+  border-bottom: 2px solid #aaa;
+  transition: all linear 200ms;
+}
+.user-menu-profile-button-unclicked:hover::before {
+  width: 30px;
+}
+.user-menu-profile-button-unclicked {
+  position: relative;
+}
+
+/*.user-settings{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.user-settings-title {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.user-settings-styling{*/
+/*    width: 80%;*/
+/*    height: 5vh;*/
+/*    margin: 2%;*/
+/*}*/
+/*.settings-title{*/
+/*    font-weight: lighter;*/
+/*    font-family: Roboto;*/
+/*}*/
+
+/*.profile-update-title {*/
+/*    color: rgb(28, 16, 70);*/
+/*}*/
+
+/*.update-form{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*    margin-top: 3%;*/
+/*}*/
+
+/*.update-input {*/
+/*    width: 470px;*/
+/*    height: 30px;*/
+/*    padding: 5px;*/
+/*    margin-bottom: 35px;*/
+/*    border-top: transparent;*/
+/*    border-left: transparent;*/
+/*    border-right: transparent;*/
+/*}*/
+
+/*.update-input[value] {*/
+/*    font-size: 15px;*/
+/*    color: rgb(28, 16, 70);*/
+/*}*/
+
+/*.update-label {*/
+/*    color: gray;*/
+/*    font-size: 12px;*/
+/*    display: flex;*/
+/*    padding-left: 5px;*/
+/*}*/
+
+/*.save-button{*/
+/*    border: solid rgb(28, 16, 70) 1px;*/
+/*    background-color: rgb(28, 16, 70);*/
+/*    color: white;*/
+/*    border-radius: 30px;*/
+/*    width: 120px;*/
+/*    height: 50px;*/
+/*    margin-top: 5%;*/
+/*}*/

@@ -1,6 +1,6 @@
 .psychologistsCard {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
@@ -9,20 +9,25 @@
 .eachProfile {
     display: flex;
     flex-direction: column;
-    height: 440px;
+    min-height: 440px;
     width: 25%;
     margin-bottom: 40px;
     margin: 15px;
 }
 
+.eachProfile > * + * {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
 .profile_pic {
     height: 300px;
     margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     object-fit: cover;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .psychoName {
@@ -30,7 +35,18 @@
     color: black;
     font-size: 22px;
     font-weight: 300;
-    margin: 10px;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.psychoName::after {
+    content: "";
+    width: 45px ;
+    border-bottom: 2px solid rgba(0,0,0,1);
+    position: absolute;
+    bottom: 8px;
+    left: 0;
 }
 
 .underLine {
@@ -41,6 +57,7 @@
     z-index: 21;
     margin-top: 10px;
     margin-left: 7px;
+    display: none;
 }
 
 .psychoDescription {
@@ -48,16 +65,82 @@
     color: black;
     font-size: 16px;
     font-weight: 300;
-    margin: 10px;
 }
 
 #like {
-    border-radius: 50px;
-    border: solid 1px black;
-    width: 200x;
-    height: 35px;
+    width: 110px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 5px;
 }
 
 .liked {
     background-color: blue;
 }
+
+/*.psychologistsCard {*/
+/*    display: flex;*/
+/*    flex-direction: row; */
+/*    justify-content: center;*/
+/*    flex-wrap: wrap;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.eachProfile {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 440px;*/
+/*    width: 25%;*/
+/*    margin-bottom: 40px;*/
+/*    margin: 15px;*/
+/*}*/
+
+/*.profile_pic {*/
+/*    height: 300px;*/
+/*    margin: 5px;*/
+/*    object-fit: cover;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    padding-left: 20px;*/
+/*    padding-right: 20px;*/
+/*}*/
+
+/*.psychoName {*/
+/*    font-family: 'Roboto';*/
+/*    color: black;*/
+/*    font-size: 22px;*/
+/*    font-weight: 300;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*.underLine {*/
+/*    display: flex;*/
+/*    width: 45px;*/
+/*    height: 2px;*/
+/*    background-color: #1f5bff;*/
+/*    z-index: 21;*/
+/*    margin-top: 10px;*/
+/*    margin-left: 7px;*/
+/*}*/
+
+/*.psychoDescription {*/
+/*    font-family: 'Roboto';*/
+/*    color: black;*/
+/*    font-size: 16px;*/
+/*    font-weight: 300;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*#like {*/
+/*    border-radius: 50px;*/
+/*    border: solid 1px black;*/
+/*    width: 200x;*/
+/*    height: 35px;*/
+/*}*/
+
+/*.liked {*/
+/*    background-color: blue;*/
+/*}*/

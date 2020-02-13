@@ -115,12 +115,12 @@
 
 .about-us-text{
     text-align: justify;
-    width: 32%;
+    width: 29%;
     position: absolute;
-    top: 151%;
+    top: 153%;
     left: 54%;
     line-height: 1.5;
-    font-weight: lighter
+    font-weight: lighter;
 }
 
 .parallax2 {
