@@ -37,7 +37,7 @@ class Booking(models.Model):
     )
 
     booking_created = models.DateTimeField(
-        default=timezone.now(),
+        auto_now_add=True
     )
 
     visited = models.BooleanField(
