@@ -21,6 +21,13 @@ const initialState = {
         data: {
             activePage: "prereg"
         }
+    },
+
+    BookingMessageModal: {
+        isVisible: false,
+        data: {
+            activePage: 'prereg'
+        }
     }
     // by dispatching SET_MODAL with a new "namespace", it will be added here automatically
 };

@@ -17,21 +17,10 @@ const Login = props => {
     const handleSubmit = async e => {
         e.preventDefault();
         const response = await props.dispatch(loginAction(state.email, state.password));
-        //const isUser = await props.dispatch(loginAction(state.email, state.password));
         if (Number(response.status) === 200) {
             props.dispatch(setModal('LoginModal', null, false));
             props.history.push('/');  
         }
-
-        // if ((Number(response.status) === 200) && (isUser)) {
-        //     props.dispatch(setModal('LoginModal', null, false));
-        //     props.history.push('/');  
-        // }
-
-        // if ((Number(response.status) === 200) && (!isUser)) {
-        //     props.dispatch(setModal('LoginModal', null, false));
-        //     props.history.push('/doctorLandingPage');  
-        // }
 
         if (Number(response.status) === 401) {
             setShowMessage('Incorrent email or password, please try again')

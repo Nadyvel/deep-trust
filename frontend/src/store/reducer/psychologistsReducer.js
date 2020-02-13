@@ -84,7 +84,7 @@ const psychologistsReducer = function (state = initialState, action) {
             return {
                 ...state,
                 myAppointments: action.payload
-            }
+            };
 
         default:
             return state;

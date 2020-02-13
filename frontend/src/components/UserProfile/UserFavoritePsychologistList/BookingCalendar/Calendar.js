@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import CalendarReact from 'react-calendar'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import CalendarReact from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './Calendar.css'
-import { GetBookedDatesOfPSychologist, CreateNewBooking } from '../../../../store/action/userAction'
+import './Calendar.css';
+import { GetBookedDatesOfPSychologist, CreateNewBooking } from '../../../../store/action/userAction';
+import {setModal} from '../../../../store/action/modalAction';
+import BookingMessageModal from './BookingMessageModal';
 
 const Calendar = (props) => {
     const [state, setState] = useState({
         value: new Date()
-    })
+    });
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const monthDayYear = state.value.toLocaleDateString('en-EN', options).split(" ")
-    const getYear = state.value.getFullYear(options)
-    const getMonth = state.value.getMonth()+1
-    const getDate = state.value.getDate()
-    const date = `${getYear}-${getMonth}-${getDate}`
+    const monthDayYear = state.value.toLocaleDateString('en-EN', options).split(" ");
+    const getYear = state.value.getFullYear(options);
+    const getMonth = state.value.getMonth()+1;
+    const getDate = state.value.getDate();
+    const date = `${getYear}-${getMonth}-${getDate}`;
     const times = [
         { id: 1, time: '08:00 - 09:30' },
         { id: 2, time: '09:30 - 11:00' },
@@ -28,29 +30,34 @@ const Calendar = (props) => {
     ];
 
     const onChange = value => {
-        setState({ value })}
+        setState({ value })};
 
     const timeFromDatabase = props.bookedDates.map((time, index) => {
-        return time.time
-    })
+        return time.time;
+    });
 
     useEffect(() => {
-        props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date))
-    },[date])
+        props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date));
+    },[date]);
 
     // const onClickHandler = (event) => {
     //     props.dispatch(GetBookedDatesOfPSychologist(props.psychologist, date))
     // }
 
     const onClickBookHandler = (event) => {
-        event.preventDefault()
-        let timeBtn = event.currentTarget // the button ID
-        props.dispatch(CreateNewBooking(date, timeBtn.id, props.psychologist))
-        props.history.push('/userprofile/myBookings')
-    }
+        event.preventDefault();
+        let timeBtn = event.currentTarget; // the button ID
+        props.dispatch(CreateNewBooking(date, timeBtn.id, props.psychologist));
+        
+        props.dispatch(setModal('BookingMessageModal', null, true));
+        console.log('booked');
+        //add pop-up message
+        //props.history.push('/userprofile/myBookings');
+    };
 
     return (
         <>
+        <BookingMessageModal />
         <div className="booking-calendar-container">
             <div className="booking-calendar-wrapper" >
                 <CalendarReact 
@@ -94,13 +101,13 @@ const Calendar = (props) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 const mapStateToProps = (state) => {
     return {
         bookedDates: state.userReducer.bookedDates
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps)(withRouter(Calendar))
+export default connect(mapStateToProps)(withRouter(Calendar));
