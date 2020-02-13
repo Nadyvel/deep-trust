@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {doctorRegistrationAction} from '../../store/action/registrationAction';
-import './DoctorRegistration.css' 
+import './DoctorRegistration.css'; 
 
 const DoctorRegistration = props => {
     let [state, setState] = useState({
@@ -22,14 +22,14 @@ const DoctorRegistration = props => {
             props.history.push("/message");
         }
         if (Number(response.status) === 400) {
-            setShowMessage("The Email was not found")
+            setShowMessage("The Email was not found");
         }
-    }
+    };
     return (
         <div className="mainUserContainer">
             
             <div>
-                <h5>DCOTOR REGISTRATION PAGE</h5>
+                <h5>DCOTOR REGISTRATION</h5>
             
             </div>
             <form onSubmit={handleRegistration}>
@@ -47,7 +47,7 @@ const DoctorRegistration = props => {
                 <button className='buttonUserRegistration'>Submit</button>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default withRouter(connect()(DoctorRegistration))
+export default withRouter(connect()(DoctorRegistration));

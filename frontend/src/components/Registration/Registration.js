@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {withRouter, Redirect} from 'react-router-dom';
 import {registrationAction} from '../../store/action/registrationAction';
-import './Registration.css' 
+import './Registration.css'; 
 
 
 const Registration = props => {
@@ -18,14 +18,14 @@ const Registration = props => {
         e.preventDefault();
         const response = await props.dispatch(registrationAction(state.email));
         if (Number(response.status) === 200) {
-            console.log("from registration", response)
+            console.log("from registration", response);
             props.history.push("/message");
         }
         if (Number(response.status) === 400) {
-            console.log("from registration", response)
-            setShowMessage("This Email already exist")
+            console.log("from registration", response);
+            setShowMessage("This Email already exist");
         }
-    } 
+    }; 
     
  
     return (
@@ -33,7 +33,7 @@ const Registration = props => {
             
             <div className='titleContainer'>
                
-                <h5>USER REGISTRATION PAGE</h5>
+                <h5>USER REGISTRATION</h5>
             </div>
             <div className='inputContainer'>
                 <form onSubmit={handleRegistration}>
@@ -50,13 +50,13 @@ const Registration = props => {
                
             </div>
         </div>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
         //user_data: state.loginReducer.user_data,
-    }
-}
+    };
+};
 
-export default withRouter(connect(mapStateToProps)(Registration))
+export default withRouter(connect(mapStateToProps)(Registration));
