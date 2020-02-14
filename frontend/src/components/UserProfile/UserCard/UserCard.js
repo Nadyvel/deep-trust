@@ -30,7 +30,7 @@ const UserCard = (props) => {
             <div className='user-image-and-description-container'>
                
                 <div className='user-image-container'>
-                    {props.location.pathname.includes('settings') && <button className='camaraUpdate'><FaCamera /></button>}
+                    {props.location.pathname.includes('settings') && <button className='camaraUpdate'><FaCamera size={20}/></button>}
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
                 </div>
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
@@ -53,7 +53,7 @@ const UserCard = (props) => {
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
                 <Route exact path='/userprofile/myBookings' component={MyBookings} />
-                <Route exact path='/userprofile/myBookings/details' component={MyBookingDetails} />
+                <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
            
                 <DeleteUserModal />
             </div>
