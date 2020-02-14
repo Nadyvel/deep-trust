@@ -29,7 +29,7 @@ const DoctorRegistration = props => {
         <div className="mainUserContainer">
             
             <div>
-                <h5>DCOTOR REGISTRATION</h5>
+                <h5>DOCTOR REGISTRATION</h5>
             
             </div>
             <form onSubmit={handleRegistration}>

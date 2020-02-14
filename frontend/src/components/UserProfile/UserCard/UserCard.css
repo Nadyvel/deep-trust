@@ -146,3 +146,13 @@
     left: 90%;
     position: relative;
 }
+.userprofileMessageContainer{
+    width: 38%;
+    padding-left: 5%;
+    top: 23%;
+    position: absolute;
+    font-size: 44px;
+    background: white;
+    font-weight: lighter;
+
+}
