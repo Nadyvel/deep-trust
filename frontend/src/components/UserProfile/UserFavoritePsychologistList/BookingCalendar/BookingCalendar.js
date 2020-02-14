@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import './BookingCalendar.css'
+import React, { useState, useEffect } from 'react';
+import './BookingCalendar.css';
 import 'react-calendar/dist/Calendar.css';
-
-import Calendar from './Calendar'
+import Calendar from './Calendar';
 //cursor: pointer
 
 const BookingCalendar = (props) => {
@@ -29,7 +28,7 @@ const BookingCalendar = (props) => {
         </div>
         </div>
         </>
-    )
-}
+    );
+};
 
-export default BookingCalendar
+export default BookingCalendar;

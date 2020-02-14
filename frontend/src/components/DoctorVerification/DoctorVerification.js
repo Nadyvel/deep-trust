@@ -9,7 +9,7 @@ const DoctorVerification = (props) => {
         username: '',
         password: '',
         password_repeat: '',
-    })
+    });
 
     let [showMessage, setShowMessage] = useState(false);
 
@@ -25,9 +25,9 @@ const DoctorVerification = (props) => {
 
         const message = await props.dispatch(verificationAction(state));
         if (message.length > 0) {
-            setShowMessage(message)
+            setShowMessage(message);
         }
-    }
+    };
 
     return (
         <div className='verifMainContainer'>
@@ -65,7 +65,7 @@ const DoctorVerification = (props) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default connect()(DoctorVerification);
