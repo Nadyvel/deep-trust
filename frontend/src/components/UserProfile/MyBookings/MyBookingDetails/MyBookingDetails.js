@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './MyBookingDetails.css'
+import videoLogo from '../../../images/video-solid.svg'
 
 /*
 Disable "Link" to Video Chat room by comparing
@@ -31,14 +33,23 @@ const MyBookingDetails = (props) => {
     <>
         <h1>Booking Details</h1>
         <div className="myBookings-details-container">
-            <p className='myBooking-detail'>Psychologist Name: {props.location.myBooking.psychologist_first_name} {props.location.myBooking.psychologist_last_name} </p>
-            <p className='myBooking-detail'>Date of Meeting: {props.location.myBooking.date}</p>
-            <p className='myBooking-detail'>Time of Meeting: {props.location.myBooking.time_in_str}</p>
-        </div>
-        <div className="video-chat-container">
-            <Link className="videoLink" to={{pathname: '/video', data: props.location.myBooking, is_patient: true}} style={{textDecoration: 'none', pointerEvents: 'auto' }}>
-                Video Link here
-            </Link>
+            <div className="myBookings-psychologist-detail-info-wrap">
+                <p className='myBooking-detail'>Psychologist Name:</p>
+                <p className='myBooking-detail'>Date of Meeting:</p>
+                <p className='myBooking-detail'>Time of Meeting:</p>
+            </div>
+            <div className="myBooking-psychologist-detail-wrap">
+                <p>{props.location.myBooking.psychologist_first_name} {props.location.myBooking.psychologist_last_name}</p>
+                <p>{props.location.myBooking.date}</p>
+                <p>{props.location.myBooking.time_in_str}</p>
+            </div>
+
+            <div className="video-chat-container">
+                <img className="video-logo" src={videoLogo} alt="video-logo" />
+                <Link className="videoLink" to={{pathname: '/video', data: props.location.myBooking, is_patient: true}} style={{textDecoration: 'none', pointerEvents: 'auto' }}>
+                    Start Video Call
+                </Link>
+            </div>
         </div>
     </>
     )
