@@ -11,6 +11,8 @@ import MyBookings from '../MyBookings/MyBookings';
 import MyBookingDetails from "../MyBookings/MyBookingDetails/MyBookingDetails";
 import {setModal} from "../../../store/action/modalAction";
 import DeleteUserModal from '../DeleteUserModal/DeleteUserModal';
+import Emergency from "../../Emergency/Emergency";
+
 import { FaCamera } from 'react-icons/fa';
 
 const UserCard = (props) => {
@@ -28,7 +30,7 @@ const UserCard = (props) => {
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
-               
+
                 <div className='user-image-container'>
                     {props.location.pathname.includes('settings') && <button className='camaraUpdate'><FaCamera size={20}/></button>}
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
@@ -53,8 +55,8 @@ const UserCard = (props) => {
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
                 <Route exact path='/userprofile/myBookings' component={MyBookings} />
-                <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
-           
+                <Route exact path='/userprofile/myBookings/details' component={MyBookingDetails} />
+                <Route exact path='/userprofile/emergency' component={Emergency}/>
                 <DeleteUserModal />
             </div>
 
@@ -81,9 +83,9 @@ const UserCard = (props) => {
                         </Link></div>
                 </div>
                 <div className='sos-link-container'>
-                    <div className={PathName.includes('sos')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
-                        <Link to={`/sos`} style={{textDecoration: 'none',}} >
-                            <h2 className='user-sos-link'>SOS</h2>
+                    <div className={PathName.includes('emergency')? 'user-menu-profile-button-clicked': 'user-menu-profile-button-unclicked'}>
+                        <Link to={`/userprofile/emergency`} style={{textDecoration: 'none',}} >
+                            <h2 className='user-sos-link'>Emergency</h2>
                         </Link>
                     </div>
                 </div>
