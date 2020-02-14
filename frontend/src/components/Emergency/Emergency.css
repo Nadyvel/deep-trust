@@ -1,6 +1,8 @@
 .emergency-container{
     border-radius: 15px;
-    width: 90%;
+    position: absolute;
+    width: 41%;
+    top: 33%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     padding-left: 5%;
     background-color: white;
