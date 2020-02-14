@@ -104,7 +104,7 @@ const LandingPage = (props) => {
                     </p>
                 </div>
                 <div>
-                    <div id="dialog2" class="triangle_down1" onClick={handdleDown}></div>   
+                    <div id="dialog2" className="triangle_down1" onClick={handdleDown}></div>   
                 </div> 
             </div>
 
