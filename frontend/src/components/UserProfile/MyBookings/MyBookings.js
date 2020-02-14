@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { UserMyBookings } from '../../../store/action/userAction'
 import MyBookingCards from './MyBookingCards/MyBookingCards'
+import './MyBookings.css'
 
 const MyBookings = (props) => {
     useEffect(() => {
@@ -16,8 +17,8 @@ const MyBookings = (props) => {
         </div>
         <div className='myBookings-container'>
             <div className='myBookings-labels-container'>
-                <div className='myBookings-labels'>Last name</div>
-                <div className='myBookings-labels'>First name</div>
+                <div className='myBookings-labels'>Last Name</div>
+                <div className='myBookings-labels'>First Name</div>
                 <div className='myBookings-labels'>Email</div>
             </div>
             <div className="myBookings-card-container">
