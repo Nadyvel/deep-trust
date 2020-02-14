@@ -4,6 +4,7 @@ import './UserSettings.css';
 import {withRouter} from 'react-router-dom';
 import {userUpdateProfile} from '../../../store/action/userAction';
 
+
 const UserSettings = (props) => {
     const [data, setData] = useState({});
 
@@ -50,7 +51,7 @@ const UserSettings = (props) => {
             </div>
 
             <form className='update-form' onSubmit={handleUpdate}>
-
+                
                 {/* <input className='update-input' name='image'
                     value={props.userProfile.image} onChange={handleChange}/> */}
                 <div>
