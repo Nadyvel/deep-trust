@@ -47,7 +47,6 @@ const Room = ({ roomName, token, handleLogout }) => {
     <div className="room">
       <div className="headerWrap">
         <header className="header">
-          <h3>Deep Trust</h3>
         </header>
       </div>
       {/* <h2>Room: {roomName}</h2> */}
