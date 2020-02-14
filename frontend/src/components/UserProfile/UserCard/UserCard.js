@@ -11,7 +11,7 @@ import MyBookings from '../MyBookings/MyBookings';
 import MyBookingDetails from "../MyBookings/MyBookingDetails/MyBookingDetails";
 import {setModal} from "../../../store/action/modalAction";
 import DeleteUserModal from '../DeleteUserModal/DeleteUserModal';
-
+import { FaCamera } from 'react-icons/fa';
 
 const UserCard = (props) => {
     const handleOpen = (namespace) => props.dispatch(setModal(namespace, null, true));
@@ -28,8 +28,9 @@ const UserCard = (props) => {
     return (
         <div className='user-card-component'>
             <div className='user-image-and-description-container'>
+               
                 <div className='user-image-container'>
-                    {props.location.pathname.includes('settings') && <button className='updateImageDoctor'>UPDATE IMAGE</button>}
+                    {props.location.pathname.includes('settings') && <button className='camaraUpdate'><FaCamera /></button>}
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
                 </div>
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
