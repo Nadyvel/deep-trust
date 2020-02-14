@@ -136,3 +136,9 @@
 .user-menu-profile-button-unclicked {
   position: relative;
 }
+
+.userprofileMessageContainer{
+  width: 90%;
+  top: 20%;
+  position: absolute;
+}
