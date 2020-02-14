@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './PsychologistAppointmentsCards.css'
 
 const PsychologistAppointmentCards = (props) => {
     console.log('card', props)
@@ -13,7 +14,7 @@ const PsychologistAppointmentCards = (props) => {
                     textDecoration:'none',
                     fontSize:'17px',
                     fontWeight:'lighter',
-                    color:'navy',
+                    color:'black',
                 }
             } to={{pathname: `/psychologist/me/appointments/details/${props.myAppointment.id}`, myAppointment: props.myAppointment }}>
                 <div className='myAppointments-card-content'>{props.myAppointment.user.username}</div>

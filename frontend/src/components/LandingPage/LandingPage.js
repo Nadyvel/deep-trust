@@ -99,24 +99,29 @@ const LandingPage = (props) => {
                     <div className='lpLogo'>
 
                     </div>
-                    <p id="text">
-                        DEEP TRUST
-                    </p>
+
+                    <h1 id="text">
+                        Discover Deep Trust
+                    </h1>
+                    <div className='naming-container'>
+                    <span className='lp-tagline'>
+                        Your personal guides in difficult moments
+                    </span>
+                    </div>
+        
                 </div>
                 <div>
-                    <div id="dialog2" className="triangle_down1" onClick={handdleDown}></div>   
-                </div> 
+                    <div id="dialog2" className="triangle_down1" onClick={handdleDown}></div>
+                </div>
             </div>
 
             <div className='middleImageContainer'>
-                <div className='leftMiddleImage'>
-
-                </div>
+                <div className='leftMiddleImage'></div>
 
                 <div className='rightMiddleImage' id='middleContainer'>
                         <div className='about-us-container'>
                         <span id="textMiddleImage">
-                            About deep trust
+                            About Deep Trust
                         </span>
                         <p className='about-us-text'>Deep Trust is a platform that supports you in
                            a difficult moment. If you experience pressure,
@@ -127,8 +132,9 @@ const LandingPage = (props) => {
                            during consultations.
                         </p>
                         </div>
+                        </div>
                 </div>
-            </div>
+            
 
             <div className='psychologistsContainer'>
                 <p className='psychoList'>People you can trust</p>
@@ -153,9 +159,9 @@ const LandingPage = (props) => {
                             <button className='qustionaryButton'>Submit</button>
                         </form>
                     </div>
-                </div> 
+                </div>
             </div>
-        </div>    
+            </div>
     );
 };
 

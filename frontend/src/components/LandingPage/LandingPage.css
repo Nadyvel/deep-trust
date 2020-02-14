@@ -28,9 +28,20 @@
     width: 100px;
     height: 100px;
     top: 240px;
-    left: 45vw;  
+    left: 45vw;
 }
 
+.lp-tagline{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 49%;
+    left: 15%;
+    font-weight: lighter;
+    font-size: 25px;
+    color: white;
+    font-size: 58px;
+}
 .sidebarText {
     color: white;
     font-size: 15px;
@@ -50,12 +61,12 @@
     z-index: 10;
     position: absolute;
     color: white;
-    font-size: 24px;
-    font-weight: bold;
-    left: 43.5vw;
-    top: 350px;
+    left: 48vw;
+    top: 518px;
     font: 'Roboto';
-    font-weight: 300;
+    font-size: 25px;
+    font-weight: lighter;
+    transform: translate(-50%, -50%);
 }
 
 .middleImageContainer {
@@ -89,23 +100,29 @@
 #textMiddleImage {
     z-index: 10;
     position: absolute;
-    color: #706c6c;
-    font-size: 38px;
+    color: black;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    font-size: 44px;
     font-family: 'Roboto';
-    font-weight: 300;
-    margin-top: 15vw;
-    top: 117%;
-    left: 60%
+    top: 142%;
+    left: 57%;
+}
+
+.about-us-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
 
 .about-us-text{
     text-align: justify;
-    width: 32%;
-    position: absolute;
-    top: 151%;
-    left: 54%;
+    padding: 20px;
     line-height: 1.5;
-    font-weight: lighter
+    margin-top: 108px;
+    font-weight: lighter;
 }
 
 .parallax2 {
@@ -114,15 +131,15 @@
     background-attachment: fixed;
     height: 800px;
     width: 100vw;
-    /* margin-bottom: 2px; */
+    margin-bottom: 40px;
     position: relative;
 }
 
 .psychoList {
     font-family: 'Roboto';
     color: black;
-    font-size: 38px;
-    font-weight: 700;
+    font-size: 44px;
+    font-weight: lighter;
     display: flex;
     justify-content: center;
     margin-top: 90px;
@@ -131,23 +148,31 @@
 .buttoWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 70px;
-    margin-top: 85px;
+    margin-top: 80px;
+    margin-bottom: 50px;
 }
 
 .displayMoreDocs {
-    width: 100px;
-    height: 45px;
-    border-radius: 25px;
-    border-color: black;
+    width: 110px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
     background-color: transparent;
-    font-weight: bold;
-    font-size: 13px;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 5px;
 }
 
 .doctContainer {
     display: flex;
     flex-direction: column;
+}
+
+.squareInfo > div + div {
+    flex-grow: 1;
+}
+
+.squareInfo > div + div > form {
+    height: 100%;
 }
 
 .squareInfo {
@@ -169,11 +194,15 @@
 }
 
 #text2 {
-    margin: 0px;
-    color: rgb(88, 86, 86);
-    font-size: 22px;
-    padding-bottom: 5px;
+    font-family: 'Roboto';
+    color: black;
+    font-size: 38px;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
 }
+
 
 .qustionaryInput {
     display: flex;
@@ -183,27 +212,31 @@
     background-color: white;
     margin: 6px;
     border-radius: 5px;
-    border: transparent; 
-    padding-left: 15px; 
+    border: transparent;
+    padding-left: 15px;
 }
 
 .inputQuestionsForm {
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
 }
 
 .qustionaryInputText {
     display: flex;
     align-items: center;
     width: 250px;
-    height: 280px;
+    height: 200px;
+    flex-grow: 1;
     background-color: white;
     margin: 12px;
     border-radius: 5px;
     border: transparent;
-    padding-left: 15px; 
-    padding-top: 15px; 
+    padding-left: 15px;
+    padding-top: 15px;
+    resize: none;
+    font-family: 'Arial';
+    margin-top: 6px;
 }
 
 ::placeholder {
@@ -213,14 +246,13 @@
 .qustionaryButton {
     display: flex;
     justify-content: center;
-    width: 70px;
+    width: 120px;
     height: 40px;
     font-size: 16px;
-    color: rgb(88, 86, 86);
+    color: rgb(0, 0, 0);
     background-color: transparent;
-    border: rgb(88, 86, 86) 2px solid;
+    border: rgb(0, 0, 0)2px solid;
     border-radius: 7px;
-    margin-left: 17px;
 }
 
 .sidebarBox {
@@ -268,37 +300,3 @@
     margin-left: 7px;
 }
 
-.triangle_down1 {
-    position: relative;
-    top: 750px;
-    left: 46%;
-    width: 25px;
-    height: 25px;
-    border-right: 0.1em solid white;
-    border-top: 0.1em solid white;
-    transform: rotate(135deg);
-    margin-right: 0.5em;
-    margin-left: 1.0em;
-    z-index: 30;
-    transition: down 1.2s ease;
-}
-
-.sidebarToggle {
-    height: 55px;
-    width: 55px;
-    position: fixed;
-    z-index: 20;
-    background-color: black;
-    background-size: cover;
-    border: transparent;
-    right: 10px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    transition: right 1.2s ease;
-}
-
-.sidebarToggleVisible {
-    right: 21%;
-    position: fixed;
-}
