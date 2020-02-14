@@ -55,7 +55,7 @@ const UserCard = (props) => {
                 <Route exact path='/userprofile/settings' component={UserSettings}/>
                 <Route path='/userprofile/psychologist' component={BookingCalendar}/>
                 <Route exact path='/userprofile/myBookings' component={MyBookings} />
-                <Route exact path='/userprofile/myBookings/details' component={MyBookingDetails} />
+                <Route path='/userprofile/myBookings/details' component={MyBookingDetails} />
                 <Route exact path='/userprofile/emergency' component={Emergency}/>
                 <DeleteUserModal />
             </div>
