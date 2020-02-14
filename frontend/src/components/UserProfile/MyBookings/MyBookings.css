@@ -1,0 +1,12 @@
+.myBookings-labels-container {
+    /* border: solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.myBookings-labels {
+    font-weight: bold;
+    width: 33.33%;
+    /* border: solid blue; */
+    padding-left: 0.5%;
+}
