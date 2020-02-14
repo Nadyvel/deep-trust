@@ -28,7 +28,7 @@ const LandingPage = (props) => {
 
     const handdleAbout = (e) => {
         e.preventDefault();
-        document.getElementById('middleContainer').scrollIntoView();
+        document.getElementById('aboutUsDiv').scrollIntoView();
         
     };
 
@@ -115,10 +115,14 @@ const LandingPage = (props) => {
                 </div>
             </div>
 
-            <div className='middleImageContainer'>
+            <div id='aboutUsDiv'>
+
+            </div>
+
+            <div className='middleImageContainer' id='middleContainer'>
                 <div className='leftMiddleImage'></div>
 
-                <div className='rightMiddleImage' id='middleContainer'>
+                <div className='rightMiddleImage'>
                         <div className='about-us-container'>
                         <span id="textMiddleImage">
                             About Deep Trust

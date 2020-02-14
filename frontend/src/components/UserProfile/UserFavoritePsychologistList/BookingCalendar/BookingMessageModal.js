@@ -12,21 +12,15 @@ const BookingMessageModal = ({isVisible, data, dispatch, history}) => {
         dispatch(setModal(namespace, null, false));
         history.push("/userprofile/myBookings");
     };
-
-    useEffect(() => {
-       
-    });
    
     return (
         <>
             { isVisible &&
                 <Modal close={handleClose}>
                    
-            {data.activePage === "bookingMessage" && <BookingMessage/> }
-
                 <Router>
-                    <Route exact path='/bookingMessage' component={BookingMessage}/>
-                    <Redirect from="userprofile/psychologist/7" to="/bookingMessage" />
+                    <Route exact path='/bookingMessage' render={(props) => <BookingMessage {...props} handleClose={handleClose} />} />
+                    <Redirect from="userprofile/psychologist/" to="/bookingMessage" />
                  </Router>
                     
                 </Modal>  
