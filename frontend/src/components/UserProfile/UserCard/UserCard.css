@@ -143,8 +143,9 @@
     border-radius: 50px;
     z-index: 20;
     top: 7%;
-    left: 90%;
-    position: relative;
+    left: 84%;
+    position: absolute;
+    border: none;
 }
 
 .userprofileMessageContainer{
@@ -156,4 +157,10 @@
     background: white;
     font-weight: lighter;
 
+}
+
+.deleteAccount {
+    position: absolute;
+    top: 82.5%;
+    left: 30%;
 }

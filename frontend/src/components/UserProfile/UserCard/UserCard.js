@@ -36,7 +36,7 @@ const UserCard = (props) => {
                     <img src={props.userProfile.image} className='user-image' alt='user-image'/>
                 </div>
                 <div className='user-description'><h2>{props.userProfile.username}'s Profile</h2> {props.userProfile.description}</div>
-                {props.location.pathname.includes('settings') && <button onClick={() => handleOpen("DeleteUserModal")} className='deleteProfile'>DELETE ACCOUNT?</button>}
+                {/*{props.location.pathname.includes('settings') && <button onClick={() => handleOpen("DeleteUserModal")} className='deleteProfile'>DELETE ACCOUNT?</button>}*/}
            
             </div>
 
@@ -49,6 +49,10 @@ const UserCard = (props) => {
                       <div><p className='userprofileMessage1'>Deep Trust is here to </p></div>
                       <div><p className='userprofileMessage1'>walk you through it.</p></div>
                     </div>}
+                <div className='deleteAccount'>
+                    {props.location.pathname.includes('settings') && <button onClick={() => handleOpen("DeleteUserModal")} className='save-button'>Delete Account</button>}
+                </div>
+
                 </div>
 
                 <Route exact path='/userprofile/psychologists-list' component={UserFavouritePsychologistList}/>
