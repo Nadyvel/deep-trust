@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
-// import Lobby from './Lobby';
 import Room from './Room';
 import axios from 'axios';
+import './VideoChat.css';
 
 import image from '../images/elephant.jpg'
 
@@ -78,6 +78,7 @@ const VideoChat = (props) => {
 	},[])
 
 	let render;
+
 	if (token) {
 		render = (
 			<Room
@@ -89,7 +90,14 @@ const VideoChat = (props) => {
 	} else {
 		render = (
 
-			<img src={image} alt="background"/>
+			<div className="container">
+				<div className="box">
+					<div className="hourglass"></div>
+				</div>
+			</div>
+
+
+			//<img src={image} alt="background"/>
 			// <Lobby
 			// 	username={username.username}
 			// 	roomName={roomName.roomName}

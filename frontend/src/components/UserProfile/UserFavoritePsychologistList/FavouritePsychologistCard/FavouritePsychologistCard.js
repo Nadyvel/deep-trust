@@ -9,7 +9,9 @@ const FavoritePsychologistCard = (props) => {
         <div className='favourite-psychologist-card'>
             <Link to={{pathname: `/userprofile/psychologist/${props.psychologist.id}`, psychologist: props.psychologist}} style={{textDecoration: 'none',}} psychologist={props.psychologist}>
             <h3 className="psychologist_link">{props.psychologist.first_name} {props.psychologist.last_name}</h3>
-            <img className='psychologist-image' src={props.psychologist.image} alt="psychologist-image" />
+                <div>
+                    <img className='psychologist-image' src={props.psychologist.image} alt="psychologist-image" />
+                </div>
             </Link>
         </div>
         );
