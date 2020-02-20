@@ -21,7 +21,8 @@ const PsychologistAppointments = (props) => {
             <div className='myAppointments-labels-container'>
                 <div className='myAppointments-labels'>Last name</div>
                 <div className='myAppointments-labels'>First name</div>
-                <div className='myAppointments-labels'>Email</div>
+                <div className='myAppointments-labels'>Date</div>
+                <div className='myAppointments-labels'>Time</div>
             </div>
             <div className="myAppointments-card-container">
                 {props.myAppointments && props.myAppointments.map((myAppointment, index) => {
