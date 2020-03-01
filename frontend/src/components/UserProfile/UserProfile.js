@@ -18,7 +18,7 @@ const UserProfile = (props) => {
         <div className='user-profile-component'>
             <UserCard userCard={props.userProfile}/>
         </div>
-            </>
+        </>
     );
 };
 const mapStateToProps = state => {
