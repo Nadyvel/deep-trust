@@ -24,8 +24,7 @@ const Psychologists = props => {
 
             <p className='psychoDescription'>{doctor.description}</p>
             
-            {props.authenticated && <div className='likeTogle'><button id='like' 
-            // className={props.isLiked ? "liked" : ""} 
+            {props.authenticated && <div className='likeTogle'><button id='like'
             onClick={() => handleLike(doctor)}>Add to favourite</button></div>}
             
             </div>;

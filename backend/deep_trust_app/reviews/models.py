@@ -51,6 +51,4 @@ class Review(models.Model):
         verbose_name = 'Review'
         verbose_name_plural = 'Reviews'
         ordering = ['-modified']
-        # unique_together = [(
-        #      'user', 'psychologist'
-        # )]
+

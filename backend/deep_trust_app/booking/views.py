@@ -12,21 +12,6 @@ from deep_trust_app.booking.permissions import BookingViewOnlyPsychologist, List
 from deep_trust_app.booking.serializers import BookingEmailSerializer, BookingSerializer, \
     PsychologistAndUserBookingSerializer
 
-"""
-!!! REPLACED WITH NEW 'CREATEBOOKING' BELOW !!!
-"""
-# class CreateBooking(CreateAPIView):
-#     """
-#     POST:
-#     Patient/User creates new booking.
-#     """
-#     queryset = Booking.objects.all()
-#     serializer_class = BookingSerializer
-#     permission_classes = [CreateBookingOnlyPatient]
-#
-#     def perform_create(self, serializer):
-#         serializer.save(user=self.request.user)
-
 
 class CreateBooking(GenericAPIView):
     """
