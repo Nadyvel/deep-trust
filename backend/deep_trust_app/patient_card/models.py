@@ -53,9 +53,3 @@ class Patient(models.Model):
         blank=True,
         null=True,
     )
-
-    # calendar = models.TextField(
-    #     verbose_name='calendar',
-    #     blank=True,
-    #     null=True,
-    # )
